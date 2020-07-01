@@ -1,0 +1,15 @@
+.pcHeader {
+  padding: 0 60px;
+  &__inner {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    &__main {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
