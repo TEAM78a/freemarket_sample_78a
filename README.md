@@ -15,13 +15,12 @@ application up and running.
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
-|card|integer|unique: true|
 
 ### Association
 - has_many :products
 - has_many :comments
 - has_many :favorites
-- has_many :products, through: :favorites
+- has_many :products
 - has_one: send_destination
 
 ## send_destinations
@@ -43,7 +42,7 @@ application up and running.
 ### Association
 - belongs_to :user
 
-##　productsテーブル
+## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -56,7 +55,7 @@ application up and running.
 |postage|string|null: false|
 |shipment|string|null: false|
 |shipping_area|string|null: false|
-|flg|boolean|null: false, default: false|
+|sold_out_flg|boolean|null: false, default: false|
 |user|references|foreign_key: true|
 
 ### Association
@@ -64,7 +63,7 @@ application up and running.
 - has_many :images, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :favorites
-- has_many :users, through: :favorites
+- has_many :users
 - belongs_to_active_hash :kind
 - belongs_to_active_hash :brand
 - belongs_to_active_hash :condition
@@ -80,7 +79,7 @@ application up and running.
 |image|text|null: false|
 |product|references|foreign_key: true|
 
-###  Association
+### Association
 - belongs_to :product
 
 ## commentsテーブル
@@ -105,3 +104,12 @@ application up and running.
 ### Association
 - belongs_to :user
 - belongs_to :product
+
+## cardsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|unique: true|
+
+### Association
+- belongs_to :user
