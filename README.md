@@ -21,7 +21,8 @@ application up and running.
 - has_many :comments
 - has_many :favorites
 - has_many :products
-- has_one: send_destination
+- has_one :send_destination
+- has_one :card
 
 ## send_destinations
 
@@ -87,8 +88,8 @@ application up and running.
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
-|user|references|null: false, foreign_key: true|
-|product|references|null: false, foreign_key: true|
+|user|references|foreign_key: true|
+|product|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
