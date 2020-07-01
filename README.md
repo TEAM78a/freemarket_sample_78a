@@ -83,51 +83,6 @@ application up and running.
 ###  Association
 - belongs_to :product
 
-## kindsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|kind|string|null: false, unique: true, index: true|
-
-### Association
-- has_many :products
-
-## brandsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, unique: true, index: true|
-
-### Association
-- has_many :products
-
-## conditionsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|condition|string|null: false, unique: true|
-
-### Association
-- has_many :products
-
-## postagesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|postage|string|null: false, unique: true|
-
-### Association
-- has_many :products
-
-## shipmentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|days_until_shipping|integer|null: false, unique: true|
-
-### Association
-- has_many :products
-
 ## commentsテーブル
 
 |Column|Type|Options|
