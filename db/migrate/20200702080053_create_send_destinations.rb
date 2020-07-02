@@ -10,7 +10,7 @@ class CreateSendDestinations < ActiveRecord::Migration[6.0]
       t.string :municipalities
       t.string :address
       t.string :building
-      t.integer :integer
+      t.integer :phone_number
       t.references :user
       t.timestamps
     end
