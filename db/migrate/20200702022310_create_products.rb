@@ -10,8 +10,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :postage,           null: false
       t.string :shipment,          null: false
       t.string :shipping_area,     null: false
-      t.boolean :sold_out_flg,     null: false, default: ""
-      t.references :user,          foreign_key: true
+      t.boolean :sold_out_flg,     null: false, default: false
       t.timestamps
     end
 
