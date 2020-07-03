@@ -12,5 +12,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :shipment
   belongs_to_active_hash :prefecture
 
+  validates :name, :introduce, :price, :kind_id, :condition_id, :postage_id, :shipment_id, :prefecture_id, presence: true
   accepts_nested_attributes_for :images, allow_destroy: true
 end

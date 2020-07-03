@@ -15,7 +15,7 @@
   %br/
   = f.collection_select :kind_id, Kind.all, :id, :name, include_blank: "選択して下さい"
   %br/
-  = f.label :brand_id, "ブランド（任意）"
+  = f.label :brand_id, "ブランド（必須）"
   %br/
   = f.collection_select :brand_id, Brand.all, :id, :name, include_blank: "選択して下さい"
   %br/
