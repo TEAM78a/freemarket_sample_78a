@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @send_destination = @user.build_send_destinaton
+    @send_destination = @user.build_send_destination
     render :new_send_destination
   end
 
@@ -46,7 +46,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def send_destination_params
+    params.require(:send_destination).permit(:postal_code, :prefectures, :municipalities, :address, :building, :phone_number)
+  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
