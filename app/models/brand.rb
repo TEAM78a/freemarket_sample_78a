@@ -1,6 +1,7 @@
 class Brand < ActiveHash::Base
   self.data = [
-      {id:1, name: 'シャネル'}, {id: 2, name:'ナイキ'}, {id:3, name:'ルイヴィトン'},
-      {id:4, name: 'シュプリーム'}, {id:5, name: 'アディダス'}, {id:6, name: 'ブランド一覧'}
+      {id:1, name: 'ノンブランド'},
+      {id:2, name: 'シャネル'}, {id:3, name:'ナイキ'}, {id:4, name:'ルイヴィトン'},
+      {id:5, name: 'シュプリーム'}, {id:6, name: 'アディダス'}, {id:7, name: 'ブランド一覧'}
     ]
 end
