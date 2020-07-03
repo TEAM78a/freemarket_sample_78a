@@ -1,0 +1,27 @@
+body
+  .mainPicture {
+    height: 560px;
+    width: 100%;
+    background-color: violet;
+    padding: 0 60px;
+    display: flex;
+    background-image: url(bg-mainVisual-pict_pc.jpg);
+    background-size: cover;
+    background-position: center;
+    &__content {
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 35px;
+      max-width: 1280px;
+      &__title {
+        font-size: 60px;
+        color: #fff;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      }
+      &__text {
+        font-size: 18px;
+        color: #fff;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
