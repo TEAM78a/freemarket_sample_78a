@@ -9,5 +9,13 @@ Rails.application.routes.draw do
 
   resources :card, only: [:show, :edit, :update]
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/mypage' => 'items#mypage', as: 'mypage_path'
+  namespace :mypage do
+    resources :favorites, only:[:index]
+    resources :listings, only: [:index]
+    resources :users, only: [:show, :edit, :update]
+    resources :address, only: [:index, :edit, :update]
+    resources :card, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
+
 end
