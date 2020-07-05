@@ -6,4 +6,18 @@
   .MyPage__MainField
     .MyPage__MainField__Title
       出品商品情報
-      %hr
+    .ListingMenu
+      %ul.ListingMenu__Tab
+        = link_to "#", class: "menu_item no-underline  active" do
+          %li 出品中
+        = link_to "#", class: "menu_item no-underline" do
+          %li 取引中
+        = link_to "#", class: "menu_item no-underline" do
+          %li 売却済み
+      %ul.Contents
+        %li.Content.show
+          出品中 / 商品一覧
+        %li.Content
+          取引中 / 商品一覧
+        %li.Content
+          売却済み / 商品一覧
