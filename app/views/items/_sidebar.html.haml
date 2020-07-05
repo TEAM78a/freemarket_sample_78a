@@ -1,0 +1,28 @@
+.MyPage__SideBar
+  .MyPage__SideBar__Function
+    %ul.SidebarMenu
+      = link_to mypage_path, id: '', class: 'no-underline' do
+        %li マイページ
+      = link_to "#", id: '', class: 'no-underline' do
+        %li お知らせ
+      = link_to mypage_favorites_path, id: '', class: 'no-underline' do
+        %li お気に入り
+      = link_to mypage_listings_path, id: '', class: 'no-underline' do
+        %li 出品した商品-出品中
+      = link_to mypage_listings_path, id: '', class: 'no-underline' do
+        %li 出品した商品-取引中
+      = link_to mypage_listings_path, id: '', class: 'no-underline' do
+        %li 出品した商品-売却済み
+
+  .MyPage__SideBar--title
+    設定
+  .MyPage__SideBar__Funcrion
+    %ul.SidebarMenu
+      = link_to "#", id: '', class: 'no-underline' do
+        %li ユーザー情報編集
+      = link_to "#", id: '', class: 'no-underline' do
+        %li 発送元・お届け先住所編集
+      = link_to mypage_card_index_path, id: '', class: 'no-underline' do
+        %li クレジットカード情報
+      = link_to mypage_logout_path, id: '', class: 'no-underline' do
+        %li ログアウト

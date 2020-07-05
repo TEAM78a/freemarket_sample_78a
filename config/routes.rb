@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   resources :card, only: [:show, :edit, :update]
 
   get '/mypage' => 'items#mypage', as: 'mypage_path'
+  get '/mypage/logout' => 'items#logout'
+
   namespace :mypage do
     resources :favorites, only:[:index]
     resources :listings, only: [:index]
-    resources :users, only: [:show, :edit, :update]
-    resources :address, only: [:index, :edit, :update]
+    resources :users, only: [:edit, :update]
+    resources :address, only: [:edit, :update]
     resources :card, only: [:index, :new, :create, :destroy]
   end
 
