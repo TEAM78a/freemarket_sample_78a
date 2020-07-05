@@ -1,4 +1,4 @@
-class Mypage::CardController < ApplicationController
+class Mypage::CardsController < ApplicationController
   def index
     
   end

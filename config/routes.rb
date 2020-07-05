@@ -16,8 +16,8 @@ Rails.application.routes.draw do
     resources :favorites, only:[:index]
     resources :listings, only: [:index]
     resources :users, only: [:edit, :update]
-    resources :address, only: [:edit, :update]
-    resources :card, only: [:index, :new, :create, :destroy]
+    resources :destinations, only: [:edit, :update]
+    resources :cards, only: [:index, :new, :create, :destroy]
   end
 
 end
