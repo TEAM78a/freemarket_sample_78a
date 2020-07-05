@@ -1,0 +1,19 @@
+%h1.HeaderField Header 実装エリア
+
+.MyPage
+  = render "items/sidebar"
+
+  .MyPage__MainField
+    .MyPage__MainField__Title
+      お知らせ
+    .ListingMenu
+      %ul.ListingMenu__Tab
+        = link_to "#", class: "menu_item no-underline  active" do
+          %li お知らせ
+        = link_to "#", class: "menu_item no-underline" do
+          %li やることリスト
+      %ul.Contents
+        %li.Content.show
+          お知らせ / メッセージ
+        %li.Content
+          やることリスト / メッセージ

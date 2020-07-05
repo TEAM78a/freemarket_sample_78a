@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/mypage' => 'items#mypage', as: 'mypage_path'
   get '/mypage/logout' => 'items#logout'
+  get '/mypage/info' => 'items#info'
 
   namespace :mypage do
     resources :favorites, only:[:index]
