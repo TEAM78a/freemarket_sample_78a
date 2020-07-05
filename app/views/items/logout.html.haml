@@ -1,0 +1,11 @@
+%h1.HeaderField Header 実装エリア
+
+.MyPage
+  = render "sidebar"
+
+  .MyPage__MainField
+    .MyPage__MainField__Title
+      ログアウトページ
+      %hr
+    .BodyLogout
+      = link_to "ログアウト", "#", method: :delete, class: 'Button'
