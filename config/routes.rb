@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     resources :favorites, only:[:index]
     resources :listings, only: [:index]
+    resources :purchasers, only: [:index]
     resources :users, only: [:edit, :update]
     resources :destinations, only: [:edit, :update]
     resources :cards, only: [:index, :new, :create, :destroy]
