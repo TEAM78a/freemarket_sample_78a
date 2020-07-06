@@ -4,10 +4,6 @@
   = render "devise/shared/error_messages", resource: @send_destination
 
   .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname
-  .field
     = f.label :family_name
     %br/
     = f.text_field :family_name
@@ -48,6 +44,6 @@
     = f.label :phone_number
     %br/
     = f.text_field :phone_number
- .actions
+  .actions
     = f.submit "Sign up"
 = render "devise/shared/links"
