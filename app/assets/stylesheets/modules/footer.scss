@@ -1,27 +1,65 @@
 footer {
+  .Footer__TOP{
+    padding: 100px 40px;
+    background-image: url(bg-appBanner-pict.jpg);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+      &__Title {
+
+      }
+      &__Text {
+
+      }
+      &__Icon {
+        .app_image {
+          width: 180px;
+          height: 53px;
+        }
+      }
+    &__Title {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      color: #fff;
+    }
+    &__Text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-align: center;
+      color: #fff;
+    }
+    &__Icon {
+      text-align: center;
+      padding-top: 30px;
+    }
+  }
+  .Footer__Bottom{
   padding: 60px 0;
   color: #fff;
   background-color: #272727;
   text-align: center;
-  .contents {
-    max-width: 840px;
-    margin: 0 auto;
-    display: flex;
-    .content {
+    .contents {
+      max-width: 840px;
+      margin: 0 auto;
       display: flex;
-      flex-direction: column;
-      width: 33%;
-      .content__top {
-        margin: 0 0 20px;
-        font-size: 16px;
-      }
-      ul {
-        list-style: none;
-        li a {
-          color: #fff;
-          text-decoration: none;
-          font-size: 12px;
-          line-height: 32px;
+      .content {
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+        .content__top {
+          margin: 0 0 20px;
+          font-size: 16px;
+        }
+        ul {
+          list-style: none;
+          li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 32px;
+          }
         }
       }
     }

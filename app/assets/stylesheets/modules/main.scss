@@ -9,7 +9,7 @@ body{
     background-position: top center;
     &__Content {
       width: 100%;
-      margin: 0 auto;
+      margin-top: 100px;
       padding-top: 35px;
       max-width: 1280px;
       &__Title {
@@ -25,24 +25,129 @@ body{
         margin: 16px;
         height: 64px;
       }
+      &__Icon {
+        .app_image {
+          width: 180px;
+          height: 53px;
+        }
+      }
     }
   }
   .MainIntroduce {
     padding: 60px 20px;
     width: 100%;
     height: 560px;
-    background-color: turquoise;
+    &__Title {
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      font-weight: bold;
+    }
+    &__Lists {
+      text-align: center;
+      display: flex;
+      width: 100%;
+      max-width: 1020px;
+      margin: 0 auto;
+      height: 440px;
+      &__List {
+        width: 30%;
+        margin: 16px 5% 0 0;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .list_image {
+          width: 300px;
+          height: 300px;
+          position: relative;
+          // .number {
+          //   height: 20px;
+          //   width: 20px;
+          //   color: turquoise;
+          //   position: absolute;
+          // }
+        }
+        &__Text {
+          font-size: 24px;
+          font-weight: bold;
+          .color {
+            color: turquoise;
+          }
+        }
+        &__Description {
+          font-size: 16px;
+          margin-top: 16px;
+        }
+      }
+    }
   }
   .SubPicture {
     height: 400px;
     background-image: url(bg-topMiddleDl-pict.jpg);
     background-position: center;
     background-size: cover;
+    padding-left: 100px;
+    &__Title {
+      font-size: 27px;
+      font-weight: bold;
+      color: #fff;
+      padding-top: 100px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      color: #fff;
+    }
+    &__Text {
+      font-size: 18px;
+      margin: 20px 0 30px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      color: #fff;
+    }
+    &__Icon {
+      .app_image {
+        width: 180px;
+        height: 50px;
+      }
+    }
   }
   .MainFeatures {
     height: 730px;
     padding: 60px 100px;
-    background-color: yellowgreen;
+    &__Top {
+      font-size: 27px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
+    &__Contents {
+      display: flex;
+      width: 100%;
+      height: 540px;
+      &__Content {
+        height: 530px;
+        width: 440px;
+        margin: 0 20px;
+        &__Image {
+          text-align: center;
+          .content_image {
+            height: 340px;
+            width: 220px;
+          }
+        }
+        &__Subtitle {
+          font-size: 19px;
+          font-weight: bold;
+          margin: 38px 0 10px;
+          text-align: center;
+        }
+        &__Text {
+          font-size: 17px;
+          text-align: left;
+          margin: 0 0 40px;
+        }
+      }
+    }
   }
   .PickupCategory {
     padding: 80px 0 0;
@@ -98,13 +203,5 @@ body{
         }
       }
     }
-  }
-  .LastPicture {
-    padding: 100px 40px;
-    background-image: url(bg-appBanner-pict.jpg);
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    height: 360px;
   }
 }

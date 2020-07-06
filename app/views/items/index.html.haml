@@ -7,9 +7,73 @@
         FURIMAはだれでもかんたんに出品・購入できる
         %br
         フリマアプリです
+      .MainPicture__Content__Icon
+        = image_tag ('app-store.svg'), class: "app_image"
+        = image_tag ('google-play.svg'), class: "app_image"
   .MainIntroduce
+    .MainIntroduce__Title
+      FURIMAが選ばれる３つの理由
+    .MainIntroduce__Lists
+      .MainIntroduce__Lists__List
+        = image_tag ('pict-reason-01.jpg'), class: "list_image"
+        .MainIntroduce__Lists__List__Text
+          %span.color 3分
+          ですぐに出品
+        .MainIntroduce__Lists__List__Description
+          スマホで入力するだけで簡単に出品出来る！
+      .MainIntroduce__Lists__List
+        = image_tag ('pict-reason-02.jpg'), class: "list_image"
+        .MainIntroduce__Lists__List__Text
+          %span.color シンプル
+          で使いやすい
+        .MainIntroduce__Lists__List__Description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      .MainIntroduce__Lists__List
+        = image_tag ('pict-reason-03.jpg'), class: "list_image"
+        .MainIntroduce__Lists__List__Text
+          手数料
+          %span.color 業界最安
+        .MainIntroduce__Lists__List__Description
+          最大３％でお得に出品＆購入！
   .SubPicture
+    .SubPicture__Title
+      会員数日本一位
+    .SubPicture__Text
+      FURIMAは、フリマアプリで最も人気。
+      %br出品・購入回数も業界最多です！
+      %brほしかったあの商品に出会えるかもしれない
+    .SubPicture__Icon
+      = image_tag ('app-store.svg'), class: "app_image"
+      = image_tag ('google-play.svg'), class: "app_image"
   .MainFeatures
+    .MainFeatures__Top
+      FURIMAの特徴
+    .MainFeatures__Contents
+      .MainFeatures__Contents__Content
+        .MainFeatures__Contents__Content__Image
+          = image_tag ('icon-01.png'), class: "content_image"
+        .MainFeatures__Contents__Content__Subtitle
+          簡単に売り買い
+          %brできる
+        .MainFeatures__Contents__Content__Text
+          スマホ一つで、いつでもどこでも簡単に出品・購入が可能！
+      .MainFeatures__Contents__Content
+        .MainFeatures__Contents__Content__Image
+          = image_tag ('icon-03.png'), class: "content_image"
+        .MainFeatures__Contents__Content__Subtitle
+          簡単に売り買い
+          %brできる
+        .MainFeatures__Contents__Content__Text
+          スマホ一つで、いつでもどこでも簡単に出品・購入が可能！
+      .MainFeatures__Contents__Content
+        .MainFeatures__Contents__Content__Image
+          = image_tag ('icon-04.png'), class: "content_image"
+        .MainFeatures__Contents__Content__Subtitle
+          簡単に売り買い
+          %brできる
+        .MainFeatures__Contents__Content__Text
+          スマホ一つで、いつでもどこでも簡単に出品・購入が可能！
+
   .PickupCategory
     .PickupCategory__Top
       ピックアップカテゴリー
@@ -134,4 +198,3 @@
               0
           .ProductBox__Info__Tax
             (税込)
-  .LastPicture
