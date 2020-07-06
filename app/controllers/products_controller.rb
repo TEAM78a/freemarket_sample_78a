@@ -5,14 +5,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @product.images.new
     @product.images.build
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to product_path([:id])
     else
       render :new
     end
