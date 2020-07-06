@@ -24,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_send_destination
     @user = User.new(session["devise.regist_data"]["user"])
-    @send_destination = Send_destination.new(send_destination_params)
+    @send_destination = SendDestination.new(send_destination_params)
     unless @send_destination.valid?
       flash.now[:alert] = @send_destination.errors.full_messages
       render :new_send_destination and return
@@ -63,7 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def send_destination_params
-    params.require(:send_destination).permit(:postal_code, :prefectures, :municipalities, :address, :building, :phone_number)
+    params.require(:send_destination).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :prefectures, :municipalities, :address, :building, :phone_number)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
