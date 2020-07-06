@@ -47,7 +47,55 @@ body{
   .pickupCategory {
     padding: 80px 0 0;
     height: 420px;
-    background-color: wheat;
+    &__top {
+      font-size: 28px;
+      text-align: center;
+      &__title {
+        font-size: 100%;
+        color: turquoise;
+        &__products {
+          display: flex;
+          width: 780px;
+          height: 150px;
+          justify-content: space-around;
+          margin: 26px auto;
+          &__left {
+            background-image: url(IMG_9072.jpeg);
+            height: 150px;
+            width: 220px;
+            background-position: center;
+          }
+          &__middleLeft {
+            height: 150px;
+            width: 220px;
+            background-color: violet;
+            background-image: url(a007.png);
+            background-position: center;
+          }
+          &__middleRight {
+            height: 150px;
+            width: 220px;
+            background-color: tomato;
+            background-image: url(a004.png);
+            background-position: center;
+          }
+          &__right {
+            height: 150px;
+            width: 220px;
+            background-color: teal;
+            background-image: url(a001.png);
+            background-position: center;
+          }
+        }
+        &__textField {
+          display: flex;
+          width: 780px;
+          height: 150px;
+          justify-content: space-around;
+          margin: 26px auto;
+        }
+      }
+    }
   }
   .lastPicture {
     padding: 100px 40px;
