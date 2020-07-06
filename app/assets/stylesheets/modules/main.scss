@@ -1,5 +1,5 @@
 body{
-  .mainPicture {
+  .MainPicture {
     height: 560px;
     width: 100%;
     padding: 0 60px;
@@ -7,18 +7,18 @@ body{
     background-image: url(bg-mainVisual-pict_pc.jpg);
     background-size: cover;
     background-position: top center;
-    &__content {
+    &__Content {
       width: 100%;
       margin: 0 auto;
       padding-top: 35px;
       max-width: 1280px;
-      &__title {
+      &__Title {
         font-size: 60px;
         color: #fff;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
         height: 144px;
       }
-      &__text {
+      &__Text {
         font-size: 18px;
         color: #fff;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
@@ -27,77 +27,79 @@ body{
       }
     }
   }
-  .mainIntroduce {
+  .MainIntroduce {
     padding: 60px 20px;
     width: 100%;
     height: 560px;
     background-color: turquoise;
   }
-  .subPicture {
+  .SubPicture {
     height: 400px;
     background-image: url(bg-topMiddleDl-pict.jpg);
     background-position: center;
     background-size: cover;
   }
-  .mainFeatures {
+  .MainFeatures {
     height: 730px;
     padding: 60px 100px;
     background-color: yellowgreen;
   }
-  .pickupCategory {
+  .PickupCategory {
     padding: 80px 0 0;
     height: 420px;
-    &__top {
+    background-color: #f8f8f8;
+    &__Top {
       font-size: 28px;
       text-align: center;
-      &__title {
-        font-size: 100%;
-        color: turquoise;
-        &__products {
-          display: flex;
-          width: 780px;
-          height: 150px;
-          justify-content: space-around;
-          margin: 26px auto;
-          &__left {
-            background-image: url(IMG_9072.jpeg);
-            height: 150px;
+      height: 40px;
+    }
+    &__Title {
+      font-size: 24px;
+      color: turquoise;
+      height: 40px;
+      text-align: center;
+    }
+    &__Products {
+      display: flex;
+      width: 780px;
+      height: 150px;
+      justify-content: space-around;
+      margin: 26px auto;
+      .ProductBox{
+        height: 245px;
+        width: 220px;
+        background-color: #fff;
+        &__Image {
+          .product_image {
             width: 220px;
-            background-position: center;
-          }
-          &__middleLeft {
             height: 150px;
-            width: 220px;
-            background-color: violet;
-            background-image: url(a007.png);
-            background-position: center;
-          }
-          &__middleRight {
-            height: 150px;
-            width: 220px;
-            background-color: tomato;
-            background-image: url(a004.png);
-            background-position: center;
-          }
-          &__right {
-            height: 150px;
-            width: 220px;
-            background-color: teal;
-            background-image: url(a001.png);
-            background-position: center;
+            object-fit: cover;
           }
         }
-        &__textField {
-          display: flex;
-          width: 780px;
-          height: 150px;
-          justify-content: space-around;
-          margin: 26px auto;
+        &__Info {
+          &__Name{
+          }
+          &__Ele {
+            display: flex;
+            font-size: 16px;
+            justify-content: space-between;
+            &__Price{
+              justify-content: left;
+            }
+            &__Favorite {
+              justify-content: right;
+              margin-right: 15px;
+            }
+          }
+          &__Tax {
+            justify-content: left;
+            font-size: 10px;
+          }
         }
       }
     }
   }
-  .lastPicture {
+  .LastPicture {
     padding: 100px 40px;
     background-image: url(bg-appBanner-pict.jpg);
     position: relative;
