@@ -21,7 +21,8 @@ application up and running.
 - has_many :comments
 - has_many :favorites
 - has_many :products
-- has_one: send_destination
+- has_one :send_destination
+- has_one :card
 
 ## send_destinations
 
@@ -49,12 +50,12 @@ application up and running.
 |name|string|null: false, index: true|
 |introduce|text|null: false|
 |price|integer|null: false|
-|kind|string|null: false|
-|brand|string|null: false|
-|condition|string|null: false|
-|postage|string|null: false|
-|shipment|string|null: false|
-|shipping_area|string|null: false|
+|kind_id|integer|null: false|
+|brand_id|integer|null: false|
+|condition_id|integer|null: false|
+|postage_id|integer|null: false|
+|shipment_id|integer|null: false|
+|prefecture_id|integer|null: false|
 |sold_out_flg|boolean|null: false, default: false|
 |user|references|foreign_key: true|
 
@@ -87,8 +88,8 @@ application up and running.
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
-|user|references|null: false, foreign_key: true|
-|product|references|null: false, foreign_key: true|
+|user|references|foreign_key: true|
+|product|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
