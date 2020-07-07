@@ -27,41 +27,52 @@ footer {
       }
     }
   }
-  .Footer__Bottom{
-  padding: 60px 0;
-  color: #fff;
-  background-color: #272727;
-  text-align: center;
-    .contents {
-      max-width: 840px;
-      margin: 0 auto;
+
+  .Footer__Bottom {
+    padding: 60px 0;
+    color: #fff;
+    background-color: #272727;
+    height: 230px;
+    text-align: center;
+    &__Contents {
       display: flex;
-      .content {
-        display: flex;
-        flex-direction: column;
+      margin: 0 auto;
+      width: 840px;
+      height: 170px;
+      &__Box {
         width: 33%;
-        .content__top {
-          margin: 0 0 20px;
-          font-size: 16px;
-        }
-        ul {
-          list-style: none;
-          li a {
-            color: #fff;
+        height: 170px;
+        margin: 0 10px;
+        &__Title {
+          margin-bottom: 20px;
+          .title-cog {
             text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+        &__Word {
+          .text-cog {
+            text-decoration: none;
+            color: #fff;
             font-size: 12px;
-            line-height: 32px;
           }
         }
       }
     }
-  }
-  .footer__logo {
-    max-width: 160px;
-    width: 100%;
-    margin: 0 auto;
-    img {
-      width: 100%;
+    &__Icon {
+      .furima_image {
+        width: 160px;
+        height: 45px;
+      }
+    }
+    &__Text {
+      font-size: 14px;
+      .logo {
+        text-decoration: none;
+        color: #fff;
+      }
     }
   }
 }

@@ -13,28 +13,42 @@
 .MainIntroduce
   .MainIntroduce__Title
     FURIMAが選ばれる３つの理由
+    .MainIntroduce__Title__Border
   .MainIntroduce__Lists
     .MainIntroduce__Lists__List
-      = image_tag ('topimage/pict-reason-01.jpg'), class: "list_image"
+      .MainIntroduce__Lists__List__Box
+        .MainIntroduce__Lists__List__Box--img
+          = image_tag ('topimage/pict-reason-01.jpg'), class: "list_image"
+        .MainIntroduce__Lists__List__Box--num
+          1
       .MainIntroduce__Lists__List__Text
         %span.color 3分
         ですぐに出品
       .MainIntroduce__Lists__List__Description
-        スマホで入力するだけで簡単に出品出来る！
+        めんどくさい入力は必要なく、検索も購入もスムーズ！
     .MainIntroduce__Lists__List
-      = image_tag ('topimage/pict-reason-02.jpg'), class: "list_image"
+      .MainIntroduce__Lists__List__Box
+        .MainIntroduce__Lists__List__Box--img
+          = image_tag ('topimage/pict-reason-02.jpg'), class: "list_image"
+        .MainIntroduce__Lists__List__Box--num
+          2
       .MainIntroduce__Lists__List__Text
         %span.color シンプル
         で使いやすい
       .MainIntroduce__Lists__List__Description
-        めんどくさい入力は必要なく、検索も購入もスムーズ！
+        スマホで入力するだけで簡単に出品出来る！
     .MainIntroduce__Lists__List
-      = image_tag ('topimage/pict-reason-03.jpg'), class: "list_image"
+      .MainIntroduce__Lists__List__Box
+        .MainIntroduce__Lists__List__Box--img
+          = image_tag ('topimage/pict-reason-03.jpg'), class: "list_image"
+        .MainIntroduce__Lists__List__Box--num
+          3
       .MainIntroduce__Lists__List__Text
         手数料
         %span.color 業界最安
       .MainIntroduce__Lists__List__Description
         最大３％でお得に出品＆購入！
+
 .SubPicture
   .SubPicture__Title
     会員数日本一位
@@ -48,6 +62,7 @@
 .MainFeatures
   .MainFeatures__Top
     FURIMAの特徴
+    .MainFeatures__Top__Border
   .MainFeatures__Contents
     .MainFeatures__Contents__Content
       .MainFeatures__Contents__Content__Image
