@@ -1,22 +1,10 @@
 footer {
   .Footer__TOP{
     padding: 100px 40px;
-    background-image: url(bg-appBanner-pict.jpg);
+    background-image: image-url('topimage/bg-appBanner-pict.jpg');
     position: relative;
     background-position: center;
     background-size: cover;
-      &__Title {
-
-      }
-      &__Text {
-
-      }
-      &__Icon {
-        .app_image {
-          width: 180px;
-          height: 53px;
-        }
-      }
     &__Title {
       font-size: 24px;
       font-weight: bold;
@@ -33,6 +21,10 @@ footer {
     &__Icon {
       text-align: center;
       padding-top: 30px;
+      .app_image {
+        width: 180px;
+        height: 53px;
+      }
     }
   }
   .Footer__Bottom{
