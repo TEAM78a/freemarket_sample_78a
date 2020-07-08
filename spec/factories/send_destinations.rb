@@ -11,6 +11,7 @@ FactoryBot.define do
     address                 {"旭ケ丘1丁目"}
     building                {"すごいビル 2F 101号室"}
     phone_number            {"08012345678"}
+    user
   end
 
 end

@@ -5,12 +5,12 @@ describe User do
 
     context 'can save' do
       it "User：全ての必須項目が入力されている場合登録できる" do
-        user = build(:user)
+        user = create(:user)
         expect(user).to be_valid
       end
 
       it "SendDestination：全ての必須項目が入力されている場合登録できる" do
-        send_destination = build(:send_destination)
+        send_destination = create(:send_destination)
         expect(send_destination).to be_valid
       end
     end
