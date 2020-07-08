@@ -1,7 +1,16 @@
 body{
-  background-color: rgb(238, 235, 235);
+  // background-color: rgb(238, 235, 235);
+  // min-height: calc(100vh - 100px); 
+  // height:auto !important; 
+  // height: calc(100vh - 100px);
+  // margin-top: 100px;
 }
-
+.container{
+  background-color: rgb(238, 235, 235);
+  min-height: calc(100vh - 100px); 
+  height:auto !important; 
+  height: calc(100vh - 100px);
+}
 .no-underline {
   text-decoration: none;
 }
