@@ -4,15 +4,9 @@ Rails.application.routes.draw do
   resources :products do
     get 'confirmation', on: :member
   end
-    
-  resources :users, only: [:edit, :update, :show]
 
-  resources :card, only: [:show, :edit, :update]
-
-  get '/mypage' => 'items#mypage', as: 'mypage_path'
+  get '/mypage' => 'items#mypage'
   get '/mypage/logout' => 'items#logout'
-  get '/mypage/info' => 'items#info'
-
   namespace :mypage do
     resources :favorites, only:[:index]
     resources :listings, only: [:index]
@@ -21,5 +15,5 @@ Rails.application.routes.draw do
     resources :destinations, only: [:edit, :update]
     resources :cards, only: [:index, :new, :create, :destroy]
   end
-
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

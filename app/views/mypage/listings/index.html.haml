@@ -1,5 +1,3 @@
-%h1.HeaderField Header 実装エリア
-
 .MyPage
   = render "items/sidebar"
 
@@ -16,8 +14,52 @@
           %li 売却済み
       %ul.Contents
         %li.Content.show
-          出品中 / 商品一覧
+          // #商品購入機能実装後、[= render "products_list"]に修正
+          %table.ProductsList
+            %tbody
+              %tr
+                %th
+                  = image_tag ('products/a001.png'), class: 'product_image'
+                %td{valign: "top"}
+                  商品名：product2
+                %td
+                  .Edit-btn
+                    = link_to "編集する", "#", class: 'btn-smole'
+                  .Edit-btn
+                    = link_to "削除する", "#", class: 'btn-smole'
+              %tr
+                %th
+                  = image_tag ('products/a003.png'), class: 'product_image'
+                %td{valign: "top"}
+                  商品名：product2
+                %td
+                  .Edit-btn
+                    = link_to "編集する", "#", class: 'btn-smole'
+                  .Edit-btn
+                    = link_to "削除する", "#", class: 'btn-smole'
+
         %li.Content
-          取引中 / 商品一覧
+          // #商品購入機能実装後、[= render "products_list"]に修正
+          %table.ProductsList
+            %tbody
+              %tr
+                %th
+                  = image_tag ('products/a001.png'), class: 'product_image'
+                %td{valign: "top"}
+                  商品名：product2
+                %td
+                  .Edit-btn
+                    = link_to "編集する", "#", class: 'btn-smole'
+                  .Edit-btn
+                    = link_to "削除する", "#", class: 'btn-smole'
+              %tr
+                %th
+                  = image_tag ('products/a003.png'), class: 'product_image'
+                %td{valign: "top"}
+                  商品名：product2
+                %td
+                  .Edit-btn
+                    = link_to "配送完了", "#", class: 'btn-smole'
+
         %li.Content
-          売却済み / 商品一覧
+          = render "products_list"

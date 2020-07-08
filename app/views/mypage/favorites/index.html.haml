@@ -1,5 +1,3 @@
-%h1.HeaderField Header 実装エリア
-
 .MyPage
   = render "items/sidebar"
 
@@ -7,3 +5,5 @@
     .MyPage__MainField__Title
       お気に入り一覧
       %hr
+    .ListingMenu
+      = render "mypage/listings/products_list"

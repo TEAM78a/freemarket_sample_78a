@@ -5,10 +5,6 @@ class ItemsController < ApplicationController
   def mypage
   end
 
-  def info
-    
-  end
-
   def logout
   end
 end

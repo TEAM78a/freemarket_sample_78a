@@ -28,3 +28,28 @@
     }
   }
 }
+
+.ProductsList{
+  width: 90%;
+  margin: 50px auto;
+  border-collapse: separate;
+  padding: 25px 25px;
+  tbody{
+    tr{
+      th{
+        width: 150px;
+        border-bottom: 1px solid #bfc2c2;
+      }
+      td{
+        padding: 10px 20px;
+        border-bottom: 1px solid #bfc2c2;
+        .Edit-btn{
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+.product_image{
+  width: 100px;
+}
