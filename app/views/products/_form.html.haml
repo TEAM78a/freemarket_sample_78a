@@ -1,23 +1,81 @@
 .InputForm
-  = form_with model:@product, local: true do |f| 
-    #image-box
-      #previews
-        - if @product.persisted?
-          = @product.images.each_with_index do |image, i|
-            = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-
+  -# = form_with model:@product, local: true do |f| 
+  .InputForm__Title
+    商品登録
+    %hr
+  = form_with model: @product, class: "form", id: "product-form" do |f|
+    .form-image
+      .form-image__title
+        %label 出品画像
+        %span 必須
+      .form-image__text 最大10枚までアップロードできます
       = f.fields_for :images do |image|
-        .js-file_group{"data-index" => "#{image.index}"}
-          = image.file_field :image, class: 'js-file'
-          %br
-          %span.js-remove 削除
-        - if @product.persisted?
-          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        .clearfix
+          // 写真のプレビューとインプットボタンのul
+          %ul#previews
+            %li.input
+              // 画像を取り込むインプットボタン
+              %label.upload-label
+                .upload-label__text
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+                  .input-area
+                    = image.file_field :name, class: "hidden image_upload"
 
-      - if @product.persisted?
-        .js-file_group{"data-index" => "#{@product.images.count}"}
-          = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file'
-          .js-remove 削除
+
+
+
+
+
+
+
+
+
+    -# .InputForm__ImageField
+    -#   #image-box
+    -#     #previews
+    -#       - if @product.persisted?
+    -#         = @product.images.each_with_index do |image, i|
+    -#           = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+
+    -#     = f.fields_for :images do |image|
+    -#       .js-file_group{"data-index" => "#{image.index}"}
+    -#         = image.label :image, class: 'js-file js-file_group__Image' do
+    -#           = icon('fas', 'camera js-file_group__Image--icon')
+    -#           = image.file_field :image, class: 'js-file_group__Image--file'
+    -#         %br
+    -#         %span.js-remove.btn-smole 削除
+    -#       - if @product.persisted?
+    -#         = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+
+    -#     - if @product.persisted?
+    -#       .js-file_group{"data-index" => "#{@product.images.count}"}
+    -#         = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file'
+            -# .js-remove 削除
+
+
+
+
+
+      -# #image-box
+      -#   #previews
+      -#     - if @product.persisted?
+      -#       = @product.images.each_with_index do |image, i|
+      -#         = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+
+      -#   = f.fields_for :images do |image|
+      -#     .js-file_group{"data-index" => "#{image.index}"}
+      -#       = image.file_field :image, class: 'js-file'
+      -#       %br
+      -#       %span.js-remove 削除
+      -#     - if @product.persisted?
+      -#       = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+
+      -#   - if @product.persisted?
+      -#     .js-file_group{"data-index" => "#{@product.images.count}"}
+      -#       = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file'
+      -#       .js-remove 削除
     %hr
     %table.InputForm__table
       %tbody
@@ -26,56 +84,59 @@
             = f.label :name, "商品名"
             %span 必須
           %td
-            = f.text_field :name, class: 'input-text', placeholder: ''
+            = f.text_field :name, class: 'form-text', placeholder: ''
         %tr
           %th
             = f.label :introduce, "商品の説明"
             %span 必須
           %td
-            = f.text_area :introduce, class: 'input-text', placeholder: ''
-        %tr
-          %th
-            = f.label :price, "価格"
-            %span 必須
-          %td
-            = f.number_field :price, class: 'input-text', placeholder: ''
+            = f.text_area :introduce, class: 'form-area', placeholder: ''
+
         %tr
           %th
             = f.label :kind_id, "カテゴリー"
             %span 必須
           %td
             -# = f.collection_select(:target_id, code.all, :code_no, :code_value,{prompt: ""}, {class: "form-control input-sm"})
-            = f.collection_select :kind_id, Kind.all, {class: "input-select"}, :id, :name, include_blank: "選択して下さい"
+            = f.collection_select :kind_id, Kind.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
         %tr
           %th
             = f.label :brand_id, "ブランド"
             %span 必須
           %td
-            = f.collection_select :brand_id, Brand.all, :id, :name, include_blank: "選択して下さい"
+            = f.collection_select :brand_id, Brand.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
         %tr
           %th
             = f.label :condition_id, "商品の状態"
             %span 必須
           %td
-            = f.collection_select :condition_id, Condition.all, :id, :name, include_blank: "選択して下さい"
+            = f.collection_select :condition_id, Condition.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+
         %tr
           %th
             = f.label :postage_id, "配送料の負担"
             %span 必須
           %td
-            = f.collection_select :postage_id, Postage.all, :id, :name, include_blank: "選択して下さい"
+            = f.collection_select :postage_id, Postage.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
         %tr
           %th
             = f.label :shipment_id, "発送までの日数"
             %span 必須
           %td
-            = f.collection_select :shipment_id, Shipment.all, :id, :name, include_blank: "選択して下さい"
+            = f.collection_select :shipment_id, Shipment.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
         %tr
           %th
             = f.label :prefecture_id, "発送元の地域"
             %span 必須
           %td
-            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: "選択して下さい"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+
+        %tr
+          %th
+            = f.label :price, "価格"
+            %span 必須
+          %td
+            = f.number_field :price, class: 'form-text', placeholder: ''
 
     .InputForm--btn
       = f.submit '出品する', class: 'Button' 

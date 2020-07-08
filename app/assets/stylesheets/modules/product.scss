@@ -12,15 +12,73 @@ body{
 
 
 .NewFormField{
-  width: 50%;
+  width: 60%;
   background-color: #fff;
   margin: 100px auto;
 }
 
+// .InputForm{
+//   padding: 50px;
+//   &__Title{
+//     font-size: 26px;
+//     margin: 0 auto 100px;
+//   }
+//   &__ImageField{
+//     display: flex;
+//   }
+
 .InputForm{
   padding: 50px;
+  // text-align: center;
+  &__Title{
+    font-size: 26px;
+    margin: 0 auto;
+  }
+  .form-image{
+    &__title{
+    }
+    &__text{
+    }
+    .clearfix{
+      // display: flex;
+      ul#previews{
+        display: flex;
+        li.image-preview{
+          .upload-label{
+            &__text{
+              // background-color: red;
+              // .input-area{
+              //   .hidden{
+              //     display: none;
+              //   }
+              //   .image_upload{
+
+              //   }
+              // }
+            }
+          }
+          &__wapper{
+            // .preview{
+            //   width: 114px;
+            // }
+          }
+          .image-preview_btn{
+            display: flex;
+            .image-preview_btn_edit{
+
+            }
+            .image-preview_btn_delete{
+
+            }
+          }
+        }
+        li.input{
+          background-color: red;
+        }
+      }
+    }
+  }
   table.InputForm__table{
-    // background-color: red;
     border-collapse: separate;
     padding: 50px;
     width: 100%;
@@ -50,6 +108,31 @@ body{
     text-align: center;
   }
 }
+.js-file_group{
+  &__Image{
+    &--icon{
+      font-size: 50px;
+      color: rgb(133, 130, 130);
+    }
+    &--file{
+      display: none;
+    }
+  }
+}
+.preview{
+  width: 114px;
+}
+
+
+
+.input-area{
+  .hidden{
+    display: none;
+  }
+  .image_upload{
+  }
+}
+
 
 .btn-smole{
   padding: 3px 5px;
@@ -73,12 +156,16 @@ body{
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 
-.input-text{
+.form-text{
   height: 40px;
-  width: 300px;
+  width: 100%;
 }
-.input-select{
-  height: 400px;
+.form-area{
+  height: 120px;
+  width: 100%;
+}
+.form-select{
+  height: 40px;
   padding: 10px, 20px;
-  width: 60px;
+  width: 100%;
 }
