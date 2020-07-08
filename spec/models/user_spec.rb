@@ -7,7 +7,7 @@ describe User do
     #   it "全ての必須項目が入力されている場合登録できる" do
     # end
 
-    context 'can not save' do
+    context 'User can not save' do
       it "nicknameがnullの場合は登録できない" do
       user = build(:user, nickname: "")
         user.valid?
@@ -139,6 +139,152 @@ describe User do
         user.valid?
         expect(user.errors[:password_confirmation]).to include("doesn't match Password")
       end
+    end
+
+    context 'SendDestination can not save' do
+      it "SendDestination.family_nameがnullの場合は登録できない" do
+        send_destination = build(:send_destination, family_name: "")
+        send_destination.valid?
+        expect(send_destination.errors[:family_name]).to include("can't be blank")
+      end
+
+      it "SendDestination.family_nameが半角の場合は登録できない" do
+        send_destination = build(:send_destination, family_name: "ﾀﾅｶ")
+        send_destination.valid?
+        expect(send_destination.errors[:family_name]).to include("is invalid")
+      end
+
+      it "SendDestination.family_nameが数字の場合は登録できない" do
+        send_destination = build(:send_destination, family_name: "123")
+        send_destination.valid?
+        expect(send_destination.errors[:family_name]).to include("is invalid")
+      end
+
+      it "SendDestination.first_nameがnullの場合は登録できない" do
+        send_destination = build(:send_destination, first_name: "")
+        send_destination.valid?
+        expect(send_destination.errors[:first_name]).to include("can't be blank")
+      end
+
+      it "SendDestination.first_nameが半角の場合は登録できない" do
+        send_destination = build(:send_destination, first_name: "ﾀﾛｳ")
+        send_destination.valid?
+        expect(send_destination.errors[:first_name]).to include("is invalid")
+      end
+
+      it "SendDestination.first_nameが数字の場合は登録できない" do
+        send_destination = build(:send_destination, first_name: "123")
+        send_destination.valid?
+        expect(send_destination.errors[:first_name]).to include("is invalid")
+      end
+
+      it "SendDestination.family_name_kanaがnullの場合は登録できない" do
+        send_destination = build(:send_destination, family_name_kana: "")
+        send_destination.valid?
+        expect(send_destination.errors[:family_name_kana]).to include("can't be blank")
+      end
+
+      it "SendDestination.family_name_kanaが半角の場合は登録できない" do
+        send_destination = build(:send_destination, family_name_kana: "ﾀﾅｶ")
+        send_destination.valid?
+        expect(send_destination.errors[:family_name_kana]).to include("is invalid")
+      end
+
+      it "SendDestination.family_name_kanaが数字の場合は登録できない" do
+        send_destination = build(:send_destination, family_name_kana: "123")
+        send_destination.valid?
+        expect(send_destination.errors[:family_name_kana]).to include("is invalid")
+      end
+
+      it "SendDestination.family_name_kanaがカタカナの場合は登録できない" do
+        send_destination = build(:send_destination, family_name_kana: "タナカ")
+        send_destination.valid?
+        expect(send_destination.errors[:family_name_kana]).to include("is invalid")
+      end
+
+      it "SendDestination.family_name_kanaが漢字の場合は登録できない" do
+        send_destination = build(:send_destination, family_name_kana: "田中")
+        send_destination.valid?
+        expect(send_destination.errors[:family_name_kana]).to include("is invalid")
+      end
+
+      it "SendDestination.first_name_kanaがnullの場合は登録できない" do
+        send_destination = build(:send_destination, first_name_kana: "")
+        send_destination.valid?
+        expect(send_destination.errors[:first_name_kana]).to include("can't be blank")
+      end
+
+      it "SendDestination.first_name_kanaが半角の場合は登録できない" do
+        send_destination = build(:send_destination, first_name_kana: "ﾀﾛｳ")
+        send_destination.valid?
+        expect(send_destination.errors[:first_name_kana]).to include("is invalid")
+      end
+
+      it "SendDestination.first_name_kanaが数字の場合は登録できない" do
+        send_destination = build(:send_destination, first_name_kana: "123")
+        send_destination.valid?
+        expect(send_destination.errors[:first_name_kana]).to include("is invalid")
+      end
+
+      it "SendDestination.first_name_kanaがカタカナの場合は登録できない" do
+        send_destination = build(:send_destination, first_name_kana: "タロウ")
+        send_destination.valid?
+        expect(send_destination.errors[:first_name_kana]).to include("is invalid")
+      end
+
+      it "SendDestination.first_name_kanaが漢字の場合は登録できない" do
+        send_destination = build(:send_destination, first_name_kana: "太郎")
+        send_destination.valid?
+        expect(send_destination.errors[:first_name_kana]).to include("is invalid")
+      end
+
+      it "postal_codeがnullの場合は登録できない" do
+        send_destination = build(:send_destination, postal_code: "")
+        send_destination.valid?
+        expect(send_destination.errors[:postal_code]).to include("can't be blank")
+      end
+
+      it "postal_codeにハイフンが入る場合は登録できない" do
+        send_destination = build(:send_destination, postal_code: "123-4567")
+        send_destination.valid?
+        expect(send_destination.errors[:postal_code]).to include("is not a number")
+      end
+
+      it "prefecturesがnullの場合は登録できない" do
+        send_destination = build(:send_destination, prefectures: "")
+        send_destination.valid?
+        expect(send_destination.errors[:prefectures]).to include("can't be blank")
+      end
+
+      it "municipalitiesがnullの場合は登録できない" do
+        send_destination = build(:send_destination, municipalities: "")
+        send_destination.valid?
+        expect(send_destination.errors[:municipalities]).to include("can't be blank")
+      end
+
+      it "addressがnullの場合は登録できない" do
+        send_destination = build(:send_destination, address: "")
+        send_destination.valid?
+        expect(send_destination.errors[:address]).to include("can't be blank")
+      end
+
+      it "buildingがnullであっても登録できる" do
+        send_destination = build(:send_destination, building: "")
+        expect(send_destination).to be_valid
+      end
+
+      it "phone_numberがnullの場合は登録できない" do
+        send_destination = build(:send_destination, phone_number: "")
+        send_destination.valid?
+        expect(send_destination.errors[:phone_number]).to include("can't be blank")
+      end
+
+      it "phone_numberにハイフンが入る場合は登録できない" do
+        send_destination = build(:send_destination, phone_number: "080-1234-5678")
+        send_destination.valid?
+        expect(send_destination.errors[:phone_number]).to include("is not a number")
+      end
+
     end
 
   end
