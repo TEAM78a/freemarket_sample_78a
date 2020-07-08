@@ -7,7 +7,6 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
-    -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   %header
     .Headfield
@@ -22,28 +21,9 @@
         .Headfield__Bottom__left
           .Headfield__Bottom__left__kind
             = link_to "カテゴリー", "#", class: "category"
-            -# .tree.displayNone
-            -#   %ul.categoryTree
-            -#     = link_to "#", class: "categoryTree__item" do
-            -#       %li レディース
-            -#     = link_to "#", class: "categoryTree__item" do
-            -#       %li メンズ
-            -#     = link_to "#", class: "categoryTree__item" do
-            -#       %li ベビー・キッズ
-            -#     = link_to "#", class: "categoryTree__item" do
-            -#       %li インテリア・住まい・小物
-            -#     = link_to "#", class: "categoryTree__item" do
-            -#       %li ベビー・キッズ
-            -#     = link_to "#", class: "categoryTree__item" do
-            -#       %li おもちゃ・ホビー・グッズ
           .Headfield__Bottom__left__kind
             = link_to "ブランド", "#", class: "brand"
         .Headfield__Bottom__right
-          -# # //devise機能実装後外してください
-          -# - if user_signed_in?
-          -#   .Headfield__Bottom__right__menu
-          -#     = link_to "ログアウト", "#"
-          -# - else
           .Headfield__Bottom__right__menu
             = link_to "ログイン", "#", class: "login"
           .Headfield__Bottom__right__menu
