@@ -1,0 +1,229 @@
+
+.MainPicture {
+  height: 560px;
+  width: 100%;
+  padding: 0 60px;
+  display: flex;
+  background-image: image-url('topimage/bg-mainVisual-pict_pc.jpg');
+  background-size: cover;
+  background-position: top center;
+  &__Content {
+    width: 100%;
+    margin-top: 100px;
+    padding-top: 35px;
+    max-width: 1280px;
+    &__Title {
+      font-size: 60px;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      height: 144px;
+    }
+    &__Text {
+      font-size: 18px;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      margin: 16px;
+      height: 64px;
+    }
+    &__Icon {
+      .app_image {
+        width: 180px;
+        height: 53px;
+      }
+    }
+  }
+}
+.MainIntroduce {
+  padding: 60px 20px;
+  width: 100%;
+  height: 560px;
+  position: relative;
+  &__Title {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    &__Border {
+      width: 70px;
+      height: 4px;
+      position: absolute;
+      background-color: #3CCACE;
+      left: 47%;
+    }
+  }
+  &__Lists {
+    display: flex;
+    width: 100%;
+    max-width: 1020px;
+    margin: 0 auto;
+    height: 440px;
+    &__List {
+      width: 30%;
+      margin: 16px 5% 0 0;
+      text-align: left;
+      &__Box {
+        position: relative;
+        height: 300px;
+        &--img {
+          position: absolute;
+          .list_image {
+            width: 300px;
+            height: 300px;
+            padding-bottom: 20px;
+          }
+        }
+        &--num {
+          position: absolute;
+          background-color: #3CCACE;
+          border-radius: 6%;
+          font-size: 30px;
+          text-align: center;
+          padding: 10px 20px;
+          color: #fff;
+          margin-right: 5px;
+        }
+      }
+      &__Text {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        .color {
+          color: turquoise;
+        }
+      }
+      &__Description {
+        font-size: 16px;
+        margin-top: 16px;
+        text-align: center;
+      }
+    }
+  }
+}
+.SubPicture {
+  height: 400px;
+  background-image: image-url('topimage/bg-topMiddleDl-pict.jpg');
+  background-position: center;
+  background-size: cover;
+  padding-left: 100px;
+  &__Title {
+    font-size: 27px;
+    font-weight: bold;
+    padding-top: 100px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    color: #fff;
+  }
+  &__Text {
+    font-size: 18px;
+    margin: 20px 0 30px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    color: #fff;
+  }
+  &__Icon {
+    .app_image {
+      width: 180px;
+      height: 50px;
+    }
+  }
+}
+.MainFeatures {
+  height: 730px;
+  padding: 60px 100px;
+  &__Top {
+    font-size: 27px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    &__Border {
+      width: 70px;
+      height: 4px;
+      position: absolute;
+      background-color: #3CCACE;
+      left: 47%;
+    }
+  }
+  &__Contents {
+    display: flex;
+    width: 100%;
+    height: 540px;
+    &__Content {
+      height: 530px;
+      width: 440px;
+      margin: 0 20px;
+      &__Image {
+        text-align: center;
+        .content_image {
+          height: 340px;
+          width: 220px;
+        }
+      }
+      &__Subtitle {
+        font-size: 19px;
+        font-weight: bold;
+        margin: 38px 0 10px;
+        text-align: center;
+      }
+      &__Text {
+        font-size: 17px;
+        text-align: left;
+        margin: 0 0 40px;
+      }
+    }
+  }
+}
+.PickupCategory {
+  padding: 80px 0 0;
+  height: 420px;
+  background-color: #f8f8f8;
+  &__Top {
+    font-size: 28px;
+    text-align: center;
+    height: 40px;
+  }
+  &__Title {
+    font-size: 24px;
+    color: turquoise;
+    height: 40px;
+    text-align: center;
+  }
+  &__Products {
+    display: flex;
+    width: 780px;
+    height: 150px;
+    justify-content: space-around;
+    margin: 26px auto;
+    .ProductBox{
+      height: 245px;
+      width: 220px;
+      background-color: #fff;
+      &__Image {
+        .product_image {
+          width: 220px;
+          height: 150px;
+          object-fit: cover;
+        }
+      }
+      &__Info {
+        &__Name{
+        }
+        &__Ele {
+          display: flex;
+          font-size: 16px;
+          justify-content: space-between;
+          &__Price{
+            justify-content: left;
+          }
+          &__Favorite {
+            justify-content: right;
+            margin-right: 15px;
+          }
+        }
+        &__Tax {
+          justify-content: left;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
