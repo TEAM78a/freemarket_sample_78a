@@ -3,9 +3,17 @@ require 'rails_helper'
 describe User do
   describe '#create' do
 
-    # context 'can save' do
-    #   it "全ての必須項目が入力されている場合登録できる" do
-    # end
+    context 'can save' do
+      it "User：全ての必須項目が入力されている場合登録できる" do
+        user = build(:user)
+        expect(user).to be_valid
+      end
+
+      it "SendDestination：全ての必須項目が入力されている場合登録できる" do
+        send_destination = build(:send_destination)
+        expect(send_destination).to be_valid
+      end
+    end
 
     context 'User can not save' do
       it "nicknameがnullの場合は登録できない" do
