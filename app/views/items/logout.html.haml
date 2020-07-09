@@ -6,4 +6,4 @@
       ログアウトページ
       %hr
     .BodyLogout
-      = link_to "ログアウト", "#", method: :delete, class: 'Button'
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'

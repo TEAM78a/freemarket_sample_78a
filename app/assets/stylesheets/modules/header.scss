@@ -74,6 +74,10 @@ header {
         justify-content: flex-end;
         line-height: 32px;
         &__menu {
+          .mypage {
+            text-decoration: none;
+            color: #333;
+          }
           .login {
             text-decoration: none;
             color: #333;
