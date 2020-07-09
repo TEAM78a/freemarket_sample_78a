@@ -7,6 +7,77 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
-    -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
-    = yield
+    %header
+      .Headfield
+        .Headfield__Top
+          .Headfield__Top--logo
+            = link_to image_tag("topimage/logo.png"), "#" 
+          .Headfield__Top__Searchbox
+            = text_field :keyword,'', class: "Headfield__Top__Searchbox--input",placeholder: "キーワードから探す"
+            .Headfield__Top__Searchbox--icon
+              = image_tag ("topimage/icon-search 1.png"), class: "circle"
+        .Headfield__Bottom
+          .Headfield__Bottom__left
+            .Headfield__Bottom__left__kind
+              = link_to "カテゴリー", "#", class: "category"
+            .Headfield__Bottom__left__kind
+              = link_to "ブランド", "#", class: "brand"
+          .Headfield__Bottom__right
+            .Headfield__Bottom__right__menu
+              = link_to "ログイン", "#", class: "login"
+            .Headfield__Bottom__right__menu
+              = link_to "新規会員登録", "#", class: "new"
+    .FloatBtn
+      .FloatBtn__Text
+        出品する
+      = image_tag ('topimage/icon_camera.png'), class: "float_image"
+
+    .container
+      = yield
+
+    %footer
+      .Footer__TOP
+        .Footer__TOP__Title
+          だれでもかんたん、人生を変えるフリマアプリ
+        .Footer__TOP__Text
+          今すぐ無料ダウンロード！
+        .Footer__TOP__Icon
+          = image_tag ('topimage/app-store.svg'), class: "app_image"
+          = image_tag ('topimage/google-play.svg'), class: "app_image"
+
+      .Footer__Bottom
+        .Footer__Bottom__Contents
+          .Footer__Bottom__Contents__Box
+            .Footer__Bottom__Contents__Box__Title
+              = link_to "FURIMAについて", "#", class: "title-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "会社概要（運営会社）", "#", class: "text-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "プライバシーポリシー", "#", class: "text-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "FURIMA利用規約", "#", class: "text-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "ポイントに関する特約", "#", class: "text-cog"
+          .Footer__Bottom__Contents__Box
+            .Footer__Bottom__Contents__Box__Title
+              = link_to "FURIMAを見る", "#", class: "title-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "カテゴリー一覧", "#", class: "text-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "ブランド一覧", "#", class: "text-cog"
+          .Footer__Bottom__Contents__Box
+            .Footer__Bottom__Contents__Box__Title
+              = link_to "ヘルプ＆ガイド", "#", class: "title-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "FURIMAガイド", "#", class: "text-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "FURIMAロゴ利用ガイドライン", "#", class: "text-cog"
+            .Footer__Bottom__Contents__Box__Word
+              = link_to "お知らせ", "#", class: "text-cog"
+
+        .Footer__Bottom__Icon
+          = image_tag ('topimage/logo-white.png'), class: "furima_image"
+        .Footer__Bottom__Text
+          = link_to "© FURIMA", "#", class: "logo"

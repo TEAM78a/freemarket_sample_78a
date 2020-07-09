@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', ()=> {
+$(function() {
+  // $(document).on('turbolinks:load', ()=> {
   const buildFileField = (index)=> {
     const html = `<div class="js-file_group" data-index="${index}">
                     <input class="js-file" type="file"
@@ -21,4 +22,5 @@ $(document).on('turbolinks:load', ()=> {
     $(this).parent().remove();
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
+  // });
 });

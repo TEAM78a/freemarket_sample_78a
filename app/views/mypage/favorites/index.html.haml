@@ -1,0 +1,9 @@
+.MyPage
+  = render "items/sidebar"
+
+  .MyPage__MainField
+    .MyPage__MainField__Title
+      お気に入り一覧
+      %hr
+    .ListingMenu
+      = render "mypage/listings/products_list"

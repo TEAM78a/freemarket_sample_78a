@@ -1,0 +1,43 @@
+.MyPage
+  = render "items/sidebar"
+
+  .MyPage__MainField
+    .MyPage__MainField__Title
+      クレジットカード情報入力
+      %hr
+    .BodyCard
+      .BodyCard__inner
+        = form_with model: @card, url: mypage_cards_path, local: true do |f|
+          .CardBox
+            .CardBox--ele
+              = f.label :カード番号, class: 'label'
+              %span 必須
+            .CardBox--ele
+              = f.text_field :card_number, type: 'text', class: 'input-text', placeholder: '半角数字のみ', maxlength: "16"
+            .CardBox--ele
+              = image_tag ('cards/visa.svg'), class: 'card_image'
+              = image_tag ('cards/master-card.svg'), class: 'card_image'
+              = image_tag ('cards/saison-card.svg'), class: 'card_image'
+              = image_tag ('cards/jcb.svg'), class: 'card_image'
+              = image_tag ('cards/american_express.svg'), class: 'card_image'
+              = image_tag ('cards/dinersclub.svg'), class: 'card_image'
+              = image_tag ('cards/discover.svg'), class: 'card_image'
+
+          .CardBox
+            .CardBox--ele
+              = f.label :有効期限, class: 'label'
+              %span 必須
+            .CardBox--ele
+              = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-select'
+              月
+              = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-select'
+              年
+          .CardBox
+            .CardBox--ele
+              = f.label :セキュリティコード, class: 'label'
+              %span 必須
+            .CardBox--ele
+              = f.text_field :cvc, type: 'text', class: 'input-text', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+          .BodyCard__inner--btn
+            = f.submit '追加する', class: 'Button', id: 'token_submit'
+
