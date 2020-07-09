@@ -1,166 +1,62 @@
-.no-underline {
-  text-decoration: none;
-}
-body{
-  background-color: rgb(238, 235, 235);
-}
-
-
 .NewFormField{
-  width: 60%;
+  width: 50%;
   background-color: #fff;
-  margin: 100px auto;
+  margin: 0 auto;
+  padding: 50px 0;
+
+  // height: 100px;
 }
-
-// .InputForm{
-//   padding: 50px;
-//   &__Title{
-//     font-size: 26px;
-//     margin: 0 auto 100px;
-//   }
-//   &__ImageField{
-//     display: flex;
-//   }
-
-.InputForm{
-  padding: 50px;
+.main{
+  // height: 100px;
+  // background-color: blue;
   // text-align: center;
-  &__Title{
-    font-size: 26px;
-    margin: 0 auto;
-  }
-  .form-image{
-    &__title{
-    }
-    &__text{
-    }
-    .clearfix{
-      // display: flex;
-      ul#previews{
-        display: flex;
-        li.image-preview{
-          .upload-label{
-            &__text{
-              // background-color: red;
-              // .input-area{
-              //   .hidden{
-              //     display: none;
-              //   }
-              //   .image_upload{
-
-              //   }
-              // }
-            }
-          }
-          &__wapper{
-            // .preview{
-            //   width: 114px;
-            // }
-          }
-          .image-preview_btn{
-            display: flex;
-            .image-preview_btn_edit{
-
-            }
-            .image-preview_btn_delete{
-
-            }
-          }
-        }
-        li.input{
-          background-color: red;
-        }
-      }
-    }
-  }
-  table.InputForm__table{
-    border-collapse: separate;
-    padding: 50px;
+  section.main__block{
     width: 100%;
-    tbody{
-      tr{
-        th{
-          width: 200px;
-          border-bottom: 1px solid #bfc2c2;
-          span{
-            background-color: red;
-            border-radius: 5px;
-            border: 2px solid red;
-            color: #fff;
-            font-size: 12px;
-            float: right;
+    // background-color: blueviolet;
+    // padding-top: 100px 0;
+    .sell__block__head{
+      font-size: 40px;
+      // margin: 0 auto;
+      
+      text-align: center;
+    }
+    .sell__block__form{
+      &__upload{
+        margin: 50px;
+        &__head{
+          span.require{
           }
         }
-        td{
-          padding: 20px 20px;
-          border-bottom: 1px solid #bfc2c2;
+      }
+      .sell__block__form__name{
+        // width: 100%;
+        // background-color: brown;
+        padding: 50px;
+        table.form-group__name{
+          padding: 50px;
+          width: 100%;
+          border-collapse: separate;
+          padding: 25px 25px;
+          tbody{
+            tr{
+              th{
+                // vertical-align: top;
+                text-align: left;
+                border-bottom: 1px solid;
 
+                span{
+
+                }
+              }
+              td{
+                padding-left: 20px;
+                height: 100px;
+                border-bottom: 1px solid;
+              }
+            }
+          }
         }
       }
     }
   }
-  &--btn{
-    text-align: center;
-  }
-}
-.js-file_group{
-  &__Image{
-    &--icon{
-      font-size: 50px;
-      color: rgb(133, 130, 130);
-    }
-    &--file{
-      display: none;
-    }
-  }
-}
-.preview{
-  width: 114px;
-}
-
-
-
-.input-area{
-  .hidden{
-    display: none;
-  }
-  .image_upload{
-  }
-}
-
-
-.btn-smole{
-  padding: 3px 5px;
-  text-decoration: none;
-  color: red;
-  border-radius: 4px;
-  border: solid 1px red;
-}
-.Button{
-  background-color: red;
-  padding: 10px 50px;
-  font-size: 20px;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 4px;
-  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-  font-weight: bold;
-  border: solid 2px #970303;
-}
-.Button:active {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
-}
-
-.form-text{
-  height: 40px;
-  width: 100%;
-}
-.form-area{
-  height: 120px;
-  width: 100%;
-}
-.form-select{
-  height: 40px;
-  padding: 10px, 20px;
-  width: 100%;
 }

@@ -6,11 +6,11 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    # @product.images.build
   end
 
   def create
     @product = Product.new(product_params)
+    binding.pry
     if @product.save
       redirect_to product_path(@product.id)
     else
@@ -22,9 +22,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    binding.pry
+    if @product.update(product_params)
+      binding.pry
+      redirect_to product_path(@product.id)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -44,7 +53,6 @@ class ProductsController < ApplicationController
                                     :prefecture_id,
                                     images_attributes: [
                                       :id,
-                                      # :product_id,
                                       :image,
                                       :_destroy
                                     ])
