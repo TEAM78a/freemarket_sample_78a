@@ -13,12 +13,12 @@
           .main__showMain__contents__topContent__itemBox__image
             %ul
               %li
-                %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", class: "img"}/
+                = image_tag ('showimage/IMG_9072.jpg'), class: "img"
                 %ul.imgList
                   %li.lists
-                    %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", class: "imgs"}/  
+                    = image_tag ('showimage/IMG_9072.jpg'), class: "imgs"                  
                   %li.lists
-                    %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", class: "imgs"}/
+                    = image_tag ('showimage/IMG_9069.jpg'), class: "imgs"
 
           .main__showMain__contents__topContent__itemBox__price
             %span ¥1000
@@ -97,4 +97,6 @@
       .main__showMain__contents__moreItems
         %a{href:"#"}
           食べ物をもっと見る
+        .main__showMain__contents__moreItems__productList
+          = image_tag ('showimage/a007.png'), class: "relationImg"
 

@@ -145,6 +145,8 @@ body{
             textarea{
               width: 628px;
               min-height: 104px;
+              min-width: 628px;
+              max-width: 628px;
               padding: 10px;
             }
             .notes{
