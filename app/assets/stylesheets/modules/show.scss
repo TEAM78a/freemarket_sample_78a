@@ -7,7 +7,7 @@ body{
 .main{
   background-color: #f8f8f8;
   &__showMain{
-    padding: 40px;
+    padding: 40px 40px 120px 40px;
     margin: 0 auto;
     &__contents{
       width: 700px;
@@ -184,6 +184,44 @@ body{
           margin: 24px 0 8px;
           font-weight: bold;
           font-size: 22px;
+        }
+        .productField{
+          display: flex;
+          height: 150px;
+          margin: 26px auto;
+          &__ProductBox{
+            height: 245px;
+            width: 220px;
+            background-color: #fff;
+            margin: 5px;
+            &__Image {
+              .relationImg {
+                width: 220px;
+                height: 150px;
+                object-fit: cover;
+              }
+            }
+            &__Info {
+              &__Name{
+              }
+              &__Ele {
+                display: flex;
+                font-size: 16px;
+                justify-content: space-between;
+                &__Price{
+                  justify-content: left;
+                }
+                &__Favorite {
+                  justify-content: right;
+                  margin-right: 15px;
+                }
+              }
+              &__Tax {
+                justify-content: left;
+                font-size: 10px;
+              }
+            }
+          }
         }
       }
     }

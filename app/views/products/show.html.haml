@@ -97,6 +97,48 @@
       .main__showMain__contents__moreItems
         %a{href:"#"}
           食べ物をもっと見る
-        .main__showMain__contents__moreItems__productList
-          = image_tag ('showimage/a007.png'), class: "relationImg"
+        .productField
+          .productField__ProductBox
+            .productField__ProductBox__Image
+              = image_tag ('showimage/a007.png'), class: "relationImg"
+            .productField__ProductBox__Info
+              .prductField__ProductBox__Info__Name
+                サバの味噌煮
+              .productField__ProductBox__Info__Ele
+                .prductField__ProductBox__Info__Ele__Price
+                  10000円
+                .productField__ProductBox__Info__Ele__Favorite
+                  %i.fa.fa-star.likeIcon
+                  0
+              .productField__ProductBox__Info__Tax
+                (税込)
 
+          .productField__ProductBox
+            .productField__ProductBox__Image
+              = image_tag ('showimage/a001.png'), class: "relationImg"
+            .productField__ProductBox__Info
+              .prductField__ProductBox__Info__Name
+                カレーライス
+              .productField__ProductBox__Info__Ele
+                .prductField__ProductBox__Info__Ele__Price
+                  40000円
+                .productField__ProductBox__Info__Ele__Favorite
+                  %i.fa.fa-star.likeIcon
+                  0
+              .productField__ProductBox__Info__Tax
+                (税込)
+
+          .productField__ProductBox
+            .productField__ProductBox__Image
+              = image_tag ('showimage/a006.png'), class: "relationImg"
+            .productField__ProductBox__Info
+              .prductField__ProductBox__Info__Name
+                たらこスパゲティ
+              .productField__ProductBox__Info__Ele
+                .prductField__ProductBox__Info__Ele__Price
+                  20000円
+                .productField__ProductBox__Info__Ele__Favorite
+                  %i.fa.fa-star.likeIcon
+                  100
+              .productField__ProductBox__Info__Tax
+                (税込)
