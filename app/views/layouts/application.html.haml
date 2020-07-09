@@ -25,10 +25,14 @@
             .Headfield__Bottom__left__kind
               = link_to "ブランド", "#", class: "brand"
           .Headfield__Bottom__right
-            .Headfield__Bottom__right__menu
-              = link_to "ログイン", "#", class: "login"
-            .Headfield__Bottom__right__menu
-              = link_to "新規会員登録", "#", class: "new"
+            - if user_signed_in?
+              .Headfield__Bottom__right__menu
+                = link_to "マイページ", mypage_path, class: 'mypage'
+            - else
+              .Headfield__Bottom__right__menu
+                = link_to "ログイン", new_user_session_path, class: "login"
+              .Headfield__Bottom__right__menu
+                = link_to "新規会員登録", new_user_registration_path, class: "new"
     .FloatBtn
       .FloatBtn__Text
         出品する
