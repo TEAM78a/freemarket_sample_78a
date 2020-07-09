@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+// ##Ver1.2
 $(document).on('turbolinks:load', function(){
   // 下記はedit用です。できれば別ファイルで作成することを推奨。バグの元
   var append_input = $(`<li class="input"><label class="upload-label"><div class="upload-label__text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`)
@@ -30,10 +38,6 @@ $(document).on('turbolinks:load', function(){
   // プレビュー機能
   //'change'イベントでは$(this)で要素が取得できないため、 'click'イベントを入れた。
   //これにより$(this)で'input'を取得することができ、inputの親要素である'li'まで辿れる。
-
-
-
-
 
   $(document).on('click', '.image_upload', function(){
     //inputの要素はクリックされておらず、inputの親要素であるdivが押されている。
@@ -117,7 +121,7 @@ $(document).on('turbolinks:load', function(){
 
 
 
-
+// ##Ver1.1
 // $(document).on('turbolinks:load', ()=> {
 //   const buildFileField = (num)=> {
 //     const html = `<div data-index="${num}" class="js-file_group">
@@ -167,7 +171,7 @@ $(document).on('turbolinks:load', function(){
 // });
 
 
-
+// ##Ver1.0
 // // $(document).on('turbolinks:load', ()=> {
 // //   const buildFileField = (index)=> {
 // //     const html = `<div class="js-file_group" data-index="${index}">

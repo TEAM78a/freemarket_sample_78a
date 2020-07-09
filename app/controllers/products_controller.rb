@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
+    # @product.images.build
   end
 
   def create
@@ -43,7 +44,7 @@ class ProductsController < ApplicationController
                                     :prefecture_id,
                                     images_attributes: [
                                       :id,
-                                      :product_id,
+                                      # :product_id,
                                       :image,
                                       :_destroy
                                     ])
