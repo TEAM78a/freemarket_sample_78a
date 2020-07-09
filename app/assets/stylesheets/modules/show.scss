@@ -129,6 +129,9 @@ body{
                   }
                 }
               }
+              li.reportBtn:hover{
+                opacity: 0.5;
+              }
             }
           }
         }
@@ -137,11 +140,48 @@ body{
           background-color: #fff;
           margin: 10px 0;
           text-align: center;
-          textarea{
-            width: 100%;
-            min-height: 104px;
-            padding: 10px;
+          .commentForm{
+            width: auto;
+            textarea{
+              width: 628px;
+              min-height: 104px;
+              padding: 10px;
+            }
+            .notes{
+              padding: 8px;
+              font-size: 14px;
+              background-color: #f8f8f8;
+              margin: 10px 0;
+              text-align: left;
+            }
+            .commentBtn{
+              color: #fff;
+              font-size: 18px;
+              background-color: #3CCACE;
+              border: 1px solid #3CCACE;
+              width: 60%;
+              line-height: 48px;
+              border-radius: 100px;
+            }
           }
+        }
+      }
+      .pageMove{
+        display: flex;
+        justify-content: space-between;
+          a{
+            text-decoration: none;
+            color: #3CCACE;
+          }
+      }
+      &__moreItems{
+        a{
+          display: block;
+          text-decoration: none;
+          color: #3CCACE;
+          margin: 24px 0 8px;
+          font-weight: bold;
+          font-size: 22px;
         }
       }
     }
