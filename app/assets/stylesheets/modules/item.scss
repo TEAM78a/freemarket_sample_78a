@@ -1,0 +1,57 @@
+.MyPage{
+  width: 70%;
+  padding: 50px 0;
+  margin: 0 auto;
+  display: flex;
+  &__SideBar{
+    width: 400px;
+    margin-right: 50px;
+    &__Function{
+      padding-bottom: 50px;
+    }
+    &--title{
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+  }
+  &__MainField{
+    background-color: #fff;
+    width: 100%;
+    &__Title{
+      text-align: center;
+      height: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px;
+    }
+    &__Image{
+      background-image: image-url('mypage/mypage.png');
+      height: 200px;
+      text-align: center;
+      margin: auto;
+      &--smile{
+        padding-top: 70px;
+        .image-smile{
+          width: 60px;
+        }
+      }
+      &--faivorit{
+
+      }
+    }
+  }
+}
+
+ul.SidebarMenu{
+  li{
+    padding: 15px 20px;
+    border-bottom: 0.2px solid rgb(192, 190, 190);
+    background-color: #fff;
+    color: rgb(44, 43, 43);
+    font-size: 14px;
+  }
+  li:hover{
+    background-color: rgb(238, 235, 235);
+  }
+}
