@@ -1,0 +1,21 @@
+.MyPage
+  = render "sidebar"
+
+  .MyPage__MainField
+    .MyPage__MainField__Image
+      .MyPage__MainField__Image--smile
+        = image_tag ('mypage/smile.png'), class: 'image-smile'
+      .MyPage__MainField__Image--faivorit
+        いいね  ⭐️12
+
+    .ListingMenu
+      %ul.ListingMenu__Tab
+        = link_to "#", class: "menu_item no-underline  active" do
+          %li お知らせ
+        = link_to "#", class: "menu_item no-underline" do
+          %li やることリスト
+      %ul.Contents
+        %li.Content.show
+          メッセージはありません
+        %li.Content
+          メッセージはありません
