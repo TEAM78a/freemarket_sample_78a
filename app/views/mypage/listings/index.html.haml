@@ -1,0 +1,65 @@
+.MyPage
+  = render "items/sidebar"
+
+  .MyPage__MainField
+    .MyPage__MainField__Title
+      出品商品情報
+    .ListingMenu
+      %ul.ListingMenu__Tab
+        = link_to "#", class: "menu_item no-underline  active" do
+          %li 出品中
+        = link_to "#", class: "menu_item no-underline" do
+          %li 取引中
+        = link_to "#", class: "menu_item no-underline" do
+          %li 売却済み
+      %ul.Contents
+        %li.Content.show
+          // #商品購入機能実装後、[= render "products_list"]に修正
+          %table.ProductsList
+            %tbody
+              %tr
+                %th
+                  = image_tag ('products/a001.png'), class: 'product_image'
+                %td{valign: "top"}
+                  商品名：product2
+                %td
+                  .Edit-btn
+                    = link_to "編集する", "#", class: 'btn-smole'
+                  .Edit-btn
+                    = link_to "削除する", "#", class: 'btn-smole'
+              %tr
+                %th
+                  = image_tag ('products/a003.png'), class: 'product_image'
+                %td{valign: "top"}
+                  商品名：product2
+                %td
+                  .Edit-btn
+                    = link_to "編集する", "#", class: 'btn-smole'
+                  .Edit-btn
+                    = link_to "削除する", "#", class: 'btn-smole'
+
+        %li.Content
+          // #商品購入機能実装後、[= render "products_list"]に修正
+          %table.ProductsList
+            %tbody
+              %tr
+                %th
+                  = image_tag ('products/a001.png'), class: 'product_image'
+                %td{valign: "top"}
+                  商品名：product2
+                %td
+                  .Edit-btn
+                    = link_to "編集する", "#", class: 'btn-smole'
+                  .Edit-btn
+                    = link_to "削除する", "#", class: 'btn-smole'
+              %tr
+                %th
+                  = image_tag ('products/a003.png'), class: 'product_image'
+                %td{valign: "top"}
+                  商品名：product2
+                %td
+                  .Edit-btn
+                    = link_to "配送完了", "#", class: 'btn-smole'
+
+        %li.Content
+          = render "products_list"
