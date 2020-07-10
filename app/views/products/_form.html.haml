@@ -1,12 +1,13 @@
 .main
   %section.main__block
     = form_with model:@product, local:true do |f|
-      %h2.sell__block__head
+      .sell__block__margin
+      .sell__block__head
         商品登録
       %hr
       .sell__block__form
         .sell__block__form__upload
-          %h3.sell__block__form__upload__head
+          .sell__block__form__upload__head
             出品画像
             %span.require 必須
           %p 最大5枚までアップロードできます
@@ -86,4 +87,5 @@
 
         .sell__block__form__btn
           %div
-            = f.submit "出品する",class: "btn-default__btn-red"
+            = f.submit "出品する",class: "Button"
+        .sell__block__margin
