@@ -3,7 +3,7 @@
     = link_to product_path(product.id), class: 'no-underline' do
       = image_tag product.images[0].image_url, class: 'product_image'
   %td{valign: "top"}
-    = link_to product_path(product.id), class: 'no-underline' do
+    = link_to product_path(product.id), class: 'link_color no-underline' do
       = "商品名：#{product.name}"
   %td
     - if product.sold_out_flg
