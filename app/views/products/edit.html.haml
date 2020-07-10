@@ -1,3 +1,101 @@
-%h1 編集ページ
+.NewFormField
+  .main
+    %section.main__block
+      = form_with model:@product, local:true do |f|
+        .sell__block__margin
+        .sell__block__head
+          商品の情報を入力
+        %hr
+        .sell__block__form
+          .sell__block__form__upload
+            .sell__block__form__upload__head
+              出品画像
+              %span.require 必須
+            %p 最大5枚までアップロードできます
+            .post__drop__box__container
+              .prev-content
+                - @product.images.each_with_index do |image, index|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      %label{for: "product_images_attributes_#{index}_image", class: "update-box", id: "label-box--#{index}"}
+                        %span 編集
+                      .delete-box
+                        .delete-btn
+                          %span 削除
+              .label-content
+                = f.label :"images_attributes_#{@product.images.length}_image", class: "label-box", id: "label-box--#{@product.images.length}" do
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
+                = f.fields_for :images do |i|
+                  = i.file_field :image, class: "hidden-field"
+                  = i.check_box:_destroy, class: "hidden-checkbox"
 
-    -# = render partial: 'form'
+                - @product.images.length.upto(4) do |i|
+                  %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+        .sell__block__form__name
+          %table.form-group__name
+            %tbody
+              %tr
+                %th
+                  = f.label :name, "商品名"
+                  %span 必須
+                %td
+                  = f.text_field :name, class: 'form-text', placeholder: ''
+              %tr
+                %th
+                  = f.label :introduce, "商品の説明"
+                  %span 必須
+                %td
+                  = f.text_area :introduce, class: 'form-area', placeholder: ''
+
+              %tr
+                %th
+                  = f.label :kind_id, "カテゴリー"
+                  %span 必須
+                %td
+                  = f.collection_select :kind_id, Kind.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+              %tr
+                %th
+                  = f.label :brand_id, "ブランド"
+                  %span 必須
+                %td
+                  = f.collection_select :brand_id, Brand.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+              %tr
+                %th
+                  = f.label :condition_id, "商品の状態"
+                  %span 必須
+                %td
+                  = f.collection_select :condition_id, Condition.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+
+              %tr
+                %th
+                  = f.label :postage_id, "配送料の負担"
+                  %span 必須
+                %td
+                  = f.collection_select :postage_id, Postage.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+              %tr
+                %th
+                  = f.label :shipment_id, "発送までの日数"
+                  %span 必須
+                %td
+                  = f.collection_select :shipment_id, Shipment.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+              %tr
+                %th
+                  = f.label :prefecture_id, "発送元の地域"
+                  %span 必須
+                %td
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+
+              %tr
+                %th
+                  = f.label :price, "価格"
+                  %span 必須
+                %td
+                  = f.number_field :price, class: 'form-text', placeholder: ''
+
+        .sell__block__form__btn
+          %div
+            = f.submit "出品する",class: "Button"
+        .sell__block__margin

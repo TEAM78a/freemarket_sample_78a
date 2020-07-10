@@ -1,0 +1,75 @@
+.NewFormField{
+  width: 50%;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 0;
+}
+.main{
+  section.main__block{
+    width: 100%;
+    .sell__block__margin{
+      height: 50px;
+      width: 100%;
+      background-color: rgb(238, 235, 235);
+    }
+    .sell__block__head{
+      font-size: 38px;
+      padding: 30px 0;
+      text-align: center;
+    }
+    .sell__block__form{
+      &__upload{
+        margin: 50px;
+        &__head{
+          span.require{
+            background-color: red;
+            border-radius: 5px;
+            border: 2px solid red;
+            color: #fff;
+            font-size: 12px;
+            margin-left: 30px;
+          }
+        }
+      }
+      &__name{
+        table.form-group__name{
+          padding: 50px;
+          width: 100%;
+          border-collapse: separate;
+          padding: 25px 25px;
+          tbody{
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+            tr{
+              vertical-align: inherit;
+              border-color: inherit;
+              th{
+                width: 200px;
+                text-align: left;
+                border-bottom: 1px solid #f9f9f9;
+                span{
+                  background-color: red;
+                  border-radius: 5px;
+                  border: 2px solid red;
+                  color: #fff;
+                  font-size: 12px;
+                  float: right;
+                }
+              }
+              td{
+                padding-left: 20px;
+                height: 100px;
+                border-bottom: 1px solid #f9f9f9;
+              }
+            }
+          }
+        }
+      }
+      &__btn{
+        text-align: center;
+        padding-bottom: 50px;
+      }
+    }
+  }
+}

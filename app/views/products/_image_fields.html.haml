@@ -1,0 +1,6 @@
+.nested-fields
+  .CreateForm__leftField
+    = s.label :image, "画像", class: 'CreateForm__label'
+  .CreateForm__rightField
+    = s.file_field :image, class: 'CreateForm__input'
+    = link_to_remove_association '削除', s

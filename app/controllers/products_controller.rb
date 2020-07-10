@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only:[:edit, :update]
+
   def index
     @products = Product.all
   end
@@ -24,6 +26,11 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(product_params)
+      redirect_to product_path(@product.id)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -43,9 +50,12 @@ class ProductsController < ApplicationController
                                     :prefecture_id,
                                     images_attributes: [
                                       :id,
-                                      :product_id,
                                       :image,
                                       :_destroy
                                     ])
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
