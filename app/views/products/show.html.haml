@@ -16,9 +16,9 @@
                 = image_tag ('showimage/IMG_9072.jpg'), class: "img", id: "main-img"
                 %ul.imgList
                   %li.lists
-                    = image_tag ('showimage/IMG_9072.jpg'), class: "imgs1"
+                    = image_tag ('showimage/IMG_9072.jpg'), class: "imgs"
                   %li.lists
-                    = image_tag ('showimage/IMG_9069.jpg'), class: "imgs2"
+                    = image_tag ('showimage/IMG_9069.jpg'), class: "imgs"
 
           .main__showMain__contents__topContent__itemBox__price
             %span ¥1000
@@ -36,11 +36,11 @@
                 %tr
                   %th カテゴリー
                   %td 
-                    %a{href: "#", class: "showLink"} 食べ物
+                    = link_to "食べ物", "#", class: "showLink"
                     %br/
-                    %a{href: "#", class: "showLink"} 中華料理
+                    = link_to "中華料理", "#", class: "showLink"
                     %br/
-                    %a{href: "#", class: "showLink"} 麺類
+                    = link_to "麺類", "#", class: "showLink"
                     %br/
                 %tr
                   %th ブランド
@@ -57,21 +57,20 @@
                 %tr
                   %th 発送元の地域
                   %td 
-                    %a{href: "#", class: "showLink"} 北海道
+                    = link_to "北海道", "#", class: "showLink"
                 %tr
                   %th 発送日の目安
                   %td 1-2日で発送
 
           .main__showMain__contents__topContent__itemBox__choiceArea
-            %ul
-              %li.likeBtn
+            .report
+              .likeBtn
                 = icon('fa', 'star starIcon')
-                お気に入り 0
-            %ul.report
-              %li.reportBtn
-                %a{href: "#"}
-                  = icon('fa', 'flag flagIcon')
-                  不適切な商品の通報
+                = link_to "お気に入り 0", "#", class: "starBtn"
+            .report
+              .reportBtn
+                = icon('fa', 'flag flagIcon')
+                = link_to "不適切な商品の通報", "#", class: "flagBtn"
 
         .main__showMain__contents__topContent__commentArea
           %form.commentForm
@@ -84,19 +83,17 @@
             %button.commentBtn
               = icon('fa', 'comment')
               コメントする
-      %ul.pageMove
-        %li
-          %a{href: "#"}
-            = icon('fa', 'angle-left')
-            前の商品
-        %li
-          %a{href: "#"}
-            次の商品
-            = icon('fa', 'angle-right')
+        .pageMove
+          .pageMove__frontPage
+            = icon('fa', 'angle-left front')
+            = link_to "前の商品", "#", class: "pages"
+
+          .pageMove__nextPage
+            = link_to "後ろの商品", "#", class: "pages"
+            = icon('fa', 'angle-right next')
 
       .main__showMain__contents__moreItems
-        %a{href:"#"}
-          食べ物をもっと見る
+        = link_to "食べ物をもっと見る", "#", class: "more"
         .productField
           .productField__ProductBox
             .productField__ProductBox__Image

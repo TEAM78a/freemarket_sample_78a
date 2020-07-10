@@ -39,11 +39,7 @@ body{
                   .lists{
                     width: 25%;
                     margin: 0 10px 0 0;
-                    .imgs1{
-                      object-fit: cover;
-                      height: 87px;
-                    }
-                    .imgs2{
+                    .imgs{
                       object-fit: cover;
                       height: 87px;
                     }
@@ -99,38 +95,41 @@ body{
           &__choiceArea{
             display: flex;
             justify-content: space-between;
-            ul{
+            .report{
               margin-top: 10px;
-              li.likeBtn{
+              .likeBtn{
                 border: 1px solid #ffb340;
                 border-radius: 40px;
                 padding: 6px 10px;
                 color: #3CCACE;
+                .starBtn{
+                  text-decoration: none;
+                  color: #3CCACE;
+                }
                 .starIcon{
                   font-size: 0.8em;
+                  color: #3CCACE;
                 }
               }
-              li.likeBtn:hover{
+              .likeBtn:hover{
                 opacity: 0.5;
               }
-            }
-            ul.report{
-              margin-top: 10px;
-              li.reportBtn{
+              .reportBtn{
                 font-size: 14px;
-                a{
+                border: 1px solid #333;
+                border-radius: 4px;
+                padding: 6px 10px;
+                .flagBtn{
                   display: inline-block;
-                  padding: 6px 10px;
                   text-decoration: none;
                   color: #333;
-                  border: 1px solid #333;
-                  border-radius: 4px;
-                  .flagIcon{
-                    font-size: 0.8em;
-                  }
+                }
+                .flagIcon{
+                  font-size: 0.8em;
+                  color: #333;
                 }
               }
-              li.reportBtn:hover{
+              .reportBtn:hover{
                 opacity: 0.5;
               }
             }
@@ -172,13 +171,16 @@ body{
       .pageMove{
         display: flex;
         justify-content: space-between;
-          a{
+          .pages{
             text-decoration: none;
+            color: #3CCACE;
+          }
+          .front, .next{
             color: #3CCACE;
           }
       }
       &__moreItems{
-        a{
+        .more{
           display: block;
           text-decoration: none;
           color: #3CCACE;
@@ -203,8 +205,6 @@ body{
               }
             }
             &__Info {
-              &__Name{
-              }
               &__Ele {
                 display: flex;
                 font-size: 16px;
