@@ -4,9 +4,10 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
-lady = Category.create(name: "レディース")
+
+
+lady = Kind.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
 lady_2 = lady.children.create(name: "ジャケット/アウター")
@@ -47,7 +48,8 @@ lady_19 = lady.children.create(name: "その他")
 lady_19.children.create([{name: "コスプレ"},{name: "下着"},{name: "その他"}])
 
 
-men = Category.create(name: "メンズ")
+
+men = Kind.create(name: "メンズ")
 men_1 = men.children.create(name: "トップス")
 men_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ"},{name: "ポロシャツ"},{name: "タンクトップ"},{name: "ニット/セーター"},{name: "パーカー"},{name: "カーディガン"},{name: "スウェット"},{name: "ジャージ"},{name: "ベスト"},{name: "その他"}])
 men_2 = men.children.create(name: "ジャケット/アウター")
@@ -78,7 +80,8 @@ men_14 = men.children.create(name: "その他")
 men_14.children.create([{name: "すべて"}])
 
 
-baby_kids = Category.create(name: "ベビー・キッズ")
+
+baby_kids = Kind.create(name: "ベビー・キッズ")
 baby_kids_1 = baby_kids.children.create(name: "ベビー服(女の子用) ~95cm")
 baby_kids_1.children.create([{name: "トップス"},{name: "アウター"},{name: "パンツ"},{name: "スカート"},{name: "ワンピース"},{name: "ベビードレス"},{name: "おくるみ"},{name: "下着/肌着"},{name: "パジャマ"},{name: "ロンパース"},{name: "その他"}])
 baby_kids_2 = baby_kids.children.create(name: "ベビー服(男の子用) ~95cm")
@@ -111,7 +114,8 @@ baby_kids_15 = baby_kids.children.create(name: "その他")
 baby_kids_15.children.create([{name: "母子手帳用品"},{name: "その他"}])
 
 
-interior_residence_accessory = Category.create(name: "インテリア・住まい・小物")
+
+interior_residence_accessory = Kind.create(name: "インテリア・住まい・小物")
 interior_residence_accessory_1 = interior_residence_accessory.children.create(name: "キッチン/食器")
 interior_residence_accessory_1.children.create([{name: "食器"},{name: "調理器具"},{name: "収納/キッチン雑貨"},{name: "弁当用品"},{name: "カトラリー(スプーン等)"},{name: "テーブル用品"},{name: "容器"},{name: "エプロン"},{name: "アルコールグッズ"},{name: "浄水機"},{name: "その他"}])
 interior_residence_accessory_2 = interior_residence_accessory.children.create(name: "ベッド/マットレス")
@@ -140,7 +144,8 @@ interior_residence_accessory_13 = interior_residence_accessory.children.create(n
 interior_residence_accessory_13.children.create([{name: "すべて"}])
 
 
-book_music_game = Category.create(name: "本・音楽・ゲーム")
+
+book_music_game = Kind.create(name: "本・音楽・ゲーム")
 book_music_game_1 = book_music_game.children.create(name: "本")
 book_music_game_1.children.create([{name: "文学/小説"},{name: "人文/社会"},{name: "ノンフィクション/教養"},{name: "地図/旅行ガイド"},{name: "ビジネス/経済"},{name: "ビジネス/経済"},{name: "健康/医学"},{name: "コンピュータ/IT"},{name: "趣味/スポーツ/実用"},{name: "住まい/暮らし/子育て"},{name: "アート/エンタメ"},{name: "洋書"},{name: "絵本"},{name: "参考書"},{name: "その他"}])
 book_music_game_2 = book_music_game.children.create(name: "漫画")
@@ -156,5 +161,56 @@ book_music_game_6.children.create([{name: "邦楽"},{name: "洋楽"},{name: "そ
 book_music_game_7 = book_music_game.children.create(name: "テレビゲーム")
 book_music_game_7.children.create([{name: "家庭用ゲーム本体"},{name: "家庭用ゲームソフト"},{name: "携帯用ゲーム本体"},{name: "携帯用ゲームソフト"},{name: "PCゲーム"},{name: "その他"}])
 
+
+
+toy_hobby_goods = Kind.create(name: "おもちゃ・ホビー・グッズ")
+toy_hobby_goods_1 = toy_hobby_goods.children.create(name: "おもちゃ")
+toy_hobby_goods_1.children.create([{name: "キャラクターグッズ"},{name: "ぬいぐるみ"},{name: "小物/アクセサリー"},{name: "模型/プラモデル"},{name: "ミニカー"},{name: "トイラジコン"},{name: "プラモデル"},{name: "ホビーラジコン"},{name: "鉄道模型"},{name: "その他"}])
+toy_hobby_goods_2 = toy_hobby_goods.children.create(name: "タレントグッズ")
+toy_hobby_goods_2.children.create([{name: "アイドル"},{name: "ミュージシャン"},{name: "タレント/お笑い芸人"},{name: "スポーツ選手"},{name: "その他"}])
+toy_hobby_goods_3 = toy_hobby_goods.children.create(name: "コミック/アニメグッズ")
+toy_hobby_goods_3.children.create([{name: "ストラップ"},{name: "キーホルダー"},{name: "バッジ"},{name: "カード"},{name: "クリアファイル"},{name: "ポスター"},{name: "タオル"},{name: "その他"}])
+toy_hobby_goods_4 = toy_hobby_goods.children.create(name: "トレーディングカード")
+toy_hobby_goods_4.children.create([{name: "遊戯王"},{name: "マジック：ザ・ギャザリング"},{name: "ポケモンカードゲーム"},{name: "デュエルマスターズ"},{name: "バトルスピリッツ"},{name: "プリパラ"},{name: "アイカツ"},{name: "カードファイト!! ヴァンガード"},{name: "ヴァイスシュヴァルツ"},{name: "プロ野球オーナーズリーグ"},{name: "ベースボールヒーローズ"},{name: "ドラゴンボール"},{name: "スリーブ"},{name: "その他"}])
+toy_hobby_goods_5 = toy_hobby_goods.children.create(name: "フィギュア")
+toy_hobby_goods_5.children.create([{name: "コミック/アニメ"},{name: "特撮"},{name: "ゲームキャラクター"},{name: "SF/ファンタジー/ホラー"},{name: "アメコミ"},{name: "スポーツ"},{name: "ミリタリー"},{name: "その他"}])
+toy_hobby_goods_6 = toy_hobby_goods.children.create(name: "楽器/器材")
+toy_hobby_goods_6.children.create([{name: "エレキギター"},{name: "アコースティックギター"},{name: "ベース"},{name: "エフェクター"},{name: "アンプ"},{name: "弦楽器"},{name: "管楽器"},{name: "鍵盤楽器"},{name: "打楽器"},{name: "和楽器"},{name: "楽譜/スコア"},{name: "レコーディング/PA機器"},{name: "DJ機器"},{name: "DTM/DAW"},{name: "その他"}])
+toy_hobby_goods_7 = toy_hobby_goods.children.create(name: "コレクション")
+toy_hobby_goods_7.children.create([{name: "武具"},{name: "使用済切手/官製はがき"},{name: "旧貨幣/金貨/銀貨/記念硬貨"},{name: "印刷物"},{name: "ノベルティグッズ"},{name: "その他"}])
+toy_hobby_goods_8 = toy_hobby_goods.children.create(name: "ミリタリー")
+toy_hobby_goods_8.children.create([{name: "トイガン"},{name: "個人装備"},{name: "その他"}])
+toy_hobby_goods_9 = toy_hobby_goods.children.create(name: "美術品")
+toy_hobby_goods_9.children.create([{name: "陶芸"},{name: "ガラス"},{name: "漆芸"},{name: "金属工芸"},{name: "絵画/タペストリ"},{name: "版画"},{name: "彫刻/オブジェクト"},{name: "書"},{name: "写真"},{name: "その他"}])
+toy_hobby_goods_10 = toy_hobby_goods.children.create(name: "アート用品")
+toy_hobby_goods_10.children.create([{name: "画材"},{name: "額縁"},{name: "その他"}])
+toy_hobby_goods_11 = toy_hobby_goods.children.create(name: "その他")
+toy_hobby_goods_11.children.create([{name: "トランプ/UNO"},{name: "カルタ/百人一首"},{name: "ダーツ"},{name: "ビリヤード"},{name: "麻雀"},{name: "パズル/ジグソーパズル"},{name: "囲碁/将棋"},{name: "オセロ/チェス"},{name: "人生ゲーム"},{name: "野球/サッカーゲーム"},{name: "スポーツ"},{name: "三輪車/乗り物"},{name: "ヨーヨー"},{name: "模型製作用品"},{name: "鉄道"},{name: "航空機"},{name: "アマチュア無線"},{name: "パチンコ/パチスロ"},{name: "その他"}])
+
+
+
+cosme_perfume_beauty = Kind.create(name: "コスメ・香水・美容")
+cosme_perfume_beauty_1 = cosme_perfume_beauty.children.create(name: "ベースメイク")
+cosme_perfume_beauty_1.children.create([{name: "ファンデーション"},{name: "化粧下地"},{name: "コントロールカラー"},{name: "BBクリーム"},{name: "CCクリーム"},{name: "コンシーラー"},{name: "フェイスパウダー"},{name: "トライアルセット/サンプル"},{name: "その他"}])
+cosme_perfume_beauty_2 = cosme_perfume_beauty.children.create(name: "メイクアップ")
+cosme_perfume_beauty_2.children.create([{name: "アイシャドウ"},{name: "口紅"},{name: "リップグロス"},{name: "リップライナー"},{name: "チーク"},{name: "フェイスカラー"},{name: "マスカラ"},{name: "アイライナー"},{name: "つけまつげ"},{name: "アイブロウペンシル"},{name: "パウダーアイブロウ"},{name: "眉マスカラ"},{name: "トライアルセット/サンプル"},{name: "メイク道具/化粧小物"},{name: "美顔用品/美顔ローラー"},{name: "その他"}])
+cosme_perfume_beauty_3 = cosme_perfume_beauty.children.create(name: "ネイルケア")
+cosme_perfume_beauty_3.children.create([{name: "ネイルカラー"},{name: "カラージェル"},{name: "ネイルベースコート/トップコート"},{name: "ネイルアート用品"},{name: "ネイルパーツ"},{name: "ネイルチップ/付け爪"},{name: "手入れ用具"},{name: "除光液"},{name: "その他"}])
+cosme_perfume_beauty_4 = cosme_perfume_beauty.children.create(name: "香水")
+cosme_perfume_beauty_4.children.create([{name: "香水(女性用)"},{name: "香水(男性用)"},{name: "ユニセックス"},{name: "ボディミスト"},{name: "その他"}])
+cosme_perfume_beauty_5 = cosme_perfume_beauty.children.create(name: "スキンケア/基礎化粧品")
+cosme_perfume_beauty_5.children.create([{name: "化粧水/ローション"},{name: "乳液/ミルク"},{name: "美容液"},{name: "フェイスクリーム"},{name: "洗顔料"},{name: "クレンジング/メイク落とし"},{name: "パック/フェイスマスク"},{name: "ジェル/ゲル"},{name: "ブースター/導入液"},{name: "アイケア"},{name: "リップケア"},{name: "トライアルセット/サンプル"},{name: "洗顔グッズ"},{name: "その他"}])
+cosme_perfume_beauty_6 = cosme_perfume_beauty.children.create(name: "ヘアケア")
+cosme_perfume_beauty_6.children.create([{name: "シャンプー"},{name: "トリートメント"},{name: "コンディショナー"},{name: "リンス"},{name: "スタイリング剤"},{name: "カラーリング剤"},{name: "ブラシ"},{name: "その他"}])
+cosme_perfume_beauty_7 = cosme_perfume_beauty.children.create(name: "ボディケア")
+cosme_perfume_beauty_7.children.create([{name: "オイル/クリーム"},{name: "ハンドクリーム"},{name: "ローション"},{name: "日焼け止め/サンオイル"},{name: "ボディソープ"},{name: "入浴剤"},{name: "制汗/デオドラント"},{name: "フットケア"},{name: "その他"}])
+cosme_perfume_beauty_8 = cosme_perfume_beauty.children.create(name: "オーラルケア")
+cosme_perfume_beauty_8.children.create([{name: "口臭防止/エチケット用品"},{name: "歯ブラシ"},{name: "その他"}])
+cosme_perfume_beauty_9 = cosme_perfume_beauty.children.create(name: "リラクゼーション")
+cosme_perfume_beauty_9.children.create([{name: "エッセンシャルオイル"},{name: "芳香器"},{name: "お香/香炉"},{name: "キャンドル"},{name: "リラクゼーショングッズ"},{name: "その他"}])
+cosme_perfume_beauty_10 = cosme_perfume_beauty.children.create(name: "ダイエット")
+cosme_perfume_beauty_10.children.create([{name: "ダイエット食品"},{name: "エクササイズ用品"},{name: "体重計"},{name: "体脂肪計"},{name: "その他"}])
+cosme_perfume_beauty_11 = cosme_perfume_beauty.children.create(name: "その他")
+cosme_perfume_beauty_11.children.create([{name: "健康用品"},{name: "看護/介護用品"},{name: "救急/衛生用品"},{name: "その他"}])
 
 
