@@ -36,8 +36,8 @@ application up and running.
 |prefectures|string|null: false|
 |municipalities|string|null: false|
 |address|string|null: false|
-|building|string|null: false|
-|phone_number|integer|null: false|
+|building|string||
+|phone_number|string|null: false|
 |user|references|foreign_key: true|
 
 ### Association
