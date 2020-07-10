@@ -1,0 +1,93 @@
+.LoginBoard {
+  width: 30%;
+  padding: 50px 0;
+  margin: 0 auto;
+  text-align: center;
+  
+
+  &__HaveNoAccount {
+    background-color: white;
+    padding: 40px 64px;
+    &__Text {
+      font-size: 14px;
+      line-height: 14px;
+    }
+    &__PinkBtn {
+      text-decoration: none;
+      &__Text {
+        background-color: #FF5192;
+        color: white;
+        font-size: 14px;
+        line-height: 50px;
+        border: solid 1px #FF5192;
+        border-radius: 5px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &__InputBox {
+    background-color: white;
+    padding: 40px 64px 32px;
+    border-top: solid 1px silver;
+    &__UpText {
+      font-size: 14px;
+      line-height: 14px;
+    }
+    &__Form {
+      &__Email {
+        margin-top: 20px;
+        #user_email {
+          width: 100%;
+          line-height: 40px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 14px;
+          color: gray;
+          margin-top: 5px;
+        }
+      }
+      &__Pass {
+        margin-top: 24px;
+        #user_password {
+          width: 100%;
+          line-height: 40px;
+        }
+        p {
+          font-size   : 14px;
+          line-height : 14px;
+          color       : gray;
+          margin-top  : 5px;
+        }
+      }
+      &__Check {
+        display: none;
+      }
+      &__BlueBtn {
+        margin-top: 40px;
+        &__BlueLoginBtn {
+          display       : inline-block;
+          width         : 100%;
+          border-radius : 5px;
+          font-size     : 14px;
+          cursor        : pointer;
+          background    : #3ccace;
+          color         : #ffffff;
+          line-height   : 50px;
+          border        : 1px solid #3ccace;
+        }
+      }
+    }
+    &__ForgotPass {
+      margin-top: 25px;
+      &__Text {
+        margin-top: 15px;
+        color           : #6699FF;
+        text-decoration : none;
+        font-size       : 14px;
+        line-height     : 14px;
+      }
+    }
+  }
+}
