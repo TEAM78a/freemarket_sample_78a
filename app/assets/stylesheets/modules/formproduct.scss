@@ -1,11 +1,9 @@
-//image投稿欄のCSS
 .post__drop__box__container{
   display: block;
   margin: 16px auto 0;
   display: flex;
   flex-wrap: wrap;
 
-  //プレビュー表示欄のCSS
   .prev-content {
     display: flex;
     .preview-box {
@@ -45,7 +43,6 @@
     }
   }
 
-  //投稿クリックエリアのCSS
   .label-content{
     margin-bottom: 10px;
     margin: 0 auto;
@@ -76,13 +73,12 @@
     }
   }
 
-  //file_fieldのcss
   .hidden-content {
     .hidden-field {
-      // display: none;
+      display: none;
     }
     .hidden-checkbox {
-      // display: none;
+      display: none;
     }
   }
 }
