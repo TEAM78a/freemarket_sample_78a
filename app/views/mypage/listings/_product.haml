@@ -1,0 +1,18 @@
+%tr
+  %th
+    = link_to product_path(product.id), class: 'no-underline' do
+      = image_tag product.images[0].image_url, class: 'product_image'
+  %td{valign: "top"}
+    = link_to product_path(product.id), class: 'no-underline' do
+      = "商品名：#{product.name}"
+  %td
+    - if product.sold_out_flg
+      .Edit-btn
+        = link_to "配送完了", "#", class: 'btn-smole'
+    - else
+      .Edit-btn
+        = link_to "編集する", "#", class: 'btn-smole'
+      .Edit-btn
+        = link_to "削除する", "#", class: 'btn-smole'
+
+
