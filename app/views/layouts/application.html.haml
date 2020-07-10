@@ -13,7 +13,8 @@
       .Headfield
         .Headfield__Top
           .Headfield__Top--logo
-            = link_to image_tag("topimage/logo.png"), "#" 
+            = link_to root_path do
+              = image_tag("topimage/logo.png") 
           .Headfield__Top__Searchbox
             = text_field :keyword,'', class: "Headfield__Top__Searchbox--input",placeholder: "キーワードから探す"
             .Headfield__Top__Searchbox--icon

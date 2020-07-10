@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only:[:edit, :update]
 
   def index
@@ -52,7 +53,7 @@ class ProductsController < ApplicationController
                                       :id,
                                       :image,
                                       :_destroy
-                                    ])
+                                    ]).merge(user_id: current_user.id)
   end
 
   def set_product
