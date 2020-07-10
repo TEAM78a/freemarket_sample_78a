@@ -1,5 +1,6 @@
 %table.ProductsList
   %tbody
+    
     %tr
       %th
         = image_tag ('products/a001.png'), class: 'product_image'
@@ -8,6 +9,6 @@
       %td
         // #商品購入機能実装後、条件式を記述（出力するボタンの場合わけ）
         -# .Edit-btn
-        -#   = link_to "編集する", "#", class: 'btn-smole'
+        -#   = link_to "編集する", "#", class: 'btn-small'
         -# .Edit-btn
-        -#   = link_to "削除する", "#", class: 'btn-smole'
+        -#   = link_to "削除する", "#", class: 'btn-small'

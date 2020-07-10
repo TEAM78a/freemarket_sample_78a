@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :products do
-    get 'confirmation', on: :member
+    resources :confirmations, only: [:index, :new, :create, :edit, :update]
   end
 
   get '/mypage' => 'items#mypage'

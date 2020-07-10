@@ -10,6 +10,7 @@ FactoryBot.define do
     postage_id                     {"1"}
     shipment_id                    {"1"}
     prefecture_id                  {"1"}
+    user_id                        {"1"}
     after(:build) do |product|
       product.images << build_list(:image, 2, product: product)
     end
