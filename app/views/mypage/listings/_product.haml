@@ -8,12 +8,12 @@
   %td
     - if product.sold_out_flg
       .Edit-btn
-        = link_to "配送完了", "#", class: 'btn-smole'
+        = link_to "配送完了", "#", class: 'btn-small'
     - else
       .Edit-btn
-        = link_to edit_product_path(product.id), class: 'btn-smole' do
+        = link_to edit_product_path(product.id), class: 'btn-small' do
           編集する
       .Edit-btn
-        = link_to "削除する", "#", class: 'btn-smole'
+        = link_to "削除する", "#", class: 'btn-small'
 
 
