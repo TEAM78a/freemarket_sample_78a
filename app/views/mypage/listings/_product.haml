@@ -11,7 +11,8 @@
         = link_to "配送完了", "#", class: 'btn-smole'
     - else
       .Edit-btn
-        = link_to "編集する", "#", class: 'btn-smole'
+        = link_to edit_product_path(product.id), class: 'btn-smole' do
+          編集する
       .Edit-btn
         = link_to "削除する", "#", class: 'btn-smole'
 
