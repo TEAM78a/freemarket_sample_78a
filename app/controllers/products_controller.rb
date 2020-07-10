@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
                                       :id,
                                       :image,
                                       :_destroy
-                                    ])
+                                    ]).merge(user_id: current_user.id)
   end
 
   def set_product
