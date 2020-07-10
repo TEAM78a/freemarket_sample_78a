@@ -1,0 +1,230 @@
+body{
+  background-color: #f8f8f8;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+.main{
+  &__showMain{
+    padding: 40px 40px 120px 40px;
+    margin: 0 auto;
+    &__contents{
+      width: 700px;
+      margin: 0 auto;
+      &__topContent{
+        &__itemBox{
+          background-color: #fff;
+          padding: 24px 40px 40px;
+          &__name{
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+          }
+          &__image{
+            margin: 16px 0 0;
+            ul{
+              display: flex;
+              position: relative;  
+              li{
+                display: flex;
+                flex-direction: column;
+                width: 560px;
+                margin: 0 auto;
+                .img{
+                  object-fit: cover;
+                  height: 346px;
+                }
+                .imgList{
+                  display: flex;
+                  justify-content: center;
+                  margin-top: 10px;
+                  .lists{
+                    width: 25%;
+                    margin: 0 10px 0 0;
+                    .imgs{
+                      object-fit: cover;
+                      height: 87px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &__price{
+            margin: 24px 0 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            span{
+              font-size: 46px;
+              font-weight: bold;
+              margin: 0 10px 0 0;
+              }
+            &__tax{
+              font-size: 16px;
+            }
+          }
+          &__explanation{
+            line-height: 1.5;
+            font-size: 18px;
+            margin-bottom: 30px;
+          }
+          &__table{
+            margin-bottom: 20px;
+            .showInfo{
+              width: 100%;
+              border: 1px solid #f8f8f8;
+                th{
+                  background-color: #eee;
+                  width: 20%;
+                  padding: 8px;
+                  text-align: center;
+                  border: 1px solid #dedede;
+                  font-size: 14px;
+                }
+                td{
+                  width: 61%;
+                  padding: 15px 15px;
+                  border: 1px solid #dedede;
+                  font-size: 14px;
+                  .showLink{
+                    text-decoration: none;
+                    color: #3CCACE;
+                  }
+                }
+            }
+          }
+          &__choiceArea{
+            display: flex;
+            justify-content: space-between;
+            .report{
+              margin-top: 10px;
+              .likeBtn{
+                border: 1px solid #ffb340;
+                border-radius: 40px;
+                padding: 6px 10px;
+                color: #3CCACE;
+                .starBtn{
+                  text-decoration: none;
+                  color: #3CCACE;
+                }
+                .starIcon{
+                  font-size: 0.8em;
+                  color: #3CCACE;
+                }
+              }
+              .likeBtn:hover{
+                opacity: 0.5;
+              }
+              .reportBtn{
+                font-size: 14px;
+                border: 1px solid #333;
+                border-radius: 4px;
+                padding: 6px 10px;
+                .flagBtn{
+                  display: inline-block;
+                  text-decoration: none;
+                  color: #333;
+                }
+                .flagIcon{
+                  font-size: 0.8em;
+                  color: #333;
+                }
+              }
+              .reportBtn:hover{
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+        &__commentArea{
+          padding: 24px;
+          background-color: #fff;
+          margin: 10px 0;
+          text-align: center;
+          .commentForm{
+            width: auto;
+            textarea{
+              width: 628px;
+              min-height: 104px;
+              min-width: 628px;
+              max-width: 628px;
+              padding: 10px;
+            }
+            .notes{
+              padding: 8px;
+              font-size: 14px;
+              background-color: #f8f8f8;
+              margin: 10px 0;
+              text-align: left;
+            }
+            .commentBtn{
+              color: #fff;
+              font-size: 18px;
+              background-color: #3CCACE;
+              border: 1px solid #3CCACE;
+              width: 60%;
+              line-height: 48px;
+              border-radius: 100px;
+            }
+          }
+        }
+      }
+      .pageMove{
+        display: flex;
+        justify-content: space-between;
+          .pages{
+            text-decoration: none;
+            color: #3CCACE;
+          }
+          .front, .next{
+            color: #3CCACE;
+          }
+      }
+      &__moreItems{
+        .more{
+          display: block;
+          text-decoration: none;
+          color: #3CCACE;
+          margin: 24px 0 8px;
+          font-weight: bold;
+          font-size: 22px;
+        }
+        .productField{
+          display: flex;
+          height: 150px;
+          margin: 26px auto;
+          &__ProductBox{
+            height: 245px;
+            width: 220px;
+            background-color: #fff;
+            margin: 5px;
+            &__Image {
+              .relationImg {
+                width: 220px;
+                height: 150px;
+                object-fit: cover;
+              }
+            }
+            &__Info {
+              &__Ele {
+                display: flex;
+                font-size: 16px;
+                justify-content: space-between;
+                &__Price{
+                  justify-content: left;
+                }
+                &__Favorite {
+                  justify-content: right;
+                  margin-right: 15px;
+                }
+              }
+              &__Tax {
+                justify-content: left;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
