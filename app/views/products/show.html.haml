@@ -12,13 +12,13 @@
 
           .main__showMain__contents__topContent__itemBox__image
             %ul
-              %li
-                = image_tag ('showimage/IMG_9072.jpg'), class: "img"
+              %li.mainImage
+                = image_tag ('showimage/IMG_9072.jpg'), class: "img", id: "main-img"
                 %ul.imgList
                   %li.lists
-                    = image_tag ('showimage/IMG_9072.jpg'), class: "imgs"                  
+                    = image_tag ('showimage/IMG_9072.jpg'), class: "imgs1"
                   %li.lists
-                    = image_tag ('showimage/IMG_9069.jpg'), class: "imgs"
+                    = image_tag ('showimage/IMG_9069.jpg'), class: "imgs2"
 
           .main__showMain__contents__topContent__itemBox__price
             %span ¥1000
@@ -108,7 +108,7 @@
                 .prductField__ProductBox__Info__Ele__Price
                   10000円
                 .productField__ProductBox__Info__Ele__Favorite
-                  %i.fa.fa-star.likeIcon
+                  = icon('fa','star likeIcon')
                   0
               .productField__ProductBox__Info__Tax
                 (税込)
@@ -123,7 +123,7 @@
                 .prductField__ProductBox__Info__Ele__Price
                   40000円
                 .productField__ProductBox__Info__Ele__Favorite
-                  %i.fa.fa-star.likeIcon
+                  = icon('fa','star likeIcon')
                   0
               .productField__ProductBox__Info__Tax
                 (税込)
@@ -138,7 +138,7 @@
                 .prductField__ProductBox__Info__Ele__Price
                   20000円
                 .productField__ProductBox__Info__Ele__Favorite
-                  %i.fa.fa-star.likeIcon
+                  = icon('fa','star likeIcon')
                   100
               .productField__ProductBox__Info__Tax
                 (税込)

@@ -2,10 +2,7 @@ body{
   background-color: #f8f8f8;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
-// bodyの設定は仮置きなのであとで削除する
-
 .main{
-  background-color: #f8f8f8;
   &__showMain{
     padding: 40px 40px 120px 40px;
     margin: 0 auto;
@@ -42,7 +39,11 @@ body{
                   .lists{
                     width: 25%;
                     margin: 0 10px 0 0;
-                    .imgs{
+                    .imgs1{
+                      object-fit: cover;
+                      height: 87px;
+                    }
+                    .imgs2{
                       object-fit: cover;
                       height: 87px;
                     }
