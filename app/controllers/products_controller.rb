@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    binding.pry
     if @product.save
       redirect_to product_path(@product.id)
     else
@@ -27,9 +26,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    binding.pry
     if @product.update(product_params)
-      binding.pry
       redirect_to product_path(@product.id)
     else
       render :new
