@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_product, only:[:edit, :update]
+  before_action :set_product, only:[:edit, :update, :destroy, :purchase, :pay]
   before_action :edit_validate, only: [:edit]
 
   def index
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
     binding.pry
     Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
     charge = Payjp::Charge.create(
-      amount: 2500,
+      amount: @product.price,
       card: params['payjp-token'],
       currency: 'jpy'
     )

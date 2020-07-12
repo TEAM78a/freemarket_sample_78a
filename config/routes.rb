@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :products do
     collection do
       get  'purchase/:id'=>  'products#purchase', as: 'purchase'
-      post 'pay'=>   'products#pay', as: 'pay'
+      post 'pay/:id'=>   'products#pay', as: 'pay'
       get  'done'=>      'products#done', as: 'done'
     end
   end
