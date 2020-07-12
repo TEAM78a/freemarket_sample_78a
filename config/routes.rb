@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :products do
-    resources :confirmations, only: [:index, :new, :create, :edit, :update]
+    collection do
+      get  'purchase/:id'=>  'products#purchase', as: 'purchase'
+      post 'pay'=>   'products#pay', as: 'pay'
+      get  'done'=>      'products#done', as: 'done'
+    end
   end
 
   get '/mypage' => 'items#mypage'
