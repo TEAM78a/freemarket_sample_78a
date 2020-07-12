@@ -38,6 +38,22 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def purchase
+  end
+  
+  def pay
+    binding.pry
+    Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
+    charge = Payjp::Charge.create(
+      amount: 2500,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+  end
+
+  def done
+  end
+
   private
 
   def product_params
