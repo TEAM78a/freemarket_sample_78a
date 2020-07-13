@@ -3,10 +3,12 @@ class Mypage::CardsController < ApplicationController
   require "payjp"
   
   def index
-    card = current_user.cards[0]
-    Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @customer_card = customer.cards.retrieve(card.card_id)
+    @card = current_user.cards[0]
+    if !@card.blank?
+      Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @customer_card = customer.cards.retrieve(@card.card_id)
+    end
     
   end
 
@@ -33,6 +35,12 @@ class Mypage::CardsController < ApplicationController
   end
 
   def destroy
-    
+    @card = Card.find(params[:id])
+    Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
+    binding.pry
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    customer.delete
+    @card.delete
+    redirect_to mypage_cards_path
   end
 end
