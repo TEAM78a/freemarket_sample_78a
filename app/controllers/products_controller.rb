@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_product, only:[:edit, :update]
+  before_action :set_product, only:[:edit, :update, :show]
   before_action :edit_validate, only: [:edit]
 
   def index
