@@ -24,12 +24,12 @@ Rails.application.routes.draw do
     resources :purchasers, only: [:index]
     resources :users, only: [:edit, :update]
     resources :destinations, only: [:edit, :update]
-    resources :cards, only: [:show, :new, :create] do
-      collection do
-        post 'show', to: 'card#show'
-        post 'pay', to: 'card#pay'
-        post 'delete', to: 'card#delete'
-      end
+    resources :cards, only: [:index, :new, :create] do
+      # collection do
+      #   post 'show', to: 'cards#show'
+      #   post 'pay', to: 'card#pay'
+      #   post 'delete', to: 'card#delete'
+      # end
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

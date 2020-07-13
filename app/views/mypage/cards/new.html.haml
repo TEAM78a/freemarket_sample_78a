@@ -13,7 +13,7 @@
               = f.label :カード番号, class: 'label'
               %span 必須
             .CardBox--ele
-              = f.text_field :card_number, type: 'text', class: 'input-text', placeholder: '半角数字のみ', maxlength: "16"
+              = f.text_field :payment_card_no, type: 'text', class: 'input-text',id: "payment_card_no", placeholder: '半角数字のみ', maxlength: "16"
             .CardBox--ele
               = image_tag ('cards/visa.svg'), class: 'card_image'
               = image_tag ('cards/master-card.svg'), class: 'card_image'
@@ -28,16 +28,16 @@
               = f.label :有効期限, class: 'label'
               %span 必須
             .CardBox--ele
-              = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-select'
+              = f.select :payment_card_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-select', id: 'payment_card_month'
               月
-              = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-select'
+              = f.select :payment_card_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-select', id: 'payment_card_year'
               年
           .CardBox
             .CardBox--ele
               = f.label :セキュリティコード, class: 'label'
               %span 必須
             .CardBox--ele
-              = f.text_field :cvc, type: 'text', class: 'input-text', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+              = f.text_field :payment_card_cvc, type: 'text', class: 'input-text', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
           .BodyCard__inner--btn
             = f.submit '追加する', class: 'Button', id: 'token_submit'
 
