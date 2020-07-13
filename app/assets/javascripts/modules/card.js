@@ -16,15 +16,16 @@ $(function(){
         $('#payment_card_no').removeAttr("name");
         $('#payment_card_cvc').removeAttr("name");
         $('#payment_card_month').removeAttr("name");
-        $('#payment_card_year').removeAttr("name"); 
-        $('#card_token').append(
-          $('<input type="hidden" name="payjp_token">').val(response.id)
-        );
+        $('#payment_card_year').removeAttr("name");
+
+        var payjphtml = `<input type="hidden" name="payjp_token" value=${response.id}>`
+        $('#charge-form').append(payjphtml);
+        console.log(response.id);
         document.inputForm.submit();
-        // alert("登録が完了しました");
+        alert("登録が完了しました");
       } else {
-        // redirect_to new_mypage_card_path
-        // alert("カード情報が正しくありません。");
+        $("#charge-form").prop('disabled', false);
+        alert("カード情報が正しくありません。");
       }
     });
   });

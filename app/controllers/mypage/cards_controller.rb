@@ -11,27 +11,22 @@ class Mypage::CardsController < ApplicationController
   end
 
   def create
-    # 前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
-    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
 
-    # 後ほどトークン作成処理を行いますが、そちらの完了の有無でフラッシュメッセージを表示させます。
     if params["payjp_token"].blank?
+      binding.pry
       redirect_to action: "new", alert: "クレジットカードを登録できませんでした。"
     else
-    # 無事トークン作成された場合のアクション(こっちが本命のアクション)
-    # まずは生成したトークンから、顧客情報と紐付け、PAY.JP管理サイトに登録
       customer = Payjp::Customer.create(
         email: current_user.email,
         card: params["payjp_token"],
-        metadata: {user_id: current_user.id} #最悪なくてもOK！
+        metadata: {user_id: current_user.id}
       )
-      # 今度はトークン化した情報を自アプリのcardsテーブルに登録！
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      # 無事、トークン作成とともにcardsテーブルに登録された場合、createビューが表示されるように条件分岐
       if @card.save
-        #もしcreateビューを作成しない場合はredirect_toなどで表示ビューを指定
+        redirect_to mypage_cards_path
       else
-        redirect_to action: "create"
+        redirect_to new_mypage_card_path
       end
     end
   end
