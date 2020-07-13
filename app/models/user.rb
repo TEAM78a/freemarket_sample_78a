@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, case_sensitive: false
 
   has_one :send_destination
+  has_many :cards
 end

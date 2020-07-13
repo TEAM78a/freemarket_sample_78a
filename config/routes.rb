@@ -10,21 +10,27 @@ Rails.application.routes.draw do
 
   resources :products do
     collection do
-      get  'purchase/:id'=>  'products#purchase', as: 'purchase'
-      post 'pay/:id'=>   'products#pay', as: 'pay'
-      get  'done'=>      'products#done', as: 'done'
+      get  'purchase/:id', to: 'products#purchase', as: 'purchase'
+      post 'pay/:id', to: 'products#pay', as: 'pay'
+      get  'done', to: 'products#done', as: 'done'
     end
   end
 
-  get '/mypage' => 'items#mypage'
-  get '/mypage/logout' => 'items#logout'
+  get '/mypage', to: 'items#mypage'
+  get '/mypage/logout', to: 'items#logout'
   namespace :mypage do
     resources :favorites, only:[:index]
     resources :listings, only: [:index]
     resources :purchasers, only: [:index]
     resources :users, only: [:edit, :update]
     resources :destinations, only: [:edit, :update]
-    resources :cards, only: [:index, :new, :create, :destroy]
+    resources :cards, only: [:show, :new, :create] do
+      collection do
+        post 'show', to: 'card#show'
+        post 'pay', to: 'card#pay'
+        post 'delete', to: 'card#delete'
+      end
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

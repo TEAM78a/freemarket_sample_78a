@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to product_path(@product.id)
     else
-      render :new
+      render :edit
     end
   end
 
@@ -42,13 +42,19 @@ class ProductsController < ApplicationController
   end
   
   def pay
-    binding.pry
     Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
-    charge = Payjp::Charge.create(
-      amount: @product.price,
-      card: params['payjp-token'],
-      currency: 'jpy'
-    )
+    if charge = Payjp::Charge.create(
+        amount: @product.price,
+        card: params['payjp-token'],
+        currency: 'jpy'
+      )
+      
+      @product.sold_out_flg = 1
+      @product.save
+      redirect_to done_products_path
+    else
+      render :purchase
+    end
   end
 
   def done
