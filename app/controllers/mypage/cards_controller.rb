@@ -3,18 +3,19 @@ class Mypage::CardsController < ApplicationController
   require "payjp"
   
   def index
+    card = current_user.cards[0]
+    Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @customer_card = customer.cards.retrieve(card.card_id)
     
   end
 
   def new
-    
   end
 
   def create
     Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
-
     if params["payjp_token"].blank?
-      binding.pry
       redirect_to action: "new", alert: "クレジットカードを登録できませんでした。"
     else
       customer = Payjp::Customer.create(

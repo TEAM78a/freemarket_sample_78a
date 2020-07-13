@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :purchasers, only: [:index]
     resources :users, only: [:edit, :update]
     resources :destinations, only: [:edit, :update]
-    resources :cards, only: [:index, :new, :create] do
+    resources :cards, only: [:index, :new, :create, :destroy] do
       # collection do
       #   post 'show', to: 'cards#show'
       #   post 'pay', to: 'card#pay'
