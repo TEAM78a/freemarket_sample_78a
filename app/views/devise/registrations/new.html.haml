@@ -6,23 +6,23 @@
   = form_for(@user, url: user_registration_path, html: {class: 'RegistrationForm'}) do |f|
     = render "devise/shared/error_messages", resource: @user
     .RegistrationForm__UserInput
-      .field.RegistrationForm__UserInput__Nickname
+      .basic-field.RegistrationForm__UserInput__Nickname
         = f.label :ニックネーム, class: "label"
         %span 必須
         %br/
         = f.text_field :nickname, placeholder: "例)フリマ太郎"
-      .field.RegistrationForm__UserInput__Email
+      .basic-field.RegistrationForm__UserInput__Email
         = f.label :メールアドレス, class: "label" 
         %span 必須
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-      .field.RegistrationForm__UserInput__Pass
+      .basic-field.RegistrationForm__UserInput__Pass
         = f.label :パスワード, class: "label"
         %span 必須
         - if @minimum_password_length
         %br/
         = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
-      .field.RegistrationForm__UserInput__PassConf
+      .basic-field.RegistrationForm__UserInput__PassConf
         = f.label :パスワード確認, class: "label"
         %span 必須
         %br/
@@ -30,21 +30,21 @@
     
       %ul 本人確認
 
-      .field.RegistrationForm__UserInput__FullName
+      .basic-field.RegistrationForm__UserInput__FullName
         = f.label :お名前（全角）, class: "label"
         %span 必須
         %br/
         .RegistrationForm__UserInput__FullName__InputBox
           = f.text_field :family_name, placeholder: "例)田中"
           = f.text_field :first_name, placeholder: "例)花子"
-      .field.RegistrationForm__UserInput__NameKana
+      .basic-field.RegistrationForm__UserInput__NameKana
         = f.label :お名前かな（全角）, class: "label"
         %span 必須
         %br/
         .RegistrationForm__UserInput__NameKana__InputBox
           = f.text_field :family_name_kana, placeholder: "例)たなか"
           = f.text_field :first_name_kana, placeholder: "例)はなこ"
-      .field.RegistrationForm__UserInput__Birthday
+      .birth-field.RegistrationForm__UserInput__Birthday
         = f.label :生年月日, class: "label"
         %span 必須
         %br/
