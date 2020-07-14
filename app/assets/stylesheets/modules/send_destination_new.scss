@@ -1,68 +1,24 @@
 .AdressRegistrationContainer {
-  width: 700px;
-  padding: 50px 0;
-  margin: 0 auto;
-  text-align: center;
+  width      : 700px;
+  padding    : 50px 0;
+  margin     : 0 auto;
+  text-align : center;
 
   .AdressRegistrationHeader {
-    background-color: white;
-    padding: 32px;
-    font-size: 22px;
-    line-height: 33px;
-    font-weight: 700;
+    background-color : white;
+    padding          : 32px;
+    font-size        : 22px;
+    line-height      : 33px;
+    font-weight      : 700;
   }
 
   .AdressRegistrationForm {
-    background-color: white;
-    border-top: solid 1px silver;
+    background-color : white;
+    border-top       : solid 1px silver;
     &__SendDestInput {
-      margin: 0 auto;
-      max-width: 343px;
-      text-align: left;
-      &__FullName {
-        margin-top: 24px;
-        &__InputBox {
-          display: flex;
-          #send_destination_family_name {
-            width: 133.5px;
-            border: solid 1px gray;
-            line-height: 28px;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            margin: 8px 8px 0 0;
-          }
-          #send_destination_first_name {
-            width: 133.5px;
-            border: solid 1px gray;
-            line-height: 28px;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            margin-top: 8px;
-          }
-        }
-      }
-      &__NameKana {
-        margin-top: 24px;
-        &__InputBox {
-          display: flex;
-          #send_destination_family_name_kana {
-            width: 133.5px;
-            border: solid 1px gray;
-            line-height: 28px;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            margin: 8px 8px 0 0;
-          }
-          #send_destination_first_name_kana {
-            width: 133.5px;
-            border: solid 1px gray;
-            line-height: 28px;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            margin-top: 8px;
-          }
-        }
-      }
+      margin     : 0 auto;
+      max-width  : 343px;
+      text-align : left;
       .send-btn {
         display       : inline-block;
         width         : 343px;
@@ -82,28 +38,47 @@
   
   .basic-field {
     margin-top: 24px;
+    &__separate-box {
+      display: flex;
+      .family-name-form {
+        width       : 133.5px;
+        border      : solid 1px gray;
+        line-height : 28px;
+        font-size   : 16px;
+        padding     : 10px 16px 8px;
+        margin      : 8px 8px 0 0;
+      }
+      .first-name-form {
+        width       : 133.5px;
+        border      : solid 1px gray;
+        line-height : 28px;
+        font-size   : 16px;
+        padding     : 10px 16px 8px;
+        margin-top  : 8px;
+      }
+    }
   }
   .temp-input-form {
-    width: calc(100% - 34px);
-    border: solid 1px gray;
-    line-height: 28px;
-    font-size: 16px;
-    padding: 10px 16px 8px;
-    margin-top: 8px;
+    width       : calc(100% - 34px);
+    border      : solid 1px gray;
+    line-height : 28px;
+    font-size   : 16px;
+    padding     : 10px 16px 8px;
+    margin-top  : 8px;
   }
   .label {
-    font-size: 14px;
+    font-size  : 14px;
     font-weight: 600;
   }
   span {
-    margin-left: 8px;
-    background-color: #ea352d;
-    color: white;
-    border-radius: 2px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 12px;
-    padding: 2px 4px;
-    border: solid 1px #ea352d;
+    margin-left      : 8px;
+    background-color : #ea352d;
+    color            : white;
+    border-radius    : 2px;
+    font-size        : 12px;
+    font-weight      : 400;
+    line-height      : 12px;
+    padding          : 2px 4px;
+    border           : solid 1px #ea352d;
   }
 }
