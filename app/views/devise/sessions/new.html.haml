@@ -24,6 +24,4 @@
       .LoginBoard__InputBox__Form__BlueBtn
         = f.submit "ログイン", class: "LoginBoard__InputBox__Form__BlueBtn__BlueLoginBtn"
 
-    - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-      .LoginBoard__InputBox__ForgotPass
-        = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "LoginBoard__InputBox__ForgotPass__Text"
+  = render "devise/shared/links"
