@@ -3,7 +3,7 @@
   padding    : 50px 0;
   margin     : 0 auto;
   text-align : center;
-
+  
   .AdressRegistrationHeader {
     background-color : white;
     padding          : 32px;
@@ -11,10 +11,14 @@
     line-height      : 33px;
     font-weight      : 700;
   }
-
+  
   .AdressRegistrationForm {
     background-color : white;
     border-top       : solid 1px silver;
+    #error_explanation {
+      text-align: left;
+      color: red;
+    }
     &__SendDestInput {
       margin     : 0 auto;
       max-width  : 343px;
