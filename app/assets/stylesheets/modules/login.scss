@@ -41,24 +41,12 @@
           width: 100%;
           line-height: 40px;
         }
-        p {
-          font-size: 14px;
-          line-height: 14px;
-          color: gray;
-          margin-top: 5px;
-        }
       }
       &__Pass {
         margin-top: 24px;
         #user_password {
           width: 100%;
           line-height: 40px;
-        }
-        p {
-          font-size   : 14px;
-          line-height : 14px;
-          color       : gray;
-          margin-top  : 5px;
         }
       }
       &__Check {
@@ -81,6 +69,7 @@
     }
     &__ForgotPass {
       margin-top: 25px;
+      text-align: left;
       &__Text {
         margin-top: 15px;
         color           : #6699FF;
@@ -89,5 +78,14 @@
         line-height     : 14px;
       }
     }
+  }
+
+
+  p {
+    font-size: 14px;
+    line-height: 14px;
+    color: gray;
+    margin-top: 5px;
+    text-align: left;
   }
 }
