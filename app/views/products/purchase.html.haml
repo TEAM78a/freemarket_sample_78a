@@ -21,25 +21,41 @@
           = "¥#{number_with_delimiter(@product.price)}"
       %hr
       .Purchase__Info__Box
-        .Purchase__Info__Box--card
-        - if !@card.blank?
-          - exp_month = @customer_card.exp_month.to_s
-          - exp_year = @customer_card.exp_year.to_s.slice(2,3)
-          %table.BodyCard__Info--table
-            %tbody
-              %tr
-                %td
-                  = image_tag ('cards/visa.svg'), class: 'card_image'
-                  %br
-                  カード番号：
-                  = "**** **** **** " + @customer_card.last4
-                  %br
-                  有効期限　：
-                  = exp_month + " / " + exp_year
+        .Purchase__Info__Box__left
+          .Purchase__Info__Box__left--name
+            支払い方法
+          .Purchase__Info__Box__left--ele
+            - if !@card.blank?
+              - exp_month = @customer_card.exp_month.to_s
+              - exp_year = @customer_card.exp_year.to_s.slice(2,3)
+              %table.BodyCard__Info--table
+                %tbody
+                  %tr
+                    %td
+                      = image_tag ('cards/visa.svg'), class: 'card_image'
+                      %br
+                      カード番号：
+                      = "**** **** **** " + @customer_card.last4
+                      %br
+                      有効期限　：
+                      = exp_month + " / " + exp_year
+        .Purchase__Info__Box__right
 
       %hr
       .Purchase__Info__Box
-        .Purchase__Info__Box--Address
+        .Purchase__Info__Box__left
+          .Purchase__Info__Box__left--name
+            配送先
+          .Purchase__Info__Box__left--ele
+            .Purchase__Info__Box__left--ele--postal
+              = "〒#{current_user.send_destination.postal_code.to_s[0..2]}-#{current_user.send_destination.postal_code.to_s[3..]}"
+            .Purchase__Info__Box__left--ele--address
+              = current_user.send_destination.prefectures + current_user.send_destination.municipalities + current_user.send_destination.address + current_user.send_destination.building
+            .Purchase__Info__Box__left--ele--tel
+              = "TEL：#{current_user.send_destination.phone_number}"
+            .Purchase__Info__Box__left--ele--name
+              = current_user.send_destination.family_name + current_user.send_destination.first_name
+        .Purchase__Info__Box__right
 
       %hr
       .Purchase__Info__Submit
@@ -48,4 +64,5 @@
             .message 購入にはクレジットカードの登録が必要です
         - else
           .editBtn
-            = f.submit "購入する", class: "buyBtn"
+            = f.submit "購入する", class: "buyBtn purchaseBtn"
+  .MarginBox

@@ -4,11 +4,12 @@
   margin:0 auto;
   &__Title{
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: bold;
   }
   &__Info{
     width: 70%;
-    height: 700px;
     margin: 0 auto;
     &__Box{
       display: flex;
@@ -33,8 +34,23 @@
       }
       &--PayPrice{
         font-size: 28px;
+      }
+      &__left{
+        &--name{
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+        &--ele{
+
+        }
+      }
+      &__right{
 
       }
+    }
+    &__Submit{
+      margin: 30px 0;
+
     }
   }
 }
