@@ -1,1 +1,21 @@
-%h1 商品一覧ページ
+.productLists
+  .productList
+    %h1.listTitle 出品商品一覧
+    .productField
+      - @products.each do |product|
+        .productField__ProductBox
+          = link_to product_path(product.id), class: "productLink" do
+            .productField__ProductBox__Image
+              = image_tag product.images[0].image_url, class: "relationImg"
+              .productField__ProductBox__Info
+                .prductField__ProductBox__Info__Name
+                  = product.name
+                .productField__ProductBox__Info__Ele
+                  .prductField__ProductBox__Info__Ele__Price
+                    ¥
+                    = product.price
+                  .productField__ProductBox__Info__Ele__Favorite
+                    = icon('fa','star likeIcon')
+                    0
+                .productField__ProductBox__Info__Tax
+                  (税込)
