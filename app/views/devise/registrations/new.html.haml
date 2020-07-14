@@ -4,8 +4,8 @@
     会員情報入力
 
   = form_for(@user, url: user_registration_path, html: {class: 'RegistrationForm'}) do |f|
-    = render "devise/shared/error_messages", resource: @user
     .RegistrationForm__UserInput
+      = render "devise/shared/error_messages", resource: @user
       .basic-field
         = f.label :ニックネーム, class: "label"
         %span 必須
@@ -19,7 +19,6 @@
       .basic-field
         = f.label :パスワード, class: "label"
         %span 必須
-        - if @minimum_password_length
         %br/
         = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: "temp-input-form"
       .basic-field
@@ -28,7 +27,7 @@
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワードと同じものを入力", class: "temp-input-form"
     
-      %ul 本人確認
+      %ul.match-user 本人確認
 
       .basic-field
         = f.label :お名前（全角）, class: "label"
@@ -55,6 +54,6 @@
                         end_year:   1900,                 |
                         date_separator: '/ '
       %p ※本人情報は正しく入力してください。
-    = render "devise/shared/links"
       .actions
         = f.submit "次へ進む", class: "next-btn"
+  = render "devise/shared/links"
