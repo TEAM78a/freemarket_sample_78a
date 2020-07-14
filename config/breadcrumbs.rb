@@ -45,6 +45,16 @@ crumb :product_show do
   parent :products
 end
 
+crumb :product_new do
+  link "商品登録", new_product_path(:id)
+  parent :products
+end
+
+crumb :product_edit do
+  link "商品編集", edit_product_path(:id)
+  parent :products
+end
+
 crumb :purchase do
   link "購入確認", purchase_products_path(:id)
   parent :products
