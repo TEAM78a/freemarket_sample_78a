@@ -14,6 +14,20 @@
       display: flex;
       justify-content: space-between;
       margin: 30px;
+      &--image{
+      }
+      &__ele{
+        width: 100%;
+        position: relative;
+        &--title{
+          padding-left: 20px;
+        }
+        &--price{
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
     }
   }
 }

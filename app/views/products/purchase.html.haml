@@ -10,9 +10,9 @@
           = image_tag @product.images[0].image_url, class: 'product_image'
         .Purchase__Info__Box__ele
           .Purchase__Info__Box__ele--title
-            = @product.name
+            = @product.name 
           .Purchase__Info__Box__ele--price
-            = @product.price
+            = "（税込）¥#{number_with_delimiter(@product.price)}"
       %hr
       .Purchase__Info__Box
         .Purchase__Info__Box--PayTitle
