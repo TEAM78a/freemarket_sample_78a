@@ -29,6 +29,7 @@ body{
                 width: 560px;
                 margin: 0 auto;
                 .img{
+                  border: 2px solid;
                   object-fit: fill;
                   height: 346px;
                 }
@@ -42,6 +43,8 @@ body{
                     width: 25%;
                     margin: 0 10px 0 0;
                     .imgs{
+                      margin-left: 3px;
+                      border: 1px solid;
                       object-fit: cover;
                       height: 87px;
                     }
