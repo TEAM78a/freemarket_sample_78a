@@ -15,11 +15,15 @@
   .RegistrationForm {
     background-color: white;
     border-top      : solid 1px silver;
+    #error_explanation {
+      text-align: left;
+      color: red;
+    }
     &__UserInput {
       margin     : 0 auto;
       max-width  : 343px;
       text-align : left;
-      ul {
+      .match-user {
         margin-top  : 36px;
         font-size   : 16px;
         font-weight : 700;
