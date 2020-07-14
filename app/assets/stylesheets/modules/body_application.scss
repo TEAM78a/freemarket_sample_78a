@@ -54,3 +54,59 @@
   padding: 10px, 20px;
   width: 100%;
 }
+
+.editBtn{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  line-height: 50px;
+  .buyBtn{
+    display: block;
+    text-decoration: none;
+    border: 1px solid red;
+    color: #fff;
+    background-color: red;
+    margin-top: 20px;
+    width: 60%;
+    font-size: 18px;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  .edit-Btn{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    background-color: #3CCACE;
+    border: 1px solid #3CCACE;
+    width: 60%;
+    line-height: 48px;
+    border-radius: 100px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .deleteBtn{
+    text-decoration: none;
+    color: red;
+    font-size: 18px;
+    background-color: #fff;
+    border: 1px solid red;
+    width: 60%;
+    line-height: 48px;
+    border-radius: 100px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .soldOut{
+    color: #fff;
+    background-color: rgb(151, 148, 148);
+    margin-top: 20px;
+    width: 60%;
+    font-size: 18px;
+    border-radius: 100px;
+  }
+  .message{
+    color: red;
+    font-size: 18px;
+    border: 1px solid red;
+  }
+}

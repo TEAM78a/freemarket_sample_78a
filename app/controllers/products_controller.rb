@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :purchase, :pay]
   before_action :set_product, only:[:show, :edit, :update, :destroy, :purchase, :pay]
   before_action :edit_validate, only: [:edit]
+  before_action :set_api_key, only:[:purchase, :pay]
 
   def index
     @products = Product.all
@@ -40,8 +41,6 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
-    @card = current_user.cards[0]
     if !@card.blank?
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @customer_card = customer.cards.retrieve(@card.card_id)
@@ -49,29 +48,22 @@ class ProductsController < ApplicationController
   end
   
   def pay
-    @card = current_user.cards[0]
-    if @card.blank?
-      redirect_to action: "new"
-      flash[:alert] = '購入にはクレジットカード登録が必要です'
+    if charge = Payjp::Charge.create(
+      amount: @product.price,
+      customer: @card.customer_id,
+      currency: 'jpy',
+      )
+      
+      @product.sold_out_flg = 1
+      @product.save
+      redirect_to done_products_path
     else
-      # card = current_user.credit_card
-      Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
-      if charge = Payjp::Charge.create(
-        amount: @product.price,
-        customer: @card.customer_id,
-        currency: 'jpy',
-        )
-        
-        @product.sold_out_flg = 1
-        @product.save
-        redirect_to done_products_path
-      else
-        render :purchase
-      end
+      render :purchase
     end
   end
 
   def done
+
   end
 
   private
@@ -95,6 +87,11 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_api_key
+    Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
+    @card = current_user.cards[0]
   end
 
   def edit_validate

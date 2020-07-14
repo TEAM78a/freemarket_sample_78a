@@ -1,5 +1,5 @@
 .Purchase
-  = form_with url: pay_products_path(@product.id) do |f|
+  = form_with url: pay_products_path(@product.id), local: true do |f|
     .MarginBox
     .Purchase__Title
       購入内容の確認
@@ -43,4 +43,9 @@
 
       %hr
       .Purchase__Info__Submit
-        = f.submit "購入する", class: "buyBtn"
+        - if @card.blank?
+          .editBtn
+            .message 購入にはクレジットカードの登録が必要です
+        - else
+          .editBtn
+            = f.submit "購入する", class: "buyBtn"
