@@ -64,7 +64,7 @@ application up and running.
 - has_many :images, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :favorites
-- has_many :users
+- belongs_to :user
 - belongs_to_active_hash :kind
 - belongs_to_active_hash :brand
 - belongs_to_active_hash :condition
