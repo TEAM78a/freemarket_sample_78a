@@ -43,11 +43,4 @@
 
       %hr
       .Purchase__Info__Submit
-        = f.submit
-    -# %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => Rails.application.credentials[:payjp][:PUBLIC_KEY]}
-
-
-
-    
-
-
+        = f.submit "購入する", class: "buyBtn"
