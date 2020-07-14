@@ -1,161 +1,106 @@
 .RegistrationContainer {
-  width: 700px;
-  padding: 50px 0;
-  margin: 0 auto;
-  text-align: center;
+  width      : 700px;
+  padding    : 50px 0;
+  margin     : 0 auto;
+  text-align : center;
 
   .RegistrationHeader {
-    background-color: white;
-    padding: 32px;
-    font-size: 22px;
-    line-height: 33px;
-    font-weight: 700;
+    background-color : white;
+    padding          : 32px;
+    font-size        : 22px;
+    line-height      : 33px;
+    font-weight      : 700;
   }
 
   .RegistrationForm {
     background-color: white;
-    border-top: solid 1px silver;
-    .label {
-      font-size: 14px;
-      font-weight: 600;
-    }
-    span {
-      margin-left: 8px;
-      background-color: #ea352d;
-      color: white;
-      border-radius: 2px;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 12px;
-      padding: 2px 4px;
-      border: solid 1px #ea352d;
-    }
+    border-top      : solid 1px silver;
     &__UserInput {
-      margin: 0 auto;
-      max-width: 343px;
-      text-align: left;
-      &__Nickname {
-        margin-top: 24px;
-        #user_nickname {
-          width: calc(100% - 34px);
-          border: solid 1px gray;
-          line-height: 28px;
-          font-size: 16px;
-          padding: 10px 16px 8px;
-          margin-top: 8px;
-        }
-      }
-      &__Email {
-        margin-top: 24px;
-        #user_email {
-          width: calc(100% - 34px);
-          border: solid 1px gray;
-          line-height: 28px;
-          font-size: 16px;
-          padding: 10px 16px 8px;
-          margin-top: 8px;
-        }
-      }
-      &__Pass {
-        margin-top: 24px;
-        #user_password {
-          width: calc(100% - 34px);
-          border: solid 1px gray;
-          line-height: 28px;
-          font-size: 16px;
-          padding: 10px 16px 8px;
-          margin-top: 8px;
-        }
-      }
-      &__PassConf {
-        margin-top: 24px;
-        #user_password_confirmation {
-          width: calc(100% - 34px);
-          border: solid 1px gray;
-          line-height: 28px;
-          font-size: 16px;
-          padding: 10px 16px 8px;
-          margin-top: 8px;
-        }
-      }
+      margin     : 0 auto;
+      max-width  : 343px;
+      text-align : left;
       ul {
-        margin-top: 36px;
-        font-size: 16px;
-        font-weight: 700;
-      }
-      &__FullName {
-        margin-top: 24px;
-        &__InputBox {
-          display: flex;
-          #user_family_name {
-            width: 133.5px;
-            border: solid 1px gray;
-            line-height: 28px;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            margin: 8px 8px 0 0;
-          }
-          #user_first_name {
-            width: 133.5px;
-            border: solid 1px gray;
-            line-height: 28px;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            margin-top: 8px;
-          }
-        }
-      }
-      &__NameKana {
-        margin-top: 24px;
-        &__InputBox {
-          display: flex;
-          #user_family_name_kana {
-            width: 133.5px;
-            border: solid 1px gray;
-            line-height: 28px;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            margin: 8px 8px 0 0;
-          }
-          #user_first_name_kana {
-            width: 133.5px;
-            border: solid 1px gray;
-            line-height: 28px;
-            font-size: 16px;
-            padding: 10px 16px 8px;
-            margin-top: 8px;
-          }
-        }
+        margin-top  : 36px;
+        font-size   : 16px;
+        font-weight : 700;
       }
       &__Birthday {
         margin-top: 24px;
         #user_birthday_1i {
-          padding-left: 5px;
-          border: solid 1px gray;
-          width: 76px;
-          height: 46px;
-          margin-top: 8px;
+          padding-left : 5px;
+          border       : solid 1px gray;
+          width        : 76px;
+          height       : 46px;
+          margin-top   : 8px;
         }
         #user_birthday_2i {
-          padding-left: 10px;
-          border: solid 1px gray;
-          width: 76px;
-          height: 46px;
-          margin-top: 8px;
+          padding-left : 10px;
+          border       : solid 1px gray;
+          width        : 76px;
+          height       : 46px;
+          margin-top   : 8px;
         }
         #user_birthday_3i {
-          padding-left: 10px;
-          border: solid 1px gray;
-          width: 76px;
-          height: 46px;
-          margin-top: 8px;
+          padding-left : 10px;
+          border       : solid 1px gray;
+          width        : 76px;
+          height       : 46px;
+          margin-top   : 8px;
+        }
+      }
+      p {
+        font-size  : 14px;
+        color      : gray;
+        margin-top : 10px;
+      }
+    }
+    
+    
+    
+    .basic-field {
+      margin-top: 24px;
+      &__separate-box {
+        display: flex;
+        .family-name-form {
+          width       : 133.5px;
+          border      : solid 1px gray;
+          line-height : 28px;
+          font-size   : 16px;
+          padding     : 10px 16px 8px;
+          margin      : 8px 8px 0 0;
+        }
+        .first-name-form {
+          width       : 133.5px;
+          border      : solid 1px gray;
+          line-height : 28px;
+          font-size   : 16px;
+          padding     : 10px 16px 8px;
+          margin-top  : 8px;
         }
       }
     }
-    p {
-      font-size: 14px;
-      color: gray;
-      margin-top: 10px;
+    .label {
+      font-size  : 14px;
+      font-weight: 600;
+    }
+    span {
+      margin-left      : 8px;
+      background-color : #ea352d;
+      color            : white;
+      border-radius    : 2px;
+      font-size        : 12px;
+      font-weight      : 400;
+      line-height      : 12px;
+      padding          : 2px 4px;
+      border           : solid 1px #ea352d;
+    }
+    .temp-input-form {
+      width       : calc(100% - 34px);
+      border      : solid 1px gray;
+      line-height : 28px;
+      font-size   : 16px;
+      padding     : 10px 16px 8px;
+      margin-top  : 8px;
     }
     .next-btn {
       display       : inline-block;

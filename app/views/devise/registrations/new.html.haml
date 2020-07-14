@@ -6,44 +6,44 @@
   = form_for(@user, url: user_registration_path, html: {class: 'RegistrationForm'}) do |f|
     = render "devise/shared/error_messages", resource: @user
     .RegistrationForm__UserInput
-      .basic-field.RegistrationForm__UserInput__Nickname
+      .basic-field
         = f.label :ニックネーム, class: "label"
         %span 必須
         %br/
-        = f.text_field :nickname, placeholder: "例)フリマ太郎"
-      .basic-field.RegistrationForm__UserInput__Email
+        = f.text_field :nickname, placeholder: "例)フリマ太郎", class: "temp-input-form"
+      .basic-field
         = f.label :メールアドレス, class: "label" 
         %span 必須
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-      .basic-field.RegistrationForm__UserInput__Pass
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "temp-input-form"
+      .basic-field
         = f.label :パスワード, class: "label"
         %span 必須
         - if @minimum_password_length
         %br/
-        = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
-      .basic-field.RegistrationForm__UserInput__PassConf
+        = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: "temp-input-form"
+      .basic-field
         = f.label :パスワード確認, class: "label"
         %span 必須
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワードと同じものを入力"
+        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワードと同じものを入力", class: "temp-input-form"
     
       %ul 本人確認
 
-      .basic-field.RegistrationForm__UserInput__FullName
+      .basic-field
         = f.label :お名前（全角）, class: "label"
         %span 必須
         %br/
-        .RegistrationForm__UserInput__FullName__InputBox
-          = f.text_field :family_name, placeholder: "例)田中"
-          = f.text_field :first_name, placeholder: "例)花子"
-      .basic-field.RegistrationForm__UserInput__NameKana
+        .basic-field__separate-box
+          = f.text_field :family_name, placeholder: "例)田中", class: "family-name-form"
+          = f.text_field :first_name, placeholder: "例)花子", class: "first-name-form"
+      .basic-field
         = f.label :ふりがな（全角）, class: "label"
         %span 必須
         %br/
-        .RegistrationForm__UserInput__NameKana__InputBox
-          = f.text_field :family_name_kana, placeholder: "例)たなか"
-          = f.text_field :first_name_kana, placeholder: "例)はなこ"
+        .basic-field__separate-box
+          = f.text_field :family_name_kana, placeholder: "例)たなか", class: "family-name-form"
+          = f.text_field :first_name_kana, placeholder: "例)はなこ", class: "first-name-form"
       .birth-field.RegistrationForm__UserInput__Birthday
         = f.label :生年月日, class: "label"
         %span 必須
