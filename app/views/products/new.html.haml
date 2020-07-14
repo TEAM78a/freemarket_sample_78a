@@ -46,7 +46,7 @@
                     = f.label :kind_id, "カテゴリー"
                     %span 必須
                   %td
-                    = f.collection_select :kind_id, Kind.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+                    = f.collection_select :kind_id, @parents, :id, :name, {include_blank: "---", selected:""}, id: "kind_form" class: "form-select"
                 %tr
                   %th
                     = f.label :brand_id, "ブランド"
