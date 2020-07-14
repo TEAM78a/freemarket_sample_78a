@@ -1,0 +1,88 @@
+.AdressRegistrationContainer {
+  width      : 700px;
+  padding    : 50px 0;
+  margin     : 0 auto;
+  text-align : center;
+  
+  .AdressRegistrationHeader {
+    background-color : white;
+    padding          : 32px;
+    font-size        : 22px;
+    line-height      : 33px;
+    font-weight      : 700;
+  }
+  
+  .AdressRegistrationForm {
+    background-color : white;
+    border-top       : solid 1px silver;
+    #error_explanation {
+      text-align: left;
+      color: red;
+    }
+    &__SendDestInput {
+      margin     : 0 auto;
+      max-width  : 343px;
+      text-align : left;
+      .send-btn {
+        display       : inline-block;
+        width         : 343px;
+        height        : 50px;
+        margin        : 24px 0;
+        border-radius : 5px;
+        font-size     : 14px;
+        cursor        : pointer;
+        background    : #3ccace;
+        color         : #ffffff;
+        line-height   : 50px;
+        border        : 1px solid #3ccace;
+      }
+    }
+  }
+  
+  
+  .basic-field {
+    margin-top: 24px;
+    &__separate-box {
+      display: flex;
+      .family-name-form {
+        width       : 133.5px;
+        border      : solid 1px gray;
+        line-height : 28px;
+        font-size   : 16px;
+        padding     : 10px 16px 8px;
+        margin      : 8px 8px 0 0;
+      }
+      .first-name-form {
+        width       : 133.5px;
+        border      : solid 1px gray;
+        line-height : 28px;
+        font-size   : 16px;
+        padding     : 10px 16px 8px;
+        margin-top  : 8px;
+      }
+    }
+  }
+  .temp-input-form {
+    width       : calc(100% - 34px);
+    border      : solid 1px gray;
+    line-height : 28px;
+    font-size   : 16px;
+    padding     : 10px 16px 8px;
+    margin-top  : 8px;
+  }
+  .label {
+    font-size  : 14px;
+    font-weight: 600;
+  }
+  span {
+    margin-left      : 8px;
+    background-color : #ea352d;
+    color            : white;
+    border-radius    : 2px;
+    font-size        : 12px;
+    font-weight      : 400;
+    line-height      : 12px;
+    padding          : 2px 4px;
+    border           : solid 1px #ea352d;
+  }
+}

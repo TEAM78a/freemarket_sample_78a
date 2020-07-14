@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @products_kind = Product.where(kind_id: @product.kind_id).limit(3)
   end
 
   def edit
