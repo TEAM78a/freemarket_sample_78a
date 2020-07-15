@@ -1,0 +1,19 @@
+.Purchase{
+  width: 700px;
+  background-color: #fff;
+  margin:0 auto;
+  &__Title{
+    text-align: center;
+    font-size: 24px;
+  }
+  &__Info{
+    width: 70%;
+    height: 700px;
+    margin: 0 auto;
+    &__Box{
+      display: flex;
+      justify-content: space-between;
+      margin: 30px;
+    }
+  }
+}

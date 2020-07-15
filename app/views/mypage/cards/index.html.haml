@@ -7,31 +7,22 @@
       %hr
     .BodyCard
       .BodyCard__Info
-        = form_with model: @card, url: mypage_cards_path, local: true do |f|
+        - if !@card.blank?
+          - exp_month = @customer_card.exp_month.to_s
+          - exp_year = @customer_card.exp_year.to_s.slice(2,3)
           %table.BodyCard__Info--table
             %tbody
               %tr
                 %td
-                  = f.radio_button :"", class: '', checked: true
-                %td
                   = image_tag ('cards/visa.svg'), class: 'card_image'
                   %br
-                  カード番号：************1234
+                  カード番号：
+                  = "**** **** **** " + @customer_card.last4
                   %br
-                  有効期限　：03/21
+                  有効期限　：
+                  = exp_month + " / " + exp_year
                 %td
-                  = link_to "削除する", new_mypage_card_path, class: 'btn-small'
-              %tr
-                %td
-                  = f.radio_button :"", class: ''
-                %td
-                  = image_tag ('cards/jcb.svg'), class: 'card_image'
-                  %br
-                  カード番号：************4242
-                  %br
-                  有効期限　：01/22
-                %td
-                  = link_to "削除する", "#", class: 'btn-small'
+                  = link_to "削除する", mypage_card_path(@card.id), method: :delete, class: 'btn-small'
 
       .BodyCard--btn
         = link_to "クレジットカードを追加する", new_mypage_card_path, class: 'Button'

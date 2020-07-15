@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_product, only:[:edit, :update, :show]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :purchase, :pay]
+  before_action :set_product, only:[:show, :edit, :update, :destroy, :purchase, :pay]
   before_action :edit_validate, only: [:edit]
+  before_action :set_api_key, only:[:purchase, :pay]
 
   def index
     @products = Product.all
@@ -32,11 +33,37 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to product_path(@product.id)
     else
-      render :new
+      render :edit
     end
   end
 
   def destroy
+  end
+
+  def purchase
+    if !@card.blank?
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @customer_card = customer.cards.retrieve(@card.card_id)
+    end
+  end
+  
+  def pay
+    if charge = Payjp::Charge.create(
+      amount: @product.price,
+      customer: @card.customer_id,
+      currency: 'jpy',
+      )
+      
+      @product.sold_out_flg = 1
+      @product.save
+      redirect_to done_products_path
+    else
+      render :purchase
+    end
+  end
+
+  def done
+
   end
 
   private
@@ -60,6 +87,11 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_api_key
+    Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
+    @card = current_user.cards[0]
   end
 
   def edit_validate
