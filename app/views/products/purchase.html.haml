@@ -1,3 +1,6 @@
+.Pan
+  - breadcrumb :purchase
+  = render "layouts/breadcrumbs"
 .Purchase
   = form_with url: pay_products_path(@product.id), local: true do |f|
     .MarginBox
