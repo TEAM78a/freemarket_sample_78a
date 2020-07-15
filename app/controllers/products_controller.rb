@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to product_path(@product.id)
     else
-      render :new
+      render new_product_path
     end
   end
 
