@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only:[:edit, :update, :show]
   before_action :edit_validate, only: [:edit]
+  before_action :set_parents, only: [:new, :create]
 
   def index
     @products = Product.all
@@ -39,6 +40,21 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def set_parents
+    @parents = Kind.where(ancestry: nil)
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        # if params[:parent_id]
+        @childrens = Kind.find(params[:parent_id]).children
+        # elsif params[:children_id]
+          # @grandChilds = Kind.find(params[:children_id]).children
+      end
+    end
+  end
   private
 
   def product_params

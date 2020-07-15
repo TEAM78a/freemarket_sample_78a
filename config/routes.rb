@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :confirmations, only: [:index, :new, :create, :edit, :update]
+    collection do
+      get :search
+    end
   end
 
   get '/mypage' => 'items#mypage'
@@ -22,5 +25,7 @@ Rails.application.routes.draw do
     resources :destinations, only: [:edit, :update]
     resources :cards, only: [:index, :new, :create, :destroy]
   end
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
