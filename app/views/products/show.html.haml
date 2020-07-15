@@ -11,6 +11,8 @@
           .main__showMain__contents__topContent__itemBox__image
             .imageBox
               .mainImage
+                - if @product.sold_out_flg == true
+                  = image_tag ('topimage/sold_out.png'), class: "mainSoldOut"
                 = image_tag @product.images[0].image_url, class: "img", id: "main-img"
                 .imgList
                   .lists
@@ -119,6 +121,8 @@
             .productField__ProductBox
               = link_to product_path(kind.id), class: "productLink" do
                 .productField__ProductBox__Image
+                  - if kind.sold_out_flg == true
+                    = image_tag ('topimage/sold_out.png'), class: "relationImg soldOut_flg"
                   = image_tag kind.images[0].image_url, class: "relationImg"
                   .productField__ProductBox__Info
                     .prductField__ProductBox__Info__Name

@@ -1,0 +1,57 @@
+.productLists{
+  padding: 20px;
+  .productList{
+    margin: 0 auto;
+    .listTitle{
+      color: black;
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .productField{
+      flex-direction: row;
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: space-between;
+      &__ProductBox{
+        height: 245px;
+        width: 220px;
+        background-color: #fff;
+        margin: 5px;
+        .productLink{
+          text-decoration: none;
+          color: black;
+        }
+        &__Image {
+          .soldOut_flg{
+            position: absolute;
+          }
+          .relationImg {
+            width: 220px;
+            height: 150px;
+            object-fit: fill;
+          }
+        }
+        &__Info {
+          &__Ele {
+            display: flex;
+            font-size: 16px;
+            justify-content: space-between;
+            &__Price{
+              justify-content: left;
+            }
+            &__Favorite {
+              justify-content: right;
+              margin-right: 15px;
+            }
+          }
+          &__Tax {
+            justify-content: left;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
