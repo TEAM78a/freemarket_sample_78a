@@ -4,16 +4,53 @@
   margin:0 auto;
   &__Title{
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: bold;
   }
   &__Info{
     width: 70%;
-    height: 700px;
     margin: 0 auto;
     &__Box{
       display: flex;
       justify-content: space-between;
       margin: 30px;
+      &--image{
+      }
+      &__ele{
+        width: 100%;
+        position: relative;
+        &--title{
+          padding-left: 20px;
+        }
+        &--price{
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
+      &--PayTitle{
+        font-size: 24px;
+      }
+      &--PayPrice{
+        font-size: 28px;
+      }
+      &__left{
+        &--name{
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+        &--ele{
+
+        }
+      }
+      &__right{
+
+      }
+    }
+    &__Submit{
+      margin: 30px 0;
+
     }
   }
 }
