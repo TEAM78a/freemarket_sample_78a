@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_013613) do
+ActiveRecord::Schema.define(version: 2020_07_15_091934) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -46,6 +46,33 @@ ActiveRecord::Schema.define(version: 2020_07_13_013613) do
     t.bigint "user_id"
     t.index ["name"], name: "index_products_on_name"
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "purchase_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "image", null: false
+    t.bigint "purchase_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["purchase_id"], name: "index_purchase_images_on_purchase_id"
+  end
+
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "buyer_id"
+    t.string "name", null: false
+    t.text "introduce", null: false
+    t.integer "price", null: false
+    t.integer "kind_id", null: false
+    t.integer "brand_id", null: false
+    t.integer "condition_id", null: false
+    t.integer "postage_id", null: false
+    t.integer "shipment_id", null: false
+    t.integer "prefecture_id", null: false
+    t.boolean "sold_out_flg", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_purchases_on_buyer_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "send_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,4 +113,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_013613) do
   add_foreign_key "cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "users"
+  add_foreign_key "purchase_images", "purchases"
+  add_foreign_key "purchases", "users"
+  add_foreign_key "purchases", "users", column: "buyer_id"
 end
