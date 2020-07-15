@@ -25,7 +25,7 @@
                   有効期限　：
                   = exp_month + " / " + exp_year
                 %td
-                  = link_to "削除する", mypage_card_path(@card.id), method: :delete, class: 'btn-small'
+                  = link_to "削除する", mypage_card_path(@card.id), method: :delete, class: 'btn_delete-small'
 
       .BodyCard--btn
         = link_to "クレジットカードを追加する", new_mypage_card_path, class: 'Button'
