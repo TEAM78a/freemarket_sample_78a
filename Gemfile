@@ -80,5 +80,4 @@ gem 'cocoon'
 gem 'ransack'
 gem "gretel"
 gem 'kaminari'
-
 gem 'payjp'
