@@ -172,17 +172,12 @@
     }
   }
 }
-.PickupCategory {
-  padding: 80px 0 0;
+.NewProducts {
+  padding: 80px 0 0 0;
   height: 420px;
   background-color: #f8f8f8;
-  &__Top {
-    font-size: 28px;
-    text-align: center;
-    height: 40px;
-  }
   &__Title {
-    font-size: 24px;
+    font-size: 28px;
     color: turquoise;
     height: 40px;
     text-align: center;
@@ -197,16 +192,23 @@
       height: 245px;
       width: 220px;
       background-color: #fff;
+      margin: 5px;
+      .productLink{
+        text-decoration: none;
+        color: black;
+      }
       &__Image {
+        position: relative;
+        .soldOut_flg{
+          position: absolute;
+        }
         .product_image {
           width: 220px;
           height: 150px;
-          object-fit: cover;
+          object-fit: fill;
         }
       }
       &__Info {
-        &__Name{
-        }
         &__Ele {
           display: flex;
           font-size: 16px;

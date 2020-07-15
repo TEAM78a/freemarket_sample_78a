@@ -86,127 +86,50 @@
         様々な支払いに対応
       .MainFeatures__Contents__Content__Text
         お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-.PickupCategory
-  .PickupCategory__Top
-    ピックアップカテゴリー
-  .PickupCategory__Title
+.NewProducts
+  .NewProducts__Title
     新規投稿商品
-  .PickupCategory__Products
-    .ProductBox
-      .ProductBox__Image
-        = image_tag ('topimage/IMG_9072.jpg'), class: "product_image"
-      .ProductBox__Info
-        .ProductBox__Info__Name
-          product1
-        .ProductBox__Info__Ele
-          .ProductBox__Info__Ele__Price
-            10000円
-          .ProductBox__Info__Ele__Favorite
-            %i.fa.fa-star.likeIcon
-            0
-        .ProductBox__Info__Tax
-          (税込)
-    .ProductBox
-      .ProductBox__Image
-        = image_tag ('topimage/a007.png'), class: "product_image"
-      .ProductBox__Info
-        .ProductBox__Info__Name
-          product2
-        .ProductBox__Info__Ele
-          .ProductBox__Info__Ele__Price
-            20000円
-          .ProductBox__Info__Ele__Favorite
-            %i.fa.fa-star.likeIcon
-            0
-        .ProductBox__Info__Tax
-          (税込)
-    .ProductBox
-      .ProductBox__Image
-        = image_tag ('topimage/a004.png'), class: "product_image"
-      .ProductBox__Info
-        .ProductBox__Info__Name
-          product3
-        .ProductBox__Info__Ele
-          .ProductBox__Info__Ele__Price
-            30000円
-          .ProductBox__Info__Ele__Favorite
-            %i.fa.fa-star.likeIcon
-            0
-        .ProductBox__Info__Tax
-          (税込)
-    .ProductBox
-      .ProductBox__Image
-        = image_tag ('topimage/a001.png'), class: "product_image"
-      .ProductBox__Info
-        .ProductBox__Info__Name
-          product4
-        .ProductBox__Info__Ele
-          .ProductBox__Info__Ele__Price
-            40000円
-          .ProductBox__Info__Ele__Favorite
-            %i.fa.fa-star.likeIcon
-            0
-        .ProductBox__Info__Tax
-          (税込)
-.PickupCategory
-  .PickupCategory__Top
-    ピックアップブランド
-  .PickupCategory__Title
-    アーカイバ
-  .PickupCategory__Products
-    .ProductBox
-      .ProductBox__Image
-        = image_tag ('topimage/IMG_9072.jpg'), class: "product_image"
-      .ProductBox__Info
-        .ProductBox__Info__Name
-          product1
-        .ProductBox__Info__Ele
-          .ProductBox__Info__Ele__Price
-            10000円
-          .ProductBox__Info__Ele__Favorite
-            %i.fa.fa-star.likeIcon
-            0
-        .ProductBox__Info__Tax
-          (税込)
-    .ProductBox
-      .ProductBox__Image
-        = image_tag ('topimage/a007.png'), class: "product_image"
-      .ProductBox__Info
-        .ProductBox__Info__Name
-          product2
-        .ProductBox__Info__Ele
-          .ProductBox__Info__Ele__Price
-            20000円
-          .ProductBox__Info__Ele__Favorite
-            %i.fa.fa-star.likeIcon
-            0
-        .ProductBox__Info__Tax
-          (税込)
-    .ProductBox
-      .ProductBox__Image
-        = image_tag ('topimage/a004.png'), class: "product_image"
-      .ProductBox__Info
-        .ProductBox__Info__Name
-          product3
-        .ProductBox__Info__Ele
-          .ProductBox__Info__Ele__Price
-            30000円
-          .ProductBox__Info__Ele__Favorite
-            %i.fa.fa-star.likeIcon
-            0
-        .ProductBox__Info__Tax
-          (税込)
-    .ProductBox
-      .ProductBox__Image
-        = image_tag ('topimage/a001.png'), class: "product_image"
-      .ProductBox__Info
-        .ProductBox__Info__Name
-          product4
-        .ProductBox__Info__Ele
-          .ProductBox__Info__Ele__Price
-            40000円
-          .ProductBox__Info__Ele__Favorite
-            %i.fa.fa-star.likeIcon
-            0
-        .ProductBox__Info__Tax
-          (税込)
+  .NewProducts__Products
+    - @products.each do |product|
+      .ProductBox
+        = link_to product_path(product.id), class: "productLink" do
+          .ProductBox__Image
+            - if product.sold_out_flg == true
+              = image_tag ('topimage/sold_out.png'), class: "product_image soldOut_flg"
+            = image_tag product.images[0].image_url, class: "product_image"
+            .ProductBox__Info
+              .ProductBox__Info__Name
+                = product.name
+              .ProductBox__Info__Ele
+                .ProductBox__Info__Ele__Price
+                  ¥
+                  = product.price
+                .ProductBox__Info__Ele__Favorite
+                  = icon('fa','star')
+                  0
+              .ProductBox__Info__Tax
+                (税込)
+
+.NewProducts
+  .NewProducts__Title
+    ピックアップ商品
+  .NewProducts__Products
+    - @products_random.each do |product|
+      .ProductBox
+        = link_to product_path(product.id), class: "productLink" do
+          .ProductBox__Image
+            - if product.sold_out_flg == true
+              = image_tag ('topimage/sold_out.png'), class: "product_image soldOut_flg"
+            = image_tag product.images[0].image_url, class: "product_image"
+            .ProductBox__Info
+              .ProductBox__Info__Name
+                = product.name
+              .ProductBox__Info__Ele
+                .ProductBox__Info__Ele__Price
+                  ¥
+                  = product.price
+                .ProductBox__Info__Ele__Favorite
+                  = icon('fa','star')
+                  0
+              .ProductBox__Info__Tax
+                (税込)

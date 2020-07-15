@@ -24,6 +24,9 @@
           color: black;
         }
         &__Image {
+          .soldOut_flg{
+            position: absolute;
+          }
           .relationImg {
             width: 220px;
             height: 150px;
