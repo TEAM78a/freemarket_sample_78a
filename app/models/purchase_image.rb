@@ -1,0 +1,2 @@
+class PurchaseImage < ApplicationRecord
+end
