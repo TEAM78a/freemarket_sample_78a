@@ -36,7 +36,7 @@ body{
 
                 }
                 .img{
-                  border: 2px solid;
+                  border: 1px solid rgb(194, 192, 192);
                   object-fit: fill;
                   height: 346px;
                 }
@@ -51,7 +51,7 @@ body{
                     margin: 0 10px 0 0;
                     .imgs{
                       margin-left: 3px;
-                      border: 1px solid;
+                      border: 1px solid rgb(194, 192, 192);
                       object-fit: cover;
                       height: 87px;
                     }
@@ -147,53 +147,6 @@ body{
             }
           }
           &__buttonBox{
-            .editBtn{
-              display: flex;
-              justify-content: center;
-              text-align: center;
-              line-height: 50px;
-              .buyBtn{
-                display: block;
-                text-decoration: none;
-                border: 1px solid red;
-                color: #fff;
-                background-color: red;
-                margin-top: 20px;
-                width: 60%;
-                font-size: 18px;
-                border-radius: 100px;
-              }
-              .edit-Btn{
-                text-decoration: none;
-                color: #fff;
-                font-size: 18px;
-                background-color: #3CCACE;
-                border: 1px solid #3CCACE;
-                width: 60%;
-                line-height: 48px;
-                border-radius: 100px;
-                margin-top: 20px;
-              }
-              .deleteBtn{
-                text-decoration: none;
-                color: red;
-                font-size: 18px;
-                background-color: #fff;
-                border: 1px solid red;
-                width: 60%;
-                line-height: 48px;
-                border-radius: 100px;
-                margin-top: 20px;
-              }
-              .soldOut{
-                color: #fff;
-                background-color: rgb(151, 148, 148);
-                margin-top: 20px;
-                width: 60%;
-                font-size: 18px;
-                border-radius: 100px;
-              }
-            }
           }
         }
         &__commentArea{

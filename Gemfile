@@ -78,3 +78,6 @@ gem 'fog-aws'
 gem 'active_hash', '~> 2.3.0'
 gem 'cocoon'
 gem 'ransack'
+gem "gretel"
+gem 'kaminari'
+gem 'payjp'

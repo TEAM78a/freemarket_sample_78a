@@ -1,0 +1,21 @@
+.DoneField{
+  width: 100%;
+  background-color:  #fff;
+  text-align: center;
+  &__Title{
+    font-size: 30px;
+    margin: 20px;
+  }
+  &__Message{
+    margin: 50px 0;
+    font-size: 20px;
+    &--messe{
+      margin: 20px 0;
+    }
+  }
+  &__image{
+    .neko_png{
+      height: 100px;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .NewFormField{
-  width: 50%;
+  width: 60%;
   background-color: #fff;
   margin: 0 auto;
   padding: 0;
@@ -33,10 +33,10 @@
       }
       &__name{
         table.form-group__name{
-          padding: 50px;
+          // padding: 50px;
           width: 100%;
           border-collapse: separate;
-          padding: 25px 25px;
+          padding: 25px 50px;
           tbody{
             display: table-row-group;
             vertical-align: middle;

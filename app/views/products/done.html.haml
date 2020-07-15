@@ -1,0 +1,20 @@
+.Pan
+  - breadcrumb :done
+  = render "layouts/breadcrumbs"
+.Purchase
+  .MarginBox
+  .DoneField
+    .DoneField__Title
+      購入完了
+      %hr
+    .DoneField__Message
+      .DoneField__Message--messe
+        ご購入ありがとうございます
+      .DoneField__Message--messe
+        配送か完了しましたら、出品者よりご連絡させていただきます
+      .DoneField__Message--messe
+        商品の到着まで、今しばらくお待ちください
+    .DoneField__image
+      = image_tag ('products/shiro_neko.png'), class: 'neko_png'
+      = image_tag ('products/kuro_neko.png'), class: 'neko_png'
+    
