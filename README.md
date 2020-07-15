@@ -22,7 +22,7 @@ application up and running.
 - has_many :favorites
 - has_many :products
 - has_one :send_destination
-- has_one :card
+- has_many :cards
 
 ## send_destinations
 
@@ -110,7 +110,9 @@ application up and running.
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|unique: true|
+|customer_id|string|unique: true|
+|card_id|string|unique: true|
+|default_flg|boolean|null: false, default: true|
 
 ### Association
 - belongs_to :user

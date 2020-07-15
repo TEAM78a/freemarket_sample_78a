@@ -81,7 +81,7 @@
             - else
               - if @product.sold_out_flg == false
                 .editBtn
-                  = link_to "購入画面に進む", "#", class: 'buyBtn'
+                  = link_to "購入画面に進む", purchase_products_path(@product.id), class: 'buyBtn'
               - else
                 .editBtn
                   %h2.soldOut 売り切れました
