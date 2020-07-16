@@ -38,8 +38,12 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
-    product.destroy
+    # @product = Product.find(params[:id])
+    if @product.destroy
+      redirect_to mypage_listings_path
+    else
+      render :show
+    end
   end
 
   def purchase
