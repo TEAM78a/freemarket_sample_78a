@@ -14,6 +14,6 @@
         = link_to edit_product_path(product.id), class: 'btn_edit-small' do
           編集する
       .Edit-btn
-        = link_to "削除する", "#", class: 'btn_delete-small'
+        = link_to "削除する", product_path(product.id), class: 'btn_delete-small', method: :delete
 
 
