@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_013613) do
+ActiveRecord::Schema.define(version: 2020_07_16_114959) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -40,10 +40,12 @@ ActiveRecord::Schema.define(version: 2020_07_13_013613) do
     t.integer "postage_id", null: false
     t.integer "shipment_id", null: false
     t.integer "prefecture_id", null: false
-    t.boolean "sold_out_flg", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.integer "sold_out_flg"
+    t.bigint "buye_id"
+    t.index ["buye_id"], name: "index_products_on_buye_id"
     t.index ["name"], name: "index_products_on_name"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -86,4 +88,5 @@ ActiveRecord::Schema.define(version: 2020_07_13_013613) do
   add_foreign_key "cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "users"
+  add_foreign_key "products", "users", column: "buye_id"
 end
