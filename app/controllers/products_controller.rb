@@ -38,6 +38,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    product = Product.find(params[:id])
+    product.destroy
   end
 
   def purchase
