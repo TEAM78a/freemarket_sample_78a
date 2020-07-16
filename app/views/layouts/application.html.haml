@@ -17,9 +17,16 @@
             = link_to root_path do
               = image_tag("topimage/logo.png") 
           .Headfield__Top__Searchbox
-            = text_field :keyword,'', class: "Headfield__Top__Searchbox--input",placeholder: "キーワードから探す"
-            .Headfield__Top__Searchbox--icon
-              = image_tag ("topimage/icon-search 1.png"), class: "circle"
+            = form_with url: top_search_products_path, class: "search-form", method: :get, local: true do |form|
+              = form.text_field :keyword, class: "Headfield__Top__Searchbox--input",placeholder: "キーワードから探す"
+              = form.submit "検索", class: "search-btn"
+              -# .Headfield__Top__Searchbox--icon
+              -#   = image_tag ("topimage/icon-search 1.png"), class: "circle"
+            -# <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
+            -#   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+            -#   <%= form.submit "検索", class: "search-btn" %>
+            -# <% end %>
+
         .Headfield__Bottom
           .Headfield__Bottom__left
             .Headfield__Bottom__left__kind

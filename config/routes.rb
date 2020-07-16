@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :products do
     collection do
+      get  'top_search'
       get  'purchase/:id', to: 'products#purchase', as: 'purchase'
       post 'pay/:id', to: 'products#pay', as: 'pay'
       get  'done', to: 'products#done', as: 'done'
