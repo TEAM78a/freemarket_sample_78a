@@ -39,6 +39,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    if @product.destroy
+      redirect_to mypage_listings_path
+    else
+      render :show
+    end
   end
 
   def set_parents
