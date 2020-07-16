@@ -23,7 +23,6 @@ header {
         width: 100%;
         margin-left: auto;
         display: flex;
-        background-color: royalblue;
         &--input {
           height: 36px;
           width: calc(100% - 26px);
@@ -31,9 +30,9 @@ header {
         &--icon {
           width: 36px;
           height: 40px;
-          // background-color: #3CCACE;
+          background-color: #3CCACE;
           position: relative;
-          background-image: url("topimage/icon-search 1.png");
+          cursor: pointer;
           .circle {
             width: 20px;
             height: 20px;
