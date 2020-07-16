@@ -8,11 +8,10 @@
   %td
     - if product.sold_out_flg == 1
       .Edit-btn
-        = link_to "配送完了", "#", class: 'btn_edit-small'
+        = link_to "配送完了", mypage_listing_path(product.id), class: 'btn_edit-small', method: :put
     - else
       .Edit-btn
-        = link_to edit_product_path(product.id), class: 'btn_edit-small' do
-          編集する
+        = link_to "編集する", edit_product_path(product.id), class: 'btn_edit-small'
       .Edit-btn
         = link_to "削除する", product_path(product.id), class: 'btn_delete-small', method: :delete
 

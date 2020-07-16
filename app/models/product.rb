@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def self.top_search(search)
-    return Product.all unless search
-    Product.where('name LIKE(?)', "%#{search}%")
+    return Product.where.not(sold_out_flg: 2) unless search
+    Product.where('name LIKE(?)', "%#{search}%").where.not(sold_out_flg: 2)
   end
 end

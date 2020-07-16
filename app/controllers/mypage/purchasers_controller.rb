@@ -3,6 +3,5 @@ class Mypage::PurchasersController < ApplicationController
   
   def index
     @buyer_products = BuyerUser.where(user_id: current_user.id)
-    # @products_soldout = Product.where(user_id: current_user.id).where(sold_out_flg: 1)
   end
 end
