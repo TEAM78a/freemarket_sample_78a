@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_one :send_destination
   has_many :cards
   has_many :products
+  has_many :favorites
+  has_many :products, through: :favorites
 end
