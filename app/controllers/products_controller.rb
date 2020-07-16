@@ -73,9 +73,10 @@ class ProductsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy',
       )
-      
+      current_user.buyer_users.create(product_id: @product.id)
       @product.sold_out_flg = 1
       @product.save
+
       redirect_to done_products_path
     else
       render :purchase
@@ -87,7 +88,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
   def product_params
     params.require(:product).permit(:name,
                                     :introduce,
@@ -104,6 +104,10 @@ class ProductsController < ApplicationController
                                       :_destroy
                                     ]).merge(user_id: current_user.id)
   end
+
+  # def buyer_user_params
+  #   params.require(:buyer_user).permit(:user_id, :product_id)
+  # end
 
   def set_product
     @product = Product.find(params[:id])
