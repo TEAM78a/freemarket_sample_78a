@@ -3,7 +3,7 @@ json.array! @childrens do |child|
   json.name child.name
 end
 
-json.array! @category_grandchildren do |grandchild|
+json.array! @grandChilds do |grandchild|
   json.id grandchild.id
   json.name grandchild.name
 end

@@ -16,7 +16,6 @@ $(function() {
     }
 
     let parentValue = $("#kind_form").val();
-    console.log(parentValue);
     // 初期値0("選択してください")以外を選択したらajax開始
     if (parentValue.length != 0) {
       $.ajax({
@@ -26,7 +25,6 @@ $(function() {
         dataType: 'json'
       })
         .done(function (data) {
-          console.log(data);
           // 既に子カテゴリがある場合は削除
           $(".child_kind").remove();
           // 既に孫カテゴリがある場合は孫カテゴリも削除
@@ -46,7 +44,7 @@ $(function() {
     }
   });
   // 子カテゴリを変更するとjQueryが発火
-  $(document).on("change", ".child_category", function () {
+  $(document).on("change", ".child_kind", function () {
     function build_grandchildSelect() {
       let grandchild_select = `
                 <select name="product[kind_id]" class="grandchild_category" required="required">
@@ -57,6 +55,7 @@ $(function() {
     }
     // selectタグにoptionタグを追加
     function build_Option(grandchild) {
+      console.log(grandchild)
       let option_html = `
                         <option value=${grandchild.id}>${grandchild.name}</option>
                         `
@@ -76,14 +75,16 @@ $(function() {
       })
 
         .done(function (data) {
+          console.log(data)
           // 既に孫カテゴリがある場合は削除
           $(".grandchild_category").remove();
           // build_grandchildSelectを実行し selectタグを生成してビューにappend
           let grandchild_select = build_grandchildSelect
           $("#grandchild_category_field").append(grandchild_select);
           // jbuilderから取得したデータを1件ずつoptionタグにappend
-          data.forEach(function (grandchild_d) {
-            let option_html = build_Option(grandchild_d)
+          data.forEach(function (grandchild) {
+            console.log(grandchild)
+            let option_html = build_Option(grandchild)
             $(".grandchild_category").append(option_html);
           })
         })
