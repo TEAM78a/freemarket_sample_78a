@@ -74,7 +74,7 @@
 
           .main__showMain__contents__topContent__itemBox__buttonBox
             - if user_signed_in? && current_user.id == @product.user_id
-              - if @product.sold_out_flg == false
+              - if @product.sold_out_flg == 0
                 .editBtn
                   = link_to edit_product_path(@product.id), class: 'edit-Btn' do
                     編集する
@@ -84,7 +84,7 @@
                 .editBtn
                   = link_to "配送完了しました", "#", class: 'edit-Btn'
             - else
-              - if @product.sold_out_flg == false
+              - if @product.sold_out_flg == 0
                 .editBtn
                   = link_to "購入画面に進む", purchase_products_path(@product.id), class: 'buyBtn'
               - else

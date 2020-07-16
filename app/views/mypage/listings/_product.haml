@@ -6,9 +6,9 @@
     = link_to product_path(product.id), class: 'link_color no-underline' do
       = "商品名：#{product.name}"
   %td
-    - if product.sold_out_flg
+    - if product.sold_out_flg == 1
       .Edit-btn
-        = link_to "配送手続完了", "#", class: 'btn_edit-small'
+        = link_to "配送完了", "#", class: 'btn_edit-small'
     - else
       .Edit-btn
         = link_to edit_product_path(product.id), class: 'btn_edit-small' do
