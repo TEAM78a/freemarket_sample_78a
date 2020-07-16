@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_013613) do
+ActiveRecord::Schema.define(version: 2020_07_16_144138) do
+
+  create_table "buyer_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_buyer_users_on_product_id"
+    t.index ["user_id"], name: "index_buyer_users_on_user_id"
+  end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -40,10 +49,10 @@ ActiveRecord::Schema.define(version: 2020_07_13_013613) do
     t.integer "postage_id", null: false
     t.integer "shipment_id", null: false
     t.integer "prefecture_id", null: false
-    t.boolean "sold_out_flg", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.integer "sold_out_flg", default: 0
     t.index ["name"], name: "index_products_on_name"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -83,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_013613) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "buyer_users", "products"
+  add_foreign_key "buyer_users", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "users"
