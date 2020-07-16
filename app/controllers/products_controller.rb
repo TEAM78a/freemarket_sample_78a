@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :purchase, :pay]
+  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy, :purchase, :pay]
   before_action :set_product, only:[:show, :edit, :update, :destroy, :purchase, :pay]
   before_action :edit_validate, only: [:edit]
   before_action :set_api_key, only:[:purchase, :pay]
 
   def index
-    @products = Product.all
+    @products = Product.top_search(params[:keyword])
   end
 
   def new
@@ -109,6 +109,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  private
   def set_api_key
     Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
     @card = current_user.cards[0]
