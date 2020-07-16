@@ -20,8 +20,7 @@
                       = image_tag image.image_url, class: "imgs"
           .main__showMain__contents__topContent__itemBox__price
             %span 
-              ¥
-              = @product.price
+              = "¥#{number_with_delimiter(@product.price)}"
             .main__showMain__contents__topContent__itemBox__price__tax
               (税込) 送料込み
 
@@ -42,9 +41,9 @@
                   %th ブランド
                   %td 
                     = @product.brand.name
-                %tr
-                  %th 商品のサイズ
-                  %td 
+                -# %tr
+                -#   %th 商品のサイズ
+                -#   %td 
                 %tr
                   %th 商品の状態
                   %td 

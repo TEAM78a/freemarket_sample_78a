@@ -102,8 +102,7 @@
                 = product.name
               .ProductBox__Info__Ele
                 .ProductBox__Info__Ele__Price
-                  ¥
-                  = product.price
+                  = "¥#{number_with_delimiter(product.price)}"
                 .ProductBox__Info__Ele__Favorite
                   = icon('fa','star')
                   0
@@ -126,8 +125,7 @@
                 = product.name
               .ProductBox__Info__Ele
                 .ProductBox__Info__Ele__Price
-                  ¥
-                  = product.price
+                  = "¥#{number_with_delimiter(product.price)}"
                 .ProductBox__Info__Ele__Favorite
                   = icon('fa','star')
                   0
