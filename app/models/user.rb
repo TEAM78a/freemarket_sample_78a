@@ -13,5 +13,5 @@ class User < ApplicationRecord
   has_many :cards
   has_many :products
   has_many :purchases
-  has_many :buyer_user, class_name: 'Purchase', foreign_key: 'buyer_id'
+  has_many :buyer_purchases, class_name: 'Purchase', foreign_key: 'buyer_id'
 end

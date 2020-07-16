@@ -68,9 +68,13 @@ class ProductsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy',
       )
-      
-      @product.sold_out_flg = 1
-      @product.save
+      # @purchase = Purchase.new
+      # @purchase.purchase_images.build
+      purchase = current_user.purchases.new
+      purchase = 
+      @purchase = (@product)
+      # @product.sold_out_flg = 1
+      # @product.save
       redirect_to done_products_path
     else
       render :purchase
