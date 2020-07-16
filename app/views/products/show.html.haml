@@ -80,7 +80,7 @@
                   = link_to edit_product_path(@product.id), class: 'edit-Btn' do
                     編集する
                 .editBtn
-                  = link_to "削除する", "#", class: 'deleteBtn'
+                  = link_to "削除する", product_path(@product.id), class: 'deleteBtn', method: :delete
               - else
                 .editBtn
                   = link_to "配送完了しました", "#", class: 'edit-Btn'
