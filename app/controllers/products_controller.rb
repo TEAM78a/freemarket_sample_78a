@@ -49,10 +49,11 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        # if params[:parent_id]
-        @childrens = Kind.find(params[:parent_id]).children
-        # elsif params[:children_id]
-          # @grandChilds = Kind.find(params[:children_id]).children
+        if params[:parent_id]
+          @childrens = Kind.find(params[:parent_id]).children
+        elsif params[:children_id]
+          @grandChilds = Kind.find(params[:children_id]).children
+        end
       end
     end
   end
