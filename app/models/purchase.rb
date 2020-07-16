@@ -11,5 +11,5 @@ class Purchase < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   validates :name, :introduce, :price, :kind_id, :brand_id, :condition_id, :postage_id, :shipment_id, :prefecture_id, :images, presence: true
-  accepts_nested_attributes_for :images, allow_destroy: true
+  # accepts_nested_attributes_for :purchase_images, allow_destroy: true
 end

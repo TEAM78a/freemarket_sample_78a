@@ -76,8 +76,20 @@ class ProductsController < ApplicationController
       # @purchase = Purchase.new
       # @purchase.purchase_images.build
       purchase = current_user.purchases.new
-      purchase = 
-      @purchase = (@product)
+      purchase.buyer_id = @product.user_id
+      purchase.name = @product.name
+      purchase.introduce = @product.introduce
+      purchase.price = @product.price
+      purchase.kind_id = @product.kind_id
+      purchase.brand_id = @product.brand_id
+      purchase.condition_id = @product.condition_id
+      purchase.postage_id = @product.postage_id
+      purchase.shipment_id = @product.shipment_id
+      purchase.prefecture_id = @product.prefecture_id
+      @product.images.each do |image|
+        purchase.purchase_images.build
+        purchase.purchase_images.image = image.image
+      purchase.save
       # @product.sold_out_flg = 1
       # @product.save
       redirect_to done_products_path
