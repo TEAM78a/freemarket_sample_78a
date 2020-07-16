@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
   root 'items#index'
 
+  resources :favorites, only:[:create, :destroy]
+
   resources :products do
     collection do
       get  'purchase/:id', to: 'products#purchase', as: 'purchase'
