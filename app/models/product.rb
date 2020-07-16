@@ -16,6 +16,6 @@ class Product < ApplicationRecord
 
   def self.top_search(search)
     return Product.all unless search
-    Product.where('text LIKE(?)', "%#{search}%")
+    Product.where('name LIKE(?)', "%#{search}%")
   end
 end
