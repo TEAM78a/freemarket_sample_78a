@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :purchase, :pay]
+  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy, :purchase, :pay]
   before_action :set_product, only:[:show, :edit, :update, :destroy, :purchase, :pay]
   before_action :edit_validate, only: [:edit]
   before_action :set_api_key, only:[:purchase, :pay]
   before_action :set_parents, only: [:new, :create]
 
   def index
-    @products = Product.all
+    @products = Product.top_search(params[:keyword])
   end
 
   def new
@@ -91,9 +91,10 @@ class ProductsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy',
       )
-      
+      current_user.buyer_users.create(product_id: @product.id)
       @product.sold_out_flg = 1
       @product.save
+
       redirect_to done_products_path
     else
       render :purchase
@@ -105,7 +106,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
   def product_params
     params.require(:product).permit(:name,
                                     :introduce,

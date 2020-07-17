@@ -17,9 +17,11 @@
             = link_to root_path do
               = image_tag("topimage/logo.png") 
           .Headfield__Top__Searchbox
-            = text_field :keyword,'', class: "Headfield__Top__Searchbox--input",placeholder: "キーワードから探す"
-            .Headfield__Top__Searchbox--icon
-              = image_tag ("topimage/icon-search 1.png"), class: "circle"
+            %form.Headfield__Top__Searchbox{action: "/products", method: "get"}
+              %input.Headfield__Top__Searchbox--input{placeholder: "キーワードから探す", type: "text", name: "keyword", id: "keyword"}
+              %button.Headfield__Top__Searchbox--icon{type: "submit", name: "commit"}
+                = image_tag ("topimage/icon-search 1.png"), class: "circle"
+
         .Headfield__Bottom
           .Headfield__Bottom__left
             .Headfield__Bottom__left__kind
