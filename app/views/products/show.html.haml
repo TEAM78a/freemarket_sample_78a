@@ -82,7 +82,7 @@
                   = link_to "削除する", product_path(@product.id), class: 'deleteBtn', method: :delete
               - else
                 .editBtn
-                  = link_to "配送完了しました", mypage_listing_path(product.id), class: 'edit-Btn', method: :put
+                  = link_to "配送完了しました", mypage_listing_path(@product.id), class: 'edit-Btn', method: :put
             - else
               - if @product.sold_out_flg == 0
                 .editBtn
