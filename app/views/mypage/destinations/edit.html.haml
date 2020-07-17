@@ -1,9 +1,11 @@
+.Pan
+  - breadcrumb :destination
+  = render "layouts/breadcrumbs"
 %section.AdressRegistrationContainer 
   %h2.AdressRegistrationHeader
     配送元・お届け先住所変更
-  = form_for(@destination, html: {class: 'AdressRegistrationForm'}) do |f|
+  = form_for(@destination, url: mypage_destination_path, html: {class: 'AdressRegistrationForm'}) do |f|
     .AdressRegistrationForm__SendDestInput
-      = render "devise/shared/error_messages", resource: @send_destination
       .basic-field
         = f.label :お名前（全角）, class: "label"
         %span 必須
