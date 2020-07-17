@@ -105,15 +105,11 @@ class ProductsController < ApplicationController
                                     ]).merge(user_id: current_user.id)
   end
 
-  # def buyer_user_params
-  #   params.require(:buyer_user).permit(:user_id, :product_id)
-  # end
-
+  private
   def set_product
     @product = Product.find(params[:id])
   end
 
-  private
   def set_api_key
     Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
     @card = current_user.cards[0]

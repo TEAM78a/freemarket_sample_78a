@@ -14,7 +14,7 @@
     設定
   .MyPage__SideBar__Funcrion
     %ul.SidebarMenu
-      = link_to "#", id: '', class: 'no-underline' do
+      = link_to edit_mypage_user_path(current_user.id), id: '', class: 'no-underline' do
         %li ユーザー情報編集
       = link_to "#", id: '', class: 'no-underline' do
         %li 発送元・お届け先住所編集

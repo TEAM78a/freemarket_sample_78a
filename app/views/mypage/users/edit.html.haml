@@ -1,7 +1,41 @@
-.MyPage
-  = render "items/sidebar"
 
-  .MyPage__MainField
-    .MyPage__MainField__Title
-      ユーザー情報編集
-      %hr
+%section.RegistrationContainer
+
+  %h2.RegistrationHeader
+    会員情報入力
+
+  = form_for(@user, url: mypage_user_path, html: {class: 'RegistrationForm'}) do |f|
+    .RegistrationForm__UserInput
+      = render "devise/shared/error_messages", resource: @user
+      .basic-field
+        = f.label :ニックネーム, class: "label"
+        %span 必須
+        %br/
+        = f.text_field :nickname, placeholder: "例)フリマ太郎", class: "temp-input-form"
+      .basic-field
+        = f.label :メールアドレス, class: "label" 
+        %span 必須
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "temp-input-form"
+
+      %ul.match-user 本人確認
+      .basic-field
+        = f.label :お名前, class: "label"
+        %br/
+        .basic-field__separate-box
+          = @user.family_name
+          = @user.first_name
+      .basic-field
+        = f.label :ふりがな, class: "label"
+        %br/
+        .basic-field__separate-box
+          = @user.family_name_kana
+          = @user.first_name_kana
+      .birth-field.RegistrationForm__UserInput__Birthday
+        = f.label :生年月日, class: "label"
+        %br/
+        = @user.birthday.strftime("%Y年%m月%d日")
+
+      .actions
+        = f.submit "会員情報を更新する", class: "next-btn"
+
