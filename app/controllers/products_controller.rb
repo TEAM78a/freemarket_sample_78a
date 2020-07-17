@@ -5,7 +5,9 @@ class ProductsController < ApplicationController
   before_action :set_api_key, only:[:purchase, :pay]
 
   def index
-    @products = Product.top_search(params[:keyword])
+    # @products = Product.top_search(params[:keyword])
+    @search = Product.ransack(params[:d])
+    @products = @search.result
   end
 
   def new

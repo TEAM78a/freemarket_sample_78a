@@ -17,10 +17,14 @@
             = link_to root_path do
               = image_tag("topimage/logo.png") 
           .Headfield__Top__Searchbox
-            %form.Headfield__Top__Searchbox{action: "/products", method: "get"}
-              %input.Headfield__Top__Searchbox--input{placeholder: "キーワードから探す", type: "text", name: "keyword", id: "keyword"}
-              %button.Headfield__Top__Searchbox--icon{type: "submit", name: "commit"}
-                = image_tag ("topimage/icon-search 1.png"), class: "circle"
+            -# %form.Headfield__Top__Searchbox{action: "/products", method: "get"}
+            -#   %input.Headfield__Top__Searchbox--input{placeholder: "キーワードから探す", type: "text", name: "keyword", id: "keyword"}
+            -#   %button.Headfield__Top__Searchbox--icon{type: "submit", name: "commit"}
+            -#     = image_tag ("topimage/icon-search 1.png"), class: "circle"
+            = search_form_for @search do |f|
+              = f.label :name_cont, "キーワードから探す"
+              = f.search_field :name_cont
+              = f.submit '検索'
 
         .Headfield__Bottom
           .Headfield__Bottom__left
@@ -28,6 +32,12 @@
               = link_to "カテゴリー", "#", class: "category"
             .Headfield__Bottom__left__kind
               = link_to "ブランド", "#", class: "brand"
+              %ul.brand__menu
+                - Brand.all.each do |brand|
+                  = link_to "", class: "" do
+                    %li
+                      = brand.name
+
           .Headfield__Bottom__right
             - if user_signed_in?
               .Headfield__Bottom__right__menu
