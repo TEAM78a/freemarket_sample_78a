@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :products do
-    resources :comments, only: :create
+    resources :comments, only: [:create]
     collection do
       get  'purchase/:id', to: 'products#purchase', as: 'purchase'
       post 'pay/:id', to: 'products#pay', as: 'pay'
