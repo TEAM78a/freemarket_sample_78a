@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2020_07_16_144138) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.bigint "kind_id", null: false
-    t.index ["kind_id"], name: "index_products_on_kind_id"
     t.integer "sold_out_flg", default: 0
+    t.index ["kind_id"], name: "index_products_on_kind_id"
     t.index ["name"], name: "index_products_on_name"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
