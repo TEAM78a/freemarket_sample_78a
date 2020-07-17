@@ -36,7 +36,11 @@
                     = @product.user.nickname
                 %tr
                   %th カテゴリー
-                  %td 
+                  %td.category--td
+                    = @product.kind.root.name
+                    %br
+                    = @product.kind.parent.name
+                    %br
                     = @product.kind.name
                 %tr
                   %th ブランド
