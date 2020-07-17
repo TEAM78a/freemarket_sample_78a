@@ -25,7 +25,7 @@ class Mypage::DestinationsController < ApplicationController
   end
 
   def edit_validate
-    if @destinationuser_id != current_user.id
+    if @destination.user_id != current_user.id
       redirect_to root_path
     end
   end

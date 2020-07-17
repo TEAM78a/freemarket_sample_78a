@@ -1,0 +1,52 @@
+%section.AdressRegistrationContainer 
+  %h2.AdressRegistrationHeader
+    配送元・お届け先住所変更
+  = form_for(@destination, html: {class: 'AdressRegistrationForm'}) do |f|
+    .AdressRegistrationForm__SendDestInput
+      = render "devise/shared/error_messages", resource: @send_destination
+      .basic-field
+        = f.label :お名前（全角）, class: "label"
+        %span 必須
+        %br/
+        .basic-field__separate-box
+          = f.text_field :family_name, placeholder: "例)田中", class: "family-name-form"
+          = f.text_field :first_name, placeholder: "例)花子", class: "first-name-form"
+      .basic-field
+        = f.label :ふりがな（全角）, class: "label"
+        %span 必須
+        %br/
+        .basic-field__separate-box
+          = f.text_field :family_name_kana, placeholder: "例)たなか", class: "family-name-form"
+          = f.text_field :first_name_kana, placeholder: "例)はなこ", class: "first-name-form"
+
+      .basic-field
+        = f.label :郵便番号, class: "label"
+        %span 必須
+        %br/
+        = f.text_field :postal_code, placeholder: "※ハイフンなし 半角数字", class: "temp-input-form"
+      .basic-field
+        = f.label :都道府県, class: "label"
+        %span 必須
+        %br/
+        = f.text_field :prefectures, placeholder: "例)東京都", class: "temp-input-form"
+      .basic-field
+        = f.label :市区町村, class: "label"
+        %span 必須
+        %br/
+        = f.text_field :municipalities, placeholder: "例)〇〇区 〇〇町", class: "temp-input-form"
+      .basic-field
+        = f.label :番地, class: "label"
+        %span 必須
+        %br/
+        = f.text_field :address, placeholder: "例)1-15", class: "temp-input-form"
+      .basic-field
+        = f.label :建物名, class: "label"
+        %br/
+        = f.text_field :building, placeholder: "例)〇〇ビル 702号室", class: "temp-input-form"
+      .basic-field
+        = f.label :電話番号, class: "label"
+        %span 必須
+        %br/
+        = f.text_field :phone_number, placeholder: "※ハイフンなし 半角数字", class: "temp-input-form"
+      .actions
+        = f.submit "登録情報編集", class: "send-btn"
