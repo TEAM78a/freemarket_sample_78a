@@ -24,6 +24,8 @@ class ProductsController < ApplicationController
 
   def show
     @products_kind = Product.where(kind_id: @product.kind_id).limit(3)
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
 
   def edit
