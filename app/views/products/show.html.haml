@@ -94,16 +94,25 @@
 
 
         .main__showMain__contents__topContent__commentArea
-          %form.commentForm
-            %textarea
-            %p.notes
-              相手のことを考えて丁寧なコメントを心がけましょう。
-              %br/
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %br/
-            %button.commentBtn
-              = icon('fa', 'comment')
-              コメントする
+          .comment-show-field
+            - if @comments
+              %h3 ＜質問・コメント＞
+              .comment-box
+                - @comments.each do |comment|
+                  %p
+                  = comment.user.nickname
+                  %strong ：
+                  = comment.text
+
+          .comment-write-field
+            - if current_user
+              %p.careful-text 相手のことを考えて丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              = form_with(model: [@product, @comment], html: {class: "comment-form"}, local: true) do |form|
+                = form.text_area :text, rows: "4", class: "comment-form__text-form"
+                = form.submit "コメントする", class: "comment-form__comment-btn"
+            - else
+              %p.need-login ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
         .pageMove
           .pageMove__frontPage
             = icon('fa', 'angle-left front')
