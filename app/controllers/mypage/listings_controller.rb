@@ -8,7 +8,6 @@ class Mypage::ListingsController < ApplicationController
   end
 
   def update
-    binding.pry
     @product = Product.find(params[:id])
     @product.sold_out_flg = 2
     if @product.save
