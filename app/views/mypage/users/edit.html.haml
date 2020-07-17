@@ -1,9 +1,10 @@
 
+.Pan
+  - breadcrumb :user_edit
+  = render "layouts/breadcrumbs"
 %section.RegistrationContainer
-
   %h2.RegistrationHeader
     会員情報入力
-
   = form_for(@user, url: mypage_user_path, html: {class: 'RegistrationForm'}) do |f|
     .RegistrationForm__UserInput
       = render "devise/shared/error_messages", resource: @user
