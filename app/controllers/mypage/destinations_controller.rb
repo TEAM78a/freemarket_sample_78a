@@ -7,7 +7,6 @@ class Mypage::DestinationsController < ApplicationController
   end
 
   def update
-    binding.pry
     if @destination.update(destination_params)
       redirect_to mypage_path
     else
@@ -17,7 +16,17 @@ class Mypage::DestinationsController < ApplicationController
 
   private
   def destination_params
-    params.require(:send_destination).permit(:nickname, :email)
+    params.require(:send_destination).permit(:family_name,
+                                             :first_name,
+                                             :family_name_kana,
+                                             :first_name_kana,
+                                             :postal_code,
+                                             :prefectures,
+                                             :municipalities,
+                                             :address,
+                                             :building,
+                                             :phone_number
+                                             )
   end
 
   def set_destination
