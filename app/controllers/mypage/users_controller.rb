@@ -4,7 +4,6 @@ class Mypage::UsersController < ApplicationController
   before_action :edit_validate
   
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
