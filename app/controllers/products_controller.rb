@@ -105,7 +105,6 @@ class ProductsController < ApplicationController
                                     ]).merge(user_id: current_user.id)
   end
 
-  private
   def set_product
     @product = Product.find(params[:id])
   end
