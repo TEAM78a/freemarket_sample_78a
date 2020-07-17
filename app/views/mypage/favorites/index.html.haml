@@ -9,4 +9,12 @@
       お気に入り一覧
       %hr
     .ListingMenu
-      = render "mypage/listings/products_list"
+      %table.ProductsList
+        %tbody
+          %tr
+            %th
+              = link_to "", class: 'no-underline' do
+                = image_tag "", class: 'product_image'
+            %td{valign: "top"}
+              = link_to "", class: 'link_color no-underline' do
+                = "商品名：パン"

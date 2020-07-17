@@ -94,7 +94,7 @@
       .ProductBox
         = link_to product_path(product.id), class: "productLink" do
           .ProductBox__Image
-            - if product.sold_out_flg == true
+            - if product.sold_out_flg == 1
               = image_tag ('topimage/sold_out.png'), class: "product_image soldOut_flg"
             = image_tag product.images[0].image_url, class: "product_image"
             .ProductBox__Info
@@ -117,7 +117,7 @@
       .ProductBox
         = link_to product_path(product.id), class: "productLink" do
           .ProductBox__Image
-            - if product.sold_out_flg == true
+            - if product.sold_out_flg == 1
               = image_tag ('topimage/sold_out.png'), class: "product_image soldOut_flg"
             = image_tag product.images[0].image_url, class: "product_image"
             .ProductBox__Info
