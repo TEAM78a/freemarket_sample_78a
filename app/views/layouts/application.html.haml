@@ -15,7 +15,7 @@
         .Headfield__Top
           .Headfield__Top--logo
             = link_to root_path do
-              = image_tag("topimage/logo.png") 
+              = image_tag("topimage/logo.png")
           .Headfield__Top__Searchbox
             = search_form_for @search, url: products_path, class: 'Headfield__Top__Searchbox' do |f|
               = f.search_field :name_or_introduce_cont, class: 'Headfield__Top__Searchbox--input', placeholder: 'キーワードから探す'
@@ -24,8 +24,9 @@
 
         .Headfield__Bottom
           .Headfield__Bottom__left
-            .Headfield__Bottom__left__kind
-              = link_to "カテゴリー", "#", class: "category"
+            .Headfield__Bottom__left__category
+              = link_to "カテゴリー", "#", class: "category", id: "category_menu"
+              .Headfield__Bottom__left__category--field
             .Headfield__Bottom__left__kind
               = link_to "ブランド", "#", class: "brand"
               %ul.brand__menu
