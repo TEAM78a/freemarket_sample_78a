@@ -81,3 +81,4 @@ gem 'ransack'
 gem "gretel"
 gem 'kaminari'
 gem 'payjp'
+gem 'ancestry'

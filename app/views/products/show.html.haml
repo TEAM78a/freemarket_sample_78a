@@ -35,7 +35,11 @@
                     = @product.user.nickname
                 %tr
                   %th カテゴリー
-                  %td 
+                  %td.category--td
+                    = @product.kind.root.name
+                    %br
+                    = @product.kind.parent.name
+                    %br
                     = @product.kind.name
                 %tr
                   %th ブランド
@@ -82,7 +86,7 @@
                   = link_to "削除する", product_path(@product.id), class: 'deleteBtn', method: :delete
               - else
                 .editBtn
-                  = link_to "配送完了しました", mypage_listing_path(product.id), class: 'edit-Btn', method: :put
+                  = link_to "配送完了しました", mypage_listing_path(@product.id), class: 'edit-Btn', method: :put
             - else
               - if @product.sold_out_flg == 0
                 .editBtn

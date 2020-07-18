@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only:[:show, :edit, :update, :destroy, :purchase, :pay]
   before_action :edit_validate, only: [:edit]
   before_action :set_api_key, only:[:purchase, :pay]
+  before_action :set_parents, only: [:new, :create]
 
   def index
     # @products = Product.top_search(params[:keyword])
@@ -44,6 +45,23 @@ class ProductsController < ApplicationController
       redirect_to mypage_listings_path
     else
       render :show
+    end
+  end
+
+  def set_parents
+    @parents = Kind.where(ancestry: nil)
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        if params[:parent_id]
+          @childrens = Kind.find(params[:parent_id]).children
+        elsif params[:children_id]
+          @grandChilds = Kind.find(params[:children_id]).children
+        end
+      end
     end
   end
 
