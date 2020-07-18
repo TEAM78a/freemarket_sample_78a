@@ -1,15 +1,20 @@
 class ApplicationController < ActionController::Base
+  # before_action :authenticate_user!, only: [:search]
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :basic_auth, if: :production?
+  before_action :set_search
+
+  def set_search
+    @search = Product.ransack(params[:q])
+  end
 
   protected
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday])
   end
 
   private
-
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == Rails.application.credentials[:basic_auth][:user] &&
@@ -17,11 +22,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # if: :production?を追加
-  before_action :basic_auth, if: :production?
-
-  private
-  # 以下を追記
   def production?
     Rails.env.production?
   end

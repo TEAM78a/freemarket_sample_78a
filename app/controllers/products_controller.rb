@@ -6,8 +6,6 @@ class ProductsController < ApplicationController
   before_action :set_parents, only: [:new, :create]
 
   def index
-    # @products = Product.top_search(params[:keyword])
-    @search = Product.ransack(params[:d])
     @products = @search.result
   end
 
