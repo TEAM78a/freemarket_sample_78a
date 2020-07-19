@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    resources :categories, only: [:show]
+  end
+  
   get '/mypage', to: 'items#mypage'
   get '/mypage/logout', to: 'items#logout'
   namespace :mypage do

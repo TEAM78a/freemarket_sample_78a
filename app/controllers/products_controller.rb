@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   before_action :set_parents, only: [:new, :create]
 
   def index
-    @products = Product.top_search(params[:keyword])
+    @products = @search.result
   end
 
   def new

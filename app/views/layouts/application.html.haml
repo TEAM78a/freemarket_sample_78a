@@ -15,19 +15,21 @@
         .Headfield__Top
           .Headfield__Top--logo
             = link_to root_path do
-              = image_tag("topimage/logo.png") 
+              = image_tag("topimage/logo.png")
           .Headfield__Top__Searchbox
-            %form.Headfield__Top__Searchbox{action: "/products", method: "get"}
-              %input.Headfield__Top__Searchbox--input{placeholder: "キーワードから探す", type: "text", name: "keyword", id: "keyword"}
-              %button.Headfield__Top__Searchbox--icon{type: "submit", name: "commit"}
+            = search_form_for @search, url: products_path, class: 'Headfield__Top__Searchbox' do |f|
+              = f.search_field :name_or_introduce_cont, class: 'Headfield__Top__Searchbox--input', placeholder: 'キーワードから探す'
+              = button_tag type: 'submit', class: "Headfield__Top__Searchbox--icon" do
                 = image_tag ("topimage/icon-search 1.png"), class: "circle"
 
         .Headfield__Bottom
           .Headfield__Bottom__left
-            .Headfield__Bottom__left__kind
-              = link_to "カテゴリー", "#", class: "category"
+            .Headfield__Bottom__left__category
+              = link_to "カテゴリー", "#", class: "category", id: "category_menu"
+              .Headfield__Bottom__left__category--field
             .Headfield__Bottom__left__kind
               = link_to "ブランド", "#", class: "brand"
+
           .Headfield__Bottom__right
             - if user_signed_in?
               .Headfield__Bottom__right__menu

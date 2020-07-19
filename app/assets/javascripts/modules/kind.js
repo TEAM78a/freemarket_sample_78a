@@ -48,7 +48,6 @@ $(function() {
       return grandchild_select;
     }
     function build_Option(grandchild) {
-      console.log(grandchild)
       let option_html = `
                         <option value=${grandchild.id}>${grandchild.name}</option>
                         `
@@ -65,12 +64,10 @@ $(function() {
       })
 
         .done(function (data) {
-          console.log(data)
           $(".grandchild_category").remove();
           let grandchild_select = build_grandchildSelect
           $("#grandchild_category_field").append(grandchild_select);
           data.forEach(function (grandchild) {
-            console.log(grandchild)
             let option_html = build_Option(grandchild)
             $(".grandchild_category").append(option_html);
           })
