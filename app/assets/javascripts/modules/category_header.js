@@ -13,6 +13,14 @@ $(function(){
     return html
   }
 
+  $("#catroy_top_title").mouseenter(function(){
+    $(".Headfield__Bottom__left__nav__field--menu").remove()
+  })
+
+  $(".Headfield__Bottom__left__nav").mouseleave(function(){
+    $(".Headfield__Bottom__left__nav__field--menu").remove()
+  })
+
   $(document).on({
     'mouseenter' : function() {
       var path = $(this).attr("href");
