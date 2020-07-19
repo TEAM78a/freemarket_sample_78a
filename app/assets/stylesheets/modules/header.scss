@@ -1,7 +1,7 @@
 header {
   background-color: #fff;
   .Headfield {
-    height: 100px;
+    height: 85px;
     width: 73%;
     margin: 0 auto;
     padding-top: 15px;
@@ -48,52 +48,41 @@ header {
       font-size: 14px;
       display: flex;
       width: 100%;
-      margin-bottom: 10px;
+      justify-content: space-between;
       &__left {    
-        height: 32px;
-        width: 50%;
         display: flex;
-        line-height: 32px;
-        &__category {
-          .category {
-            text-decoration: none;
-            color: #333;
-            padding-right: 30px;
-            height: 100%;
-          }
-        }
-        &__kind{
-          .brand {
-            text-decoration: none;
-            color: #333;
-            padding-right: 30px;
+        &__nav{
+          height: 1000px;
+          font-size: 16px;
+          padding: 3px 10px 10px 10px;
+          margin-bottom: 10px;
+          
+          &__field{
+            margin-top: 8px;
+            display: flex;
+            z-index: 100;
+            &--menu{
+              position: static;
+              z-index: 100;
+              p{
+                background-color: rgb(243, 236, 236);
+              }
+            }
           }
         }
       }
       &__right {
-        height: 32px;
-        width: 50%;
         display: flex;
         justify-content: flex-end;
-        line-height: 32px;
-        &__menu {
-          .mypage {
-            text-decoration: none;
-            color: #333;
-          }
-          .login {
-            text-decoration: none;
-            color: #333;
-          }
-          .new {
-            text-decoration: none;
-            color: #333;
-            padding-left: 20px;
-          }
+        &--menu {
+          padding-left: 20px;
         }
       }
     }
   }
+}
+.category_name{
+  margin: 5px 0;
 }
 .FloatBtn {
   height: 112px;
