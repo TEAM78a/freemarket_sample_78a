@@ -24,11 +24,24 @@
 
         .Headfield__Bottom
           .Headfield__Bottom__left
-            .Headfield__Bottom__left__category
-              = link_to "カテゴリー", "#", class: "category", id: "category_menu"
-              .Headfield__Bottom__left__category--field
-            .Headfield__Bottom__left__kind
-              = link_to "ブランド", "#", class: "brand"
+            -# .Headfield__Bottom__left__category
+            -#   = link_to "カテゴリー", "#", class: "category", id: "category_menu"
+            -#   .Headfield__Bottom__left__category--field
+            -# .Headfield__Bottom__left__kind
+            -#   = link_to "ブランド", "#", class: "brand"
+            %ul.menu
+              %li.menu__multi
+                = link_to "Menu multi level", "#", class: "init-bottom"
+                %ul.menu__second-level
+                  %li child menu
+                  %li child menu
+                  %li child menu
+              %li.menu__single
+                = link_to "Menu single", "#", class: "init-bottom"
+                %ul.menu__second-level
+                  %li child menu
+                  %li child menu
+                  %li child menu
 
           .Headfield__Bottom__right
             - if user_signed_in?
