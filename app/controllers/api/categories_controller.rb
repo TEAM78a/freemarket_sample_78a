@@ -1,6 +1,10 @@
 class Api::CategoriesController < ApplicationController
   def show
-    @categories = Kind.where(ancestry:nil)
+    if params[:id] == "0"
+      @categories = Kind.where(ancestry:nil)
+    else
+      @categories = Kind.find(params[:id]).children
+    end
 
     respond_to do |format|
       format.json{
