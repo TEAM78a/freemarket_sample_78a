@@ -24,15 +24,17 @@
 
         .Headfield__Bottom
           .Headfield__Bottom__left
-            .Headfield__Bottom__left__nav
+            .Headfield__Bottom__left__category
               = link_to "カテゴリー", api_category_path(0) ,class: "category_name no-underline", id: "catroy_top_title"
-              .Headfield__Bottom__left__nav__field
-            .Headfield__Bottom__left__nav
+              .Headfield__Bottom__left__category__field
+            .Headfield__Bottom__left__brand
               = link_to "ブランド", "#", class: "category_name no-underline"
-              %ul.level_first
-                %li child menu
-                %li child menu
-                %li child menu
+              .Headfield__Bottom__left__brand__field
+                %ul
+                  - Brand.all.each do |brand|
+                    = link_to "#", class: "no-underline" do
+                      %li
+                        = brand.name
 
           .Headfield__Bottom__right
             - if user_signed_in?
