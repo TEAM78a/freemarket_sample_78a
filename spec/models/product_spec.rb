@@ -4,9 +4,9 @@ describe Product do
   # describe '#create' do
   #   context 'can save' do
   #     it "全ての必須項目が入力されている場合出品できる" do
-  #     # it "is valid with a name, introduce, price, kind_id, brand_id, condition_id, postage_id, shipment_id, prefecture_id, image" do
-  #       product = FactoryBot.build(:product)
-  #       expect(product).to be_valid
+  #     # # it "is valid with a name, introduce, price, kind_id, brand_id, condition_id, postage_id, shipment_id, prefecture_id, image" do
+  #     #   product = FactoryBot.build(:product)
+  #     #   expect(product).to be_valid
   #     end
   #   end
 
@@ -66,9 +66,9 @@ describe Product do
   #     end
 
   #     it "is invalid without an image" do
-  #       image = build(:image, image: "")
-  #       image.valid?
-  #       expect(image.errors[:image]).to include("can't be blank")
+  #       # image = build(:image, image: "")
+  #       # image.valid?
+  #       # expect(image.errors[:image]).to include("can't be blank")
   #     end
 
 
@@ -76,29 +76,54 @@ describe Product do
   # end
 
 
-  describe "top_search" do
-    before :all do
-      Product.delete_all
+  # describe "top_search" do
+  #   before :all do
+  #     Product.delete_all
 
-      Product.create(name: "ミックス赤玉で豚玉を作ってみた")
-      Product.create(name: "パルメザンチーズで濃厚カルボナーラ")
-      Product.create(name: "ミックス赤玉で卵焼き")
-      Product.create(name: "パプリカを使った野菜たっぷりスープ")
+  #     Product.create(name: "ミックス赤玉で豚玉を作ってみた")
+  #     Product.create(name: "パルメザンチーズで濃厚カルボナーラ")
+  #     Product.create(name: "ミックス赤玉で卵焼き")
+  #     Product.create(name: "パプリカを使った野菜たっぷりスープ")
 
-      Product.__elasticsearch__.import
-      Product.__elasticsearch__.refresh_index!
-    end
+  #     Product.__elasticsearch__.import
+  #     Product.__elasticsearch__.refresh_index!
+  #   end
 
-    context "when query is 'ミックス赤玉" do
-      let(:query) { "ミックス赤玉" }
-      let(:records) { Product.top_search(query).records }
-      subject { records }
-      it { should have(2).items }
+  #   context "when query is 'ミックス赤玉" do
+  #     let(:query) { "ミックス赤玉" }
+  #     let(:records) { Product.top_search(query).records }
+  #     subject { records }
+  #     it { should have(2).items }
 
-      context "with names" do
-        subject { records.map(&:name) }
-        it { should match_array ["ミックス赤玉で豚玉を作ってみた", "ミックス赤玉で卵焼き"] }
+  #     context "with names" do
+  #       subject { records.map(&:name) }
+  #       it { should match_array ["ミックス赤玉で豚玉を作ってみた", "ミックス赤玉で卵焼き"] }
+  #     end
+  #   end
+  # end
+
+  describe "category_search" do
+    context 'when products searched' do
+      before do
+        create_list(:product, 100)
       end
+
+      it "子要素での検索結果(孫要素を含む)を取得できる" do
+        specify do
+          @params[:q][:kind_cont] = '2,21,43,56,62,67,78,81,87,95,114,126,131,155,162,169,178,186,196'
+          get :index, @params
+          expect(assigns(:products)).to match_array([@data1])
+        end
+      end
+
+      it "孫要素での検索結果を取得できる" do
+        specify do
+          @params[:q][:kind_cont] = '22'
+          get :index, @params
+          expect(assigns(:products)).to match_array([@data1])
+        end
+      end
+      
     end
   end
 end
