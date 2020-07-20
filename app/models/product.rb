@@ -14,11 +14,11 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
 
-  def like(user)
-    favorites.create(user_id: user.id)
-    if favorites.save
-      redirect_to mypage_listings_path
-    end
-  end
+  # def like(user)
+  #   favorites.create(user_id: user.id)
+  #   # if favorites.save
+  #   #   redirect_to mypage_listings_path
+  #   # end
+  # end
 
 end
