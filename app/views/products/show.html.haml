@@ -107,7 +107,7 @@
           .comment-write-field
             - if current_user
               %p.careful-text 相手のことを考えて丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-              = form_with(model: [@product, @comment], html: {class: "comment-form"}, local: true) do |form|
+              = form_with(model: [@product, @comment], html: {class: "comment-form"}, local: true, id: "new_comment") do |form|
                 = form.text_area :text, rows: "4", class: "comment-form__text-form"
                 = form.submit "コメントする", class: "comment-form__comment-btn"
             - else
