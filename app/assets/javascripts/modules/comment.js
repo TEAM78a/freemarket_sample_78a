@@ -26,6 +26,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.comment-box').append(html);
+      $('.comment-box').animate({ scrollTop: $('.comment-box')[0].scrollHeight});
       $('.comment-form__text-form').val('');
       $('.comment-form__comment-btn').prop('disabled', false);
     })
