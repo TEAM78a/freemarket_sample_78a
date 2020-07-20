@@ -32,7 +32,6 @@ $(function(){
         cache: false,
       })
       .done(function(result){
-
         if( result.length != 0 ){
           var html = buildHTML(result)
           $(this).parent().parent().nextAll(".Headfield__Bottom__left__category__field--menu").remove()
@@ -48,5 +47,12 @@ $(function(){
         $(eo.fromElement).find("*").css("color","orange")
       })
     }
-  }, ".category_name") 
+  }, ".category_name")
+
+  $('#brand_top_title').hover(function(){
+      $('ul:not(:animated)', this).slideDown(300);
+    },
+    function(){
+      $('ul',this).hide();
+  });
 })
