@@ -5,15 +5,19 @@ class FavoritesController < ApplicationController
                               user_id: current_user.id, 
                               product_id: params[:product_id]
                             )
-
-                            binding.pry
-
     @favorite.save
-    redirect_to mypage_listings_path
+    redirect_to root_path
     
   end
 
   def destroy
+    @favorite = Favorite.find_by(
+                                user_id: current_user.id, 
+                                product_id: params[:product_id]
+                              )
+    @favorite.destroy
+      redirect_to products_path
   end
 
 end
+
