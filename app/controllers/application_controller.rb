@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = Product.ransack(params[:q])
+    @search_kind = Kind.ransack(params[:kind])
   end
 
   protected
