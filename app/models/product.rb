@@ -12,4 +12,13 @@ class Product < ApplicationRecord
 
   validates :name, :introduce, :price, :kind_id, :brand_id, :condition_id, :postage_id, :shipment_id, :prefecture_id, :images, presence: true
   accepts_nested_attributes_for :images, allow_destroy: true
+
+
+  def like(user)
+    favorites.create(user_id: user.id)
+    if favorites.save
+      redirect_to mypage_listings_path
+    end
+  end
+
 end

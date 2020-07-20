@@ -110,17 +110,25 @@ body{
             .report{
               margin-top: 10px;
               .likeBtn{
+                display: flex;
                 border: 1px solid #ffb340;
                 border-radius: 40px;
                 padding: 6px 10px;
                 color: #3CCACE;
+                line-height: 25px;
+
                 .starBtn{
                   text-decoration: none;
                   color: #3CCACE;
+                  background-color: #fff;
+                  border: none;
+                  
                 }
                 .starIcon{
                   font-size: 0.8em;
                   color: #3CCACE;
+                  line-height: 25px;
+
                 }
               }
               .likeBtn:hover{

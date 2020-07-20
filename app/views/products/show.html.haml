@@ -66,7 +66,13 @@
             .report
               .likeBtn
                 = icon('fa', 'star starIcon')
-                = link_to "お気に入り 0", "#", class: "starBtn"
+
+                = form_with(@product.favorites.build, remote: true) do |f|
+                  = hidden_field_tag :product_id, @product.id
+                  = button_tag(class: "starBtn") do
+                    = content_tag :span, "お気に入り 0"
+
+                -# = link_to "お気に入り 0", favorites_path(@product.id), class: "starBtn", method: :post
             .report
               .reportBtn
                 = icon('fa', 'flag flagIcon')
