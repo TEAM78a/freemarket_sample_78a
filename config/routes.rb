@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   end
   root 'items#index'
 
-  resources :favorites, only:[:create, :destroy]
+  # resources :favorites, only:[:create, :destroy]
 
   resources :products do
+    resources :favorites, only:[:create, :destroy]
+
     collection do
       get  'purchase/:id', to: 'products#purchase', as: 'purchase'
       post 'pay/:id', to: 'products#pay', as: 'pay'
