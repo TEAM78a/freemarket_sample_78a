@@ -1,13 +1,13 @@
 $(function(){
   function buildHTML(data){
-    var html = $("<div>").addClass("Headfield__Bottom__left__category__field--menu")
+    var html = $("<ul>").addClass("Headfield__Bottom__left__category__field--menu")
     var link
     data.forEach(function(value){
       link = $("<a>", {
         href: "/api/categories/" + value.id ,
         "class":"category_name no-underline"
       }).text(value.name)
-      link = $("<p>").append(link)
+      link = $("<li>").append(link)
       html.append(link)
     })
     return html
@@ -41,12 +41,11 @@ $(function(){
       })
 
       $(".Headfield__Bottom__left__category__field--menu").mouseenter(function(eo){ 
-        $(this).find("a").css("color","")
+        $(this).find("*").css("color","")
       })
     },'mouseleave' : function(){
-
       $(".Headfield__Bottom__left__category__field--menu").mouseleave(function(eo){
-        $(eo.fromElement).css("color","orange")
+        $(eo.fromElement).find("*").css("color","orange")
       })
     }
   }, ".category_name") 
