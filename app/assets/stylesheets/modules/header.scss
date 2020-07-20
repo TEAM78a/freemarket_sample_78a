@@ -82,7 +82,8 @@ header {
           &__field{
             margin-top: 8px;
             display: none;
-            
+            position: relative;
+            z-index: 100;
             li{
               background-color: #fff;
               width: 100%;

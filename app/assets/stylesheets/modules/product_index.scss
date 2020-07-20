@@ -28,6 +28,7 @@
         &__Image {
           .soldOut_flg{
             position: absolute;
+            z-index: 10;
           }
           .relationImg {
             width: 220px;
