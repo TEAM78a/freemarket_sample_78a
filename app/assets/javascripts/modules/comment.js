@@ -31,7 +31,7 @@ $(function(){
       $('.comment-form__comment-btn').prop('disabled', false);
     })
     .fail(function(){
-      alert('error');
+      alert('コメントを入力してください');
     })
   })
 })
