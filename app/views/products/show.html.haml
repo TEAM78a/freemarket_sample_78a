@@ -63,16 +63,9 @@
                     = @product.shipment.name
 
           .main__showMain__contents__topContent__itemBox__choiceArea
-            - if Favorite.find_by(user_id: current_user.id, product_id: @product.id)
-              .report
-                .likeBtn
-                  = icon('fa', 'star starIcon')
-                  = link_to "お気に入り 削除", product_favorite_path(@product, @product.id), class: "starBtn", method: :delete
-            - else
-              .report
-                .likeBtn
-                  = icon('fa', 'star starIcon')
-                  = link_to "お気に入り 登録", product_favorites_path(@product), class: "starBtn", method: :post
+            %ul#favoriteBtn
+              = render partial: 'favorites/favorite', locals: {product: @product}
+
             .report
               .reportBtn
                 = icon('fa', 'flag flagIcon')
