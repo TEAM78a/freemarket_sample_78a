@@ -112,9 +112,8 @@
 - belongs_to :product
 
 # ルーティング設計
-## buyer_usersテーブル
-|コントローラー|URL|アクション|備考｜routing/http|
-|-----------|----|--------|----|------------|
+|controller|URL|Action|RemarksColumn｜routing/http|
+|----------|---|------|-------------|-------------|
 |items|/|index||トップページ|root|
 ||/mypage|mypage||マイページ|get|
 ||/mypage/loguout|logout||ログアウトページ|get|
