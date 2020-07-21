@@ -24,7 +24,6 @@
                   %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
                   %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
                   %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
-                  -# = f.file_field :image, class: 'Form__InputBox__image--file'
 
           .sell__block__form__name
             %table.form-group__name
@@ -47,7 +46,9 @@
                     = f.label :kind_id, "カテゴリー"
                     %span 必須
                   %td
-                    = f.collection_select :kind_id, Kind.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+                    = f.collection_select :kind_id, @parents, :id, :name, {include_blank: "選択して下さい", selected:"" }, class: "form-select",id: "kind_form"
+                    #child_category_field
+                    #grandchild_category_field
                 %tr
                   %th
                     = f.label :brand_id, "ブランド"

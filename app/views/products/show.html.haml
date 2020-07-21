@@ -11,7 +11,7 @@
           .main__showMain__contents__topContent__itemBox__image
             .imageBox
               .mainImage
-                - if @product.sold_out_flg == true
+                - if @product.sold_out_flg == 1
                   = image_tag ('topimage/sold_out.png'), class: "mainSoldOut"
                 = image_tag @product.images[0].image_url, class: "img", id: "main-img"
                 .imgList
@@ -20,8 +20,7 @@
                       = image_tag image.image_url, class: "imgs"
           .main__showMain__contents__topContent__itemBox__price
             %span 
-              ¥
-              = @product.price
+              = "¥#{number_with_delimiter(@product.price)}"
             .main__showMain__contents__topContent__itemBox__price__tax
               (税込) 送料込み
 
@@ -36,15 +35,19 @@
                     = @product.user.nickname
                 %tr
                   %th カテゴリー
-                  %td 
+                  %td.category--td
+                    = @product.kind.root.name
+                    %br
+                    = @product.kind.parent.name
+                    %br
                     = @product.kind.name
                 %tr
                   %th ブランド
                   %td 
                     = @product.brand.name
-                %tr
-                  %th 商品のサイズ
-                  %td 
+                -# %tr
+                -#   %th 商品のサイズ
+                -#   %td 
                 %tr
                   %th 商品の状態
                   %td 
@@ -75,7 +78,7 @@
 
           .main__showMain__contents__topContent__itemBox__buttonBox
             - if user_signed_in? && current_user.id == @product.user_id
-              - if @product.sold_out_flg == false
+              - if @product.sold_out_flg == 0
                 .editBtn
                   = link_to edit_product_path(@product.id), class: 'edit-Btn' do
                     編集する
@@ -83,9 +86,9 @@
                   = link_to "削除する", product_path(@product.id), class: 'deleteBtn', method: :delete
               - else
                 .editBtn
-                  = link_to "配送完了しました", "#", class: 'edit-Btn'
+                  = link_to "配送完了しました", mypage_listing_path(@product.id), class: 'edit-Btn', method: :put
             - else
-              - if @product.sold_out_flg == false
+              - if @product.sold_out_flg == 0
                 .editBtn
                   = link_to "購入画面に進む", purchase_products_path(@product.id), class: 'buyBtn'
               - else
@@ -130,7 +133,7 @@
             .productField__ProductBox
               = link_to product_path(kind.id), class: "productLink" do
                 .productField__ProductBox__Image
-                  - if kind.sold_out_flg == true
+                  - if kind.sold_out_flg == 1
                     = image_tag ('topimage/sold_out.png'), class: "relationImg soldOut_flg"
                   = image_tag kind.images[0].image_url, class: "relationImg"
                   .productField__ProductBox__Info
@@ -138,8 +141,7 @@
                       = kind.name
                     .productField__ProductBox__Info__Ele
                       .prductField__ProductBox__Info__Ele__Price
-                        ¥
-                        = kind.price
+                        = "¥#{number_with_delimiter(kind.price)}"
                       .productField__ProductBox__Info__Ele__Favorite
                         = icon('fa','star likeIcon')
                         0

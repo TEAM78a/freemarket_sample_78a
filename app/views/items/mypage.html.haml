@@ -8,6 +8,8 @@
     .MyPage__MainField__Image
       .MyPage__MainField__Image--smile
         = image_tag ('mypage/smile.png'), class: 'image-smile'
+      .MyPage__MainField__Image--UserName
+        = current_user.nickname
       .MyPage__MainField__Image--faivorit
         いいね  ⭐️12
 

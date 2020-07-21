@@ -26,14 +26,14 @@ body{
               .mainImage{
                 display: flex;
                 flex-direction: column;
-                width: 560px;
+                width: 450px;
                 margin: 0 auto;
                 position: relative;
+                z-index: 10;
                 .mainSoldOut{
                   position: absolute;
                   object-fit: fill;
                   height: 346px;
-                  
                 }
                 .img{
                   border: 1px solid rgb(194, 192, 192);
@@ -54,6 +54,7 @@ body{
                       border: 1px solid rgb(194, 192, 192);
                       object-fit: cover;
                       height: 87px;
+                      width: 87px;
                     }
                   }
                 }
