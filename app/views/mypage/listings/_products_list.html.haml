@@ -6,9 +6,27 @@
         = image_tag ('products/a001.png'), class: 'product_image'
       %td{valign: "top"}
         商品名：product2
-      %td
+
+    %tr
+      %th
+        = image_tag ('products/a001.png'), class: 'product_image'
+      %td{valign: "top"}
+        商品名：product2
+
         // #商品購入機能実装後、条件式を記述（出力するボタンの場合わけ）
         -# .Edit-btn
         -#   = link_to "編集する", "#", class: 'btn-small'
         -# .Edit-btn
         -#   = link_to "削除する", "#", class: 'btn-small'
+
+- if @favorites.blank?
+  %h1
+    お気に入りに追加した商品はありません
+- else
+  - @favorites.each do |favorite|
+    = link_to product_path(favorite.product.id) do
+      .item-image
+        = image_tag favorite.product.images[0].image_url
+      .item-body
+        .item-name
+          = favorite.product.name
