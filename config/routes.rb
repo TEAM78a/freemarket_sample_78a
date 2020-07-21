@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :comments, only: [:create]
-    resources :confirmations, only: [:index, :new, :create, :edit, :update]
+    # resources :confirmations, only: [:index, :new, :create, :edit, :update]
     collection do
       get :search
       get  'purchase/:id', to: 'products#purchase', as: 'purchase'
@@ -31,7 +31,6 @@ Rails.application.routes.draw do
     resources :purchasers, only: [:index]
     resources :users, only: [:edit, :update]
     resources :destinations, only: [:edit, :update]
-    resources :cards, only: [:index, :new, :create, :destroy] do
-    end
+    resources :cards, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 end
