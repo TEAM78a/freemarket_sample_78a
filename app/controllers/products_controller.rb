@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :purchase, :pay]
+  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy, :purchase, :pay]
   before_action :set_product, only:[:show, :edit, :update, :destroy, :purchase, :pay]
   before_action :edit_validate, only: [:edit]
   before_action :set_api_key, only:[:purchase, :pay]
+  before_action :set_parents, only: [:new, :create]
 
   def index
-    @products = Product.all
+    @products = @search.result
   end
 
   def new
@@ -24,6 +25,8 @@ class ProductsController < ApplicationController
 
   def show
     @products_kind = Product.where(kind_id: @product.kind_id).limit(3)
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
 
   def edit
@@ -42,6 +45,23 @@ class ProductsController < ApplicationController
       redirect_to mypage_listings_path
     else
       render :show
+    end
+  end
+
+  def set_parents
+    @parents = Kind.where(ancestry: nil)
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        if params[:parent_id]
+          @childrens = Kind.find(params[:parent_id]).children
+        elsif params[:children_id]
+          @grandChilds = Kind.find(params[:children_id]).children
+        end
+      end
     end
   end
 
@@ -73,9 +93,10 @@ class ProductsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy',
       )
-      
+      current_user.buyer_users.create(product_id: @product.id)
       @product.sold_out_flg = 1
       @product.save
+
       redirect_to done_products_path
     else
       render :purchase
@@ -87,7 +108,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
   def product_params
     params.require(:product).permit(:name,
                                     :introduce,

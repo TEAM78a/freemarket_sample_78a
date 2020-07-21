@@ -15,26 +15,32 @@
         .Headfield__Top
           .Headfield__Top--logo
             = link_to root_path do
-              = image_tag("topimage/logo.png") 
+              = image_tag("topimage/logo.png")
           .Headfield__Top__Searchbox
-            = text_field :keyword,'', class: "Headfield__Top__Searchbox--input",placeholder: "キーワードから探す"
-            .Headfield__Top__Searchbox--icon
-              = image_tag ("topimage/icon-search 1.png"), class: "circle"
+            = search_form_for @search, url: products_path, class: 'Headfield__Top__Searchbox' do |f|
+              = f.search_field :name_or_introduce_cont, class: 'Headfield__Top__Searchbox--input', placeholder: 'キーワードから探す'
+              = button_tag type: 'submit', class: "Headfield__Top__Searchbox--icon" do
+                = image_tag ("topimage/icon-search 1.png"), class: "circle"
+
         .Headfield__Bottom
           .Headfield__Bottom__left
-            .Headfield__Bottom__left__kind
-              = link_to "カテゴリー", "#", class: "category"
-            .Headfield__Bottom__left__kind
-              = link_to "ブランド", "#", class: "brand"
+            .Headfield__Bottom__left__category
+              = link_to "カテゴリー", api_category_path(0) ,class: "category_name no-underline", id: "catroy_top_title"
+              .Headfield__Bottom__left__category__field
+            .Headfield__Bottom__left__brand
+              = link_to "ブランド", "#", class: "category_name no-underline", id: "brand_top_title"
+              %ul.Headfield__Bottom__left__brand__field
+                - Brand.all.each do |brand|
+                  = link_to products_path({q: {"brand_id_in": brand.id, commit: "Search" }}), class: "category_name no-underline" do
+                    %li
+                      = brand.name
+
           .Headfield__Bottom__right
             - if user_signed_in?
-              .Headfield__Bottom__right__menu
-                = link_to "マイページ", mypage_path, class: 'mypage'
+              = link_to "マイページ", mypage_path, class: 'Headfield__Bottom__right--menu no-underline'
             - else
-              .Headfield__Bottom__right__menu
-                = link_to "ログイン", new_user_session_path, class: "login"
-              .Headfield__Bottom__right__menu
-                = link_to "新規会員登録", new_user_registration_path, class: "new"
+              = link_to "ログイン", new_user_session_path, class: "Headfield__Bottom__right--menu no-underline"
+              = link_to "新規会員登録", new_user_registration_path, class: "Headfield__Bottom__right--menu no-underline"
 
     = link_to new_product_path, class: 'FloatBtn no-underline' do
       .FloatBtn__Text
