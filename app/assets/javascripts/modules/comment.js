@@ -27,7 +27,7 @@ $(function(){
       var html = buildHTML(data);
       $('.comment-box').append(html);
       $('.comment-box').animate({ scrollTop: $('.comment-box')[0].scrollHeight});
-      $('.comment-form__text-form').val('');
+      $('.comment-form')[0].reset();
       $('.comment-form__comment-btn').prop('disabled', false);
     })
     .fail(function(){
