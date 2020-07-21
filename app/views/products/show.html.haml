@@ -63,21 +63,20 @@
                     = @product.shipment.name
 
           .main__showMain__contents__topContent__itemBox__choiceArea
-            .report
-              .likeBtn
-                = icon('fa', 'star starIcon')
-
-                = form_with(@product.favorites.build, remote: true) do |f|
-                  = hidden_field_tag :product_id, @product.id
-                  = button_tag(class: "starBtn") do
-                    = content_tag :span, "お気に入り 0"
-
-                -# = link_to "お気に入り 0", favorites_path(@product.id), class: "starBtn", method: :post
+            - if Favorite.find_by(user_id: current_user.id, product_id: @product.id)
+              .report
+                .likeBtn
+                  = icon('fa', 'star starIcon')
+                  = link_to "お気に入り 削除", product_favorite_path(@product, @product.id), class: "starBtn", method: :delete
+            - else
+              .report
+                .likeBtn
+                  = icon('fa', 'star starIcon')
+                  = link_to "お気に入り 登録", product_favorites_path(@product), class: "starBtn", method: :post
             .report
               .reportBtn
                 = icon('fa', 'flag flagIcon')
                 = link_to "不適切な商品の通報", "#", class: "flagBtn"
-
 
           .main__showMain__contents__topContent__itemBox__buttonBox
             - if user_signed_in? && current_user.id == @product.user_id
