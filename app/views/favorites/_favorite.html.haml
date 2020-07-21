@@ -2,9 +2,9 @@
   .report
     %li.likeBtn.already
       ⭐️
-      = link_to "お気に入り　削除", product_favorite_path(@product, product.id), class: "nonStarBtn", remote: true, method: :delete
+      = link_to "お気に入り！", product_favorite_path(@product, product.id), class: "nonStarBtn", remote: true, method: :delete
 - else
   .report
     %li.LikeBtn.none 
       ⭐️
-      = link_to "お気に入り　登録", product_favorites_path(@product), class: "starBtn", remote: true, method: :post
+      = link_to "お気に入り！", product_favorites_path(@product), class: "starBtn", remote: true, method: :post

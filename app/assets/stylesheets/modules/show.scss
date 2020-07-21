@@ -118,25 +118,27 @@ body{
                 color: #3CCACE;
                 .nonStarBtn{
                   text-decoration: none;
-                  color: red;
+                  color: #fff;
                 }
-                .starBtn{
-                  text-decoration: none;
-                  color: #3CCACE;
-                  background-color: #fff;
-                }
-                .starIcon{
-                  font-size: 0.8em;
-                  color: #3CCACE;
-
-                }
-              }
-              .likeBtn:hover{
-                opacity: 0.5;
               }
               li.already{
-                border: 1px solid red;
+                display: block;
+                border: 1px solid rgb(241, 78, 78);
+                background-color: rgb(241, 78, 78);
               }
+              li.none{
+                display: block;
+                background-color: #eee;
+                display: block;
+                cursor: pointer;
+                border: 1px solid #ffb340;
+                border-radius: 40px;
+                padding: 6px 10px;
+              }
+                .starBtn{
+                  text-decoration: none;
+                  color: black;
+                }
               .reportBtn{
                 display: block;
                 cursor: pointer;
