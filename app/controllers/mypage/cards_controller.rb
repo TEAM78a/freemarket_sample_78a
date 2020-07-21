@@ -3,26 +3,7 @@ class Mypage::CardsController < ApplicationController
   before_action :set_api_key, only:[:index, :create, :destroy]
   
   def index
-    @card = current_user.cards[0]
-    if !@card.blank?
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @customer_card = customer.cards.retrieve(@card.card_id)
-      @card_brand = @customer_card.brand
-      case @card_brand
-      when "Visa"
-        @card_src = "cards/visa.svg"
-      when "JCB"
-        @card_src = "cards/jcb.svg"
-      when "MasterCard"
-        @card_src = "cards/master-card.svg"
-      when "American Express"
-        @card_src = "cards/american_express.svg"
-      when "Diners Club"
-        @card_src = "cards/dinersclub.svg"
-      when "Discover"
-        @card_src = "cards/discover.svg"
-      end
-    end
+    @cards= current_user.cards
   end
 
   def new
