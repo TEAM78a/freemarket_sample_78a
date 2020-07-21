@@ -1,10 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+# DB設計
 ## usersテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
@@ -15,7 +12,6 @@ application up and running.
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
-
 ### Association
 - has_many :products
 - has_many :comments
@@ -23,9 +19,9 @@ application up and running.
 - has_many :products
 - has_one :send_destination
 - has_many :cards
+- has_many :buyer_users
 
 ## send_destinations
-
 |Column|Type|Options|
 |------|----|-------|
 |family_name|string|null: false|
@@ -39,12 +35,10 @@ application up and running.
 |building|string||
 |phone_number|string|null: false|
 |user|references|foreign_key: true|
-
 ### Association
 - belongs_to :user
 
 ## productsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
@@ -58,9 +52,8 @@ application up and running.
 |prefecture_id|integer|null: false|
 |sold_out_flg|boolean|null: false, default: false|
 |user|references|foreign_key: true|
-
 ### Association
-- belongs_to :user
+- has_one :buyer_user
 - has_many :images, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :favorites
@@ -74,45 +67,65 @@ application up and running.
 
 
 ## imagesテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
 |product|references|foreign_key: true|
-
 ### Association
 - belongs_to :product
 
 ## commentsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
 |user|references|foreign_key: true|
 |product|references|foreign_key: true|
-
 ### Association
 - belongs_to :user
 - belongs_to :product
 
 ## favoritesテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |user|references|foreign_key: true|
 |product|references|foreign_key: true|
-
 ### Association
 - belongs_to :user
 - belongs_to :product
 
 ## cardsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |customer_id|string|unique: true|
 |card_id|string|unique: true|
 |default_flg|boolean|null: false, default: true|
-
 ### Association
 - belongs_to :user
+
+## buyer_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|product|references|foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
+
+# ルーティング設計
+## buyer_usersテーブル
+|コントローラー|URL|アクション|備考｜routing/http|
+|-----------|----|--------|----|------------|
+|items|/|index||トップページ|root|
+||/mypage|mypage||マイページ|get|
+||/mypage/loguout|logout||ログアウトページ|get|
+||/mypage/info|info||お知らせページ|get|
+|products|/products|index||商品一覧ページ|resouces|
+||/products/:id/|show|products[:id]|商品詳細ページ||	
+||/products/new/|new||商品登録画面||
+|||create||商品登録||
+||/products/edit/:id/|edit|product[:id]|商品編集画面||	
+|||update|product[:id]|商品編集||
+||/products/:id/|destroy|product[:id]|商品削除機能||
+|devise_user|/users/sign_in|||ログイン	
+||/users/sign_up|||新規登録|devise_for|
+||/users/sign_out|||ログアウト||
