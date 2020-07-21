@@ -164,6 +164,10 @@ body{
               font-weight: 600;
             }
             .comment-box {
+              max-height: 400px;
+              overflow: scroll;
+              border: solid 1px silver;
+              padding: 10px;
               p {
                 margin-top: 5px;
               }
@@ -180,7 +184,8 @@ body{
             .comment-form {
               text-align: center;
               &__text-form {
-                width: 100%;
+                resize: none;
+                width: 590px;
                 padding: 10px;
                 margin-top: 10px;
                 font-size: 16px;
