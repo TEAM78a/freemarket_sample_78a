@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :products do
+    resources :comments, only: [:create]
     resources :confirmations, only: [:index, :new, :create, :edit, :update]
     collection do
       get :search

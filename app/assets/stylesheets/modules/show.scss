@@ -70,7 +70,7 @@ body{
               font-size: 46px;
               font-weight: bold;
               margin: 0 10px 0 0;
-              }
+            }
             &__tax{
               font-size: 16px;
             }
@@ -85,24 +85,24 @@ body{
             .showInfo{
               width: 100%;
               border: 1px solid #f8f8f8;
-                th{
-                  background-color: #eee;
-                  width: 20%;
-                  padding: 8px;
-                  text-align: center;
-                  border: 1px solid #dedede;
-                  font-size: 14px;
+              th{
+                background-color: #eee;
+                width: 20%;
+                padding: 8px;
+                text-align: center;
+                border: 1px solid #dedede;
+                font-size: 14px;
+              }
+              td{
+                width: 61%;
+                padding: 15px 15px;
+                border: 1px solid #dedede;
+                font-size: 14px;
+                .showLink{
+                  text-decoration: none;
+                  color: #3CCACE;
                 }
-                td{
-                  width: 61%;
-                  padding: 15px 15px;
-                  border: 1px solid #dedede;
-                  font-size: 14px;
-                  .showLink{
-                    text-decoration: none;
-                    color: #3CCACE;
-                  }
-                }
+              }
             }
           }
           &__choiceArea{
@@ -155,30 +155,52 @@ body{
           background-color: #fff;
           margin: 10px 0;
           text-align: center;
-          .commentForm{
-            width: auto;
-            textarea{
-              width: 628px;
-              min-height: 104px;
-              min-width: 628px;
-              max-width: 628px;
-              padding: 10px;
+          .comment-show-field {
+            text-align: left;
+            margin: 30px 20px 0;
+            h3 {
+              text-align: center;
+              font-size: 24px;
+              font-weight: 600;
             }
-            .notes{
+            .comment-box {
+              p {
+                margin-top: 5px;
+              }
+            }
+          }
+          .comment-write-field {
+            text-align: left;
+            margin: 30px 20px 0;
+            .careful-text {
+              background-color: #fff6de;
               padding: 8px;
               font-size: 14px;
-              background-color: #f8f8f8;
-              margin: 10px 0;
-              text-align: left;
             }
-            .commentBtn{
-              color: #fff;
-              font-size: 18px;
-              background-color: #3CCACE;
-              border: 1px solid #3CCACE;
-              width: 60%;
-              line-height: 48px;
-              border-radius: 100px;
+            .comment-form {
+              text-align: center;
+              &__text-form {
+                width: 100%;
+                padding: 10px;
+                margin-top: 10px;
+                font-size: 16px;
+                text-align: left;
+              }
+              &__comment-btn {
+                text-align: center;
+                color: #fff;
+                font-size: 18px;
+                background-color: #3CCACE;
+                border: 1px solid #3CCACE;
+                width: 60%;
+                margin-top: 10px;
+                line-height: 48px;
+                border-radius: 100px;
+              }
+            }
+            .need-login {
+              text-align: center;
+              color: salmon;
             }
           }
         }
@@ -186,13 +208,13 @@ body{
       .pageMove{
         display: flex;
         justify-content: space-between;
-          .pages{
-            text-decoration: none;
-            color: #3CCACE;
-          }
-          .front, .next{
-            color: #3CCACE;
-          }
+        .pages{
+          text-decoration: none;
+          color: #3CCACE;
+        }
+        .front, .next{
+          color: #3CCACE;
+        }
       }
       &__moreItems{
         .more{
