@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :cards
   has_many :products
   has_many :comments
+  has_many :buyer_users
 end

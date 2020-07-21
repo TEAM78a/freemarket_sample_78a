@@ -21,6 +21,16 @@ crumb :purchasers do
   parent :mypage
 end
 
+crumb :user_edit do
+  link "ユーザー情報（アカウント）編集", mypage_user_path
+  parent :mypage
+end
+
+crumb :destination do
+  link "ユーザー情報（アドレス）編集", mypage_destination_path
+  parent :mypage
+end
+
 crumb :cards do
   link "カード情報", mypage_cards_path
   parent :mypage

@@ -1,18 +1,20 @@
 require 'rails_helper'
 
 describe ProductsController do
-  let(:invalid_params) { { user_id: user.id, image: attributes_for(:image, image: File.open("#{Rails.root}/public/images/test_image.jpg")) } }
+  let(:user) { create(:user) }
 
-  # it "assigns the requested tweet to @product" do
-  #   product = create(:product)
-  #   get :edit, params: { id: product }
-  #   expect(assigns(:product)).to eq product
-  # end
+  describe '#index' do
+    context 'log in' do
+      it "populates an array of products" do
+        products = create_list(:product, 3) 
+        get :index
+        expect(response).to render_template :index
+        expect(assigns(:products)).to match(products)
+      end
 
-  context 'not log in' do
-    it 'redirects to new_user_session_path' do
-      post :edit, params: params
-      expect(response).to redirect_to(root_path)
+      it "renders the :index template" do
+
+      end
     end
   end
 end

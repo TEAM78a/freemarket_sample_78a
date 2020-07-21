@@ -1,11 +1,12 @@
 .container{
   background-color: rgb(238, 235, 235);
-  min-height: calc(100vh - 100px); 
+  min-height: calc(100vh - 85px); 
   height:auto !important; 
-  height: calc(100vh - 100px);
+  height: calc(100vh - 85px);
 }
 .no-underline {
   text-decoration: none;
+  color: #333
 }
 .MarginBox{
   height: 70px;
@@ -65,7 +66,7 @@
   width: 100%;
 }
 .Pan{
-  width: 100vw;
+  width: 100％;
   height: 30px;
   font-size: 15px;
   padding: 10px 0 0 200px;
