@@ -105,7 +105,7 @@
                   = "¥#{number_with_delimiter(product.price)}"
                 .ProductBox__Info__Ele__Favorite
                   ⭐️
-                  0
+                  = product.favorites.length
               .ProductBox__Info__Tax
                 (税込)
 
@@ -128,6 +128,6 @@
                   = "¥#{number_with_delimiter(product.price)}"
                 .ProductBox__Info__Ele__Favorite
                   ⭐️
-                  0
+                  = product.favorites.length
               .ProductBox__Info__Tax
                 (税込)
