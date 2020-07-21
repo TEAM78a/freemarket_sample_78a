@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy, :purchase, :pay]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :purchase, :pay, :done]
   before_action :set_product, only:[:show, :edit, :update, :destroy, :purchase, :pay]
-  before_action :edit_validate, only: [:edit]
+  before_action :edit_validate, only: [:edit, :update, :destroy]
+  before_action :pay_validate, only: [:purchase]
   before_action :set_api_key, only:[:purchase, :pay]
   before_action :set_parents, only: [:new, :create]
 
@@ -136,6 +137,12 @@ class ProductsController < ApplicationController
 
   def edit_validate
     if @product.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def pay_validate
+    if @product.user_id == current_user.id || @product.sold_out_flg != 0
       redirect_to root_path
     end
   end
