@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :set_product, only: [:create, :destroy]
 
   def create
     @favorite = Favorite.new(
@@ -6,7 +7,6 @@ class FavoritesController < ApplicationController
                               product_id: params[:product_id]
                             )
     @favorite.save
-    redirect_to root_path
     
   end
 
@@ -16,8 +16,12 @@ class FavoritesController < ApplicationController
                                 product_id: params[:product_id]
                               )
     @favorite.destroy
-      redirect_to products_path
   end
 
+  private
+
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
 end
 
