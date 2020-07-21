@@ -9,12 +9,23 @@
       お気に入り一覧
       %hr
     .ListingMenu
-      %table.ProductsList
-        %tbody
-          %tr
-            %th
-              = link_to "", class: 'no-underline' do
-                = image_tag "", class: 'product_image'
-            %td{valign: "top"}
-              = link_to "", class: 'link_color no-underline' do
-                = "商品名：パン"
+      - if @favorites.blank?
+        %h1.NonFavorites
+          お気に入りに追加した商品はありません
+      - else
+        %table.ProductsList
+          %tbody
+            - @favorites.each do |favorite|
+              %tr
+                %th
+                  = link_to product_path(favorite.product.id), class: 'no-underline' do
+                    = image_tag favorite.product.images[0].image_url, class: 'favorite_image'
+                %td{valign: "top"}
+                  = link_to product_path(favorite.product.id), class: 'link_color no-underline' do
+                    = "商品名：#{favorite.product.name}"
+                %td{width: "100"}
+                  = link_to product_path(favorite.product.id), class: 'link_color no-underline' do
+                    = "価格（税込）¥ #{favorite.product.price}"
+
+
+
