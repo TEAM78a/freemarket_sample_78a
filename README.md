@@ -50,7 +50,6 @@ application up and running.
 |name|string|null: false, index: true|
 |introduce|text|null: false|
 |price|integer|null: false|
-|kind_id|integer|null: false|
 |brand_id|integer|null: false|
 |condition_id|integer|null: false|
 |postage_id|integer|null: false|
@@ -65,12 +64,24 @@ application up and running.
 - has_many :comments, dependent: :destroy
 - has_many :favorites
 - belongs_to :user
-- belongs_to_active_hash :kind
+- belongs_to :kind
 - belongs_to_active_hash :brand
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage
 - belongs_to_active_hash :shipment
 - belongs_to_active_hash :shipping_area
+
+## kindsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|null: false|
+
+### Association
+- has_ancestry
+- has_many :products
+
 
 
 ## imagesテーブル
