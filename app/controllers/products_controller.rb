@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   before_action :set_parents, only: [:new, :create]
 
   def index
-    @products = @search.result
+    @products = @search.result.where.not(sold_out_flg: 2).page(params[:page]).per(100)
   end
 
   def new

@@ -3,6 +3,8 @@
   .productList{
     width: 85%;
     margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
     .listTitle{
       color: black;
       text-align: center;
@@ -21,6 +23,7 @@
         width: 220px;
         background-color: #fff;
         margin: 5px;
+        box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
         .productLink{
           text-decoration: none;
           color: black;
@@ -57,4 +60,20 @@
       }
     }
   }
+}
+.Sort_field{
+  // border: 1px solid;
+  text-align: right;
+  margin: 30px 60px 10px;
+  display: flex;
+  justify-content: flex-end;
+  &__box{
+    border-bottom: 1px solid;
+    width: 400px;
+  }
+}
+.btn-link{
+  border: none;
+  background-color: #fff;
+  padding-left: 10px;
 }

@@ -4,6 +4,17 @@
 .productLists
   .productList
     %h1.listTitle 出品商品一覧
+    .Sort_field
+      .Sort_field__box
+        Search Sort：
+        %button{type: "button", class: "btn-link"}
+          = sort_link(@search, :name, "商品名")
+        %button{type: "button", class: "btn-link"}
+          = sort_link(@search, :price, "販売価格")
+        %button{type: "button", class: "btn-link"}
+          = sort_link(@search, :created_at, "出品日")
+        %button{type: "button", class: "btn-link"}
+          = sort_link(@search, :sold_out_flg, "販売中")
     .productField
       - @products.each do |product|
         .productField__ProductBox
@@ -23,3 +34,6 @@
                     0
                 .productField__ProductBox__Info__Tax
                   (税込)
+
+    .page_nation
+      = paginate @products
