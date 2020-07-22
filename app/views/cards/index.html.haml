@@ -1,0 +1,38 @@
+.Pan
+  - breadcrumb :cards
+  = render "layouts/breadcrumbs"
+.MyPage
+  -# = render "items/sidebar"
+
+  .MyPage__MainField
+    .MyPage__MainField__Title
+      クレジットカード情報
+      %hr
+    .BodyCard
+      .BodyCard__Info
+        - if @cards.blank?
+          .editBtn
+            .message　商品購入には、クレジットカードの登録が必要です
+        - else
+          %table.BodyCard__Info--table
+            %tbody
+              - @cards.each do |card|
+                - credit = Card.cardnunmer(card.customer_id, card.card_id)
+                %tr
+                  %td
+                    -if card.default_flg == true
+                      = icon('fas', 'check-circle')
+                      = icon('fas', 'money-check-alt')
+                    - else
+                      = link_to product_card_path(products_id: @product_id, id: card.id), method: :patch, class: "no-underline" do
+                        = icon('far', 'circle')
+                  %td
+                    = image_tag (credit[:src]), class: 'card_image'
+                    %br
+                    カード番号：
+                    = "**** **** **** " + credit[:last4]
+                    %br
+                    有効期限　：
+                    = credit[:exp_month] + " / " + credit[:exp_year]
+                  %td
+                    = link_to "削除する", mypage_card_path(card.id), method: :delete, class: 'btn_delete-small'
