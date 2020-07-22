@@ -35,10 +35,12 @@ class Mypage::CardsController < ApplicationController
   def update
     card = @cards.find_by(default_flg: 1)
     card.default_flg = 0
-    card.save
     @card.default_flg = 1
-    @card.save
-    redirect_to mypage_cards_path
+    if card.save && @card.save
+      redirect_to mypage_cards_path
+    else
+      render :index
+    end
   end
 
   def destroy
