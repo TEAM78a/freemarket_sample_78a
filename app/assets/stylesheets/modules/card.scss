@@ -1,5 +1,5 @@
 .BodyCard{
-  margin-top: 50px;
+  margin: 50px 0;
   &--btn{
     text-align: center;
   }
@@ -39,7 +39,7 @@
 }
 
 .BodyCard__Info{
-  width: 70%;
+  width: 80%;
   margin: 0 auto 50px;
   .BodyCard__Info--table{
     border-collapse: separate;

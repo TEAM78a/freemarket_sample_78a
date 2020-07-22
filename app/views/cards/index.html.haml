@@ -24,7 +24,7 @@
                       = icon('fas', 'check-circle')
                       = icon('fas', 'money-check-alt')
                     - else
-                      = link_to mypage_card_path(card.id), method: :patch, class: "no-underline" do
+                      = link_to product_card_path(products_id: @product_id, id: card.id), method: :patch, class: "no-underline" do
                         = icon('far', 'circle')
                   %td
                     = image_tag (credit[:src]), class: 'card_image'
@@ -35,7 +35,4 @@
                     有効期限　：
                     = credit[:exp_month] + " / " + credit[:exp_year]
                   %td
-                    = link_to "削除する", mypage_card_path(card.id), method: :delete, class: 'btn_delete-small'
-
-      .BodyCard--btn
-        = link_to "クレジットカードを追加する", new_mypage_card_path, class: 'Button'
+                  -#   = link_to "削除する", mypage_card_path(card.id), method: :delete, class: 'btn_delete-small'
