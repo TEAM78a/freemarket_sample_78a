@@ -20,7 +20,7 @@
                 - credit = Card.cardnunmer(card.customer_id, card.card_id)
                 %tr
                   %td
-                    = link_to "", class: "no-underline" do
+                    = link_to edit_mypage_card_path(card.id), class: "no-underline" do
                       -if card.default_flg == true
                         = icon('fas', 'check-circle')
                         = icon('fas', 'money-check-alt')
