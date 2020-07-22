@@ -20,11 +20,11 @@
                 - credit = Card.cardnunmer(card.customer_id, card.card_id)
                 %tr
                   %td
-                    = link_to edit_mypage_card_path(card.id), class: "no-underline" do
-                      -if card.default_flg == true
-                        = icon('fas', 'check-circle')
-                        = icon('fas', 'money-check-alt')
-                      - else
+                    -if card.default_flg == true
+                      = icon('fas', 'check-circle')
+                      = icon('fas', 'money-check-alt')
+                    - else
+                      = link_to mypage_card_path(card.id), method: :patch, class: "no-underline" do
                         = icon('far', 'circle')
                   %td
                     = image_tag (credit[:src]), class: 'card_image'
