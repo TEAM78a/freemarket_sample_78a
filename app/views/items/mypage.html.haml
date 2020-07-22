@@ -21,6 +21,35 @@
           %li やることリスト
       %ul.Contents
         %li.Content.show
-          メッセージはありません
+          %table.ProductsList
+            %tbody
+              - @buyer_products.each do |buy|
+                %tr
+                  %td{width: "30"}
+                    = image_tag ('topimage/logo_box.png'), class: 'info-box'
+                  %td
+                    - if buy.product.sold_out_flg == 1
+                      = link_to product_path(buy.product.id) do
+                        ご購入ありがとうございます。出品者様より商品発送後、ご連絡させていただきます
+                        %br
+                    - else buy.product.sold_out_flg == 2
+                      = link_to product_path(buy.product.id) do
+                        お待たせしました。本日、ご購入いただきました商品の発送が完了しました。
+                        %br
+                    = "商品名：#{buy.product.name}"
+                  %td{width: "90"}
+                    = buy.product.updated_at.to_s(:db)
         %li.Content
-          メッセージはありません
+          %table.ProductsList
+            %tbody
+              - @products_soldout.each do |product|
+                %tr
+                  %td{width: "30"}
+                    = image_tag ('topimage/logo_box.png'), class: 'info-box'
+                  %td
+                    = link_to product_path(product.id) do
+                      出品した商品が購入されました。配送準備を行なってください。
+                      %br
+                    = "商品名：#{product.name}"
+                  %td{width: "90"}
+                    = product.updated_at.to_s(:db)
