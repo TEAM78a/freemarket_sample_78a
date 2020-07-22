@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :comments, only: [:create]
-    # resources :confirmations, only: [:index, :new, :create, :edit, :update]
     collection do
       get :search
       get  'purchase/:id', to: 'products#purchase', as: 'purchase'
@@ -18,6 +17,8 @@ Rails.application.routes.draw do
       get  'done', to: 'products#done', as: 'done'
     end
   end
+  resources :cards, only: [:index, :update]
+  resources :destinations, only: [:edit, :update]
 
   namespace :api do
     resources :categories, only: [:show]
