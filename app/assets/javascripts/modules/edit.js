@@ -36,14 +36,12 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        console.log(children);
         $('.main_children').remove();
         $('.main_grandchild').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
         });
-        console.log(insertHTML);
         appendChild(insertHTML);
       })
       .fail(function(){
