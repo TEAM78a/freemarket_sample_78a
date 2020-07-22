@@ -131,7 +131,7 @@ class ProductsController < ApplicationController
 
   def set_api_key
     Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
-    @card = current_user.cards[0]
+    @card = current_user.cards.find_by(default_flg: 1)
   end
 
   def edit_validate
