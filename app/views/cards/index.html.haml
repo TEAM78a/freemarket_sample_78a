@@ -2,7 +2,7 @@
   - breadcrumb :cards
   = render "layouts/breadcrumbs"
 .MyPage
-  -# = render "items/sidebar"
+  = render "items/sidebar"
 
   .MyPage__MainField
     .MyPage__MainField__Title
@@ -35,4 +35,4 @@
                     有効期限　：
                     = credit[:exp_month] + " / " + credit[:exp_year]
                   %td
-                    = link_to "削除する", mypage_card_path(card.id), method: :delete, class: 'btn_delete-small'
+                  -#   = link_to "削除する", mypage_card_path(card.id), method: :delete, class: 'btn_delete-small'
