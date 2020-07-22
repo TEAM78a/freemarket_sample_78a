@@ -12,6 +12,7 @@ class Product < ApplicationRecord
   has_one :buyer_user
 
   validates :name, :introduce, :price, :kind_id, :brand_id, :condition_id, :postage_id, :shipment_id, :prefecture_id, :images, presence: true
+  validates :price, length: { minimum: 3 }
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def self.top_search(search)
