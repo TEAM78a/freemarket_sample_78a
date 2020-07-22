@@ -1,9 +1,10 @@
 class Mypage::CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_api_key, only:[:index, :create, :destroy]
+  before_action :set_cards, only:[:index, :update]
+  before_action :set_card, only:[:update, :destroy]
   
   def index
-    @cards= current_user.cards
   end
 
   def new
@@ -31,16 +32,39 @@ class Mypage::CardsController < ApplicationController
     end
   end
 
+  def update
+    card = @cards.find_by(default_flg: 1)
+    card.default_flg = 0
+    card.save
+    @card.default_flg = 1
+    @card.save
+    redirect_to mypage_cards_path
+  end
+
   def destroy
-    @card = Card.find(params[:id])
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
-    @card.delete
+    if @card.default_flg
+      @card.delete
+      card= current_user.cards[0]
+      card.default_flg = 1
+      card.save
+    else
+      @card.delete
+    end
     redirect_to mypage_cards_path
   end
 
   private
   def set_api_key
     Payjp.api_key = Rails.application.credentials[:payjp][:ACCESS_KEY]
+  end
+
+  def set_cards
+    @cards= current_user.cards
+  end
+
+  def set_card
+    @card = Card.find(params[:id])
   end
 end

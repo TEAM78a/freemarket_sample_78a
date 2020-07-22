@@ -31,6 +31,6 @@ Rails.application.routes.draw do
     resources :purchasers, only: [:index]
     resources :users, only: [:edit, :update]
     resources :destinations, only: [:edit, :update]
-    resources :cards, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :cards, only: [:index, :new, :create, :update, :destroy]
   end
 end
