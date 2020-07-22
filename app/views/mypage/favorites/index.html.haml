@@ -9,13 +9,13 @@
       お気に入り一覧
       %hr
     .ListingMenu
-      - if @favorite.blank?
+      - if @favorites.blank?
         %h1.NonFavorites
           お気に入りに追加した商品はありません
       - else
         %table.ProductsList
           %tbody
-            - @favorite.each do |favorite|
+            - @favorites.each do |favorite|
               %tr
                 %th
                   = link_to product_path(favorite.product.id), class: 'no-underline' do
