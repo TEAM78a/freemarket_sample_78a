@@ -19,6 +19,10 @@ class Mypage::CardsController < ApplicationController
         metadata: {user_id: current_user.id}
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if !current_user.cards.blank?
+        @card.default_flg = 0
+      end
+
       if @card.save
         redirect_to mypage_cards_path
       else
