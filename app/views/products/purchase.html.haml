@@ -43,7 +43,7 @@
                       有効期限　：
                       = exp_month + " / " + exp_year
         .Purchase__Info__Box__right
-          = link_to "変更する", ""
+          = link_to "変更する", product_cards_path(product_id: @product.id)
 
       %hr
       .Purchase__Info__Box
@@ -60,7 +60,7 @@
             .Purchase__Info__Box__left--ele--name
               = current_user.send_destination.family_name + current_user.send_destination.first_name
         .Purchase__Info__Box__right
-          = link_to "変更する", edit_mypage_destination_path(current_user.id)
+          = link_to "変更する", edit_product_destination_path(product_id: @product.id, id: current_user.id)
       %hr
       .Purchase__Info__Submit
         - if @card.blank?
