@@ -57,8 +57,10 @@
                 %th
                   = f.label :kind_id, "カテゴリー"
                   %span 必須
-                %td
-                  = f.collection_select :kind_id, Kind.all, :id, :name, {include_blank: "選択して下さい"}, class: "form-select"
+                %td.kind-box
+                  = f.collection_select :kind_id, Kind.roots, :id, :name, {selected: @product.kind.root_id}, {class: 'main_parent', id: 'parent_kind_edit'}
+                  = f.collection_select :kind_id, @product.kind.parent.parent.children, :id, :name, {prompt: "選択してください", selected: @product.kind.parent_id}, {class: 'main_children', id: 'child_kind_edit', name: "" }
+                  = f.collection_select :kind_id, @product.kind.parent.children, :id, :name, {prompt: "選択してください", selected: @product.kind.id}, {class: 'main_grandchild', id: 'grandchild_kind_edit', name: "product[kind_id]" }
               %tr
                 %th
                   = f.label :brand_id, "ブランド"

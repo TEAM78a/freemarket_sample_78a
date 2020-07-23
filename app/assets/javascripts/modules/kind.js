@@ -63,18 +63,18 @@ $(function() {
         dataType: 'json'
       })
 
-        .done(function (data) {
-          $(".grandchild_category").remove();
-          let grandchild_select = build_grandchildSelect
-          $("#grandchild_category_field").append(grandchild_select);
-          data.forEach(function (grandchild) {
-            let option_html = build_Option(grandchild)
-            $(".grandchild_category").append(option_html);
-          })
+      .done(function (data) {
+        $(".grandchild_category").remove();
+        let grandchild_select = build_grandchildSelect
+        $("#grandchild_category_field").append(grandchild_select);
+        data.forEach(function (grandchild) {
+          let option_html = build_Option(grandchild)
+          $(".grandchild_category").append(option_html);
         })
-        .fail(function () {
-          alert("error:孫カテゴリーの取得に失敗しました");
-        });
+      })
+      .fail(function () {
+        alert("error:孫カテゴリーの取得に失敗しました");
+      });
     }
   });
 });
