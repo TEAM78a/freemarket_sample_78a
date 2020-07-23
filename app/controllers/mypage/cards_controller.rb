@@ -48,9 +48,11 @@ class Mypage::CardsController < ApplicationController
     customer.delete
     if @card.default_flg
       @card.delete
-      card= current_user.cards[0]
-      card.default_flg = 1
-      card.save
+      if !current_user.cards[0].blank?
+        card = current_user.cards[0]
+        card.default_flg = 1
+        card.save
+      end
     else
       @card.delete
     end
