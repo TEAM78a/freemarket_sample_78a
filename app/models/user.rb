@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :family_name, :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }
   validates :family_name_kana, :first_name_kana, format: { with: /\A[ぁ-んー－]+\z/ }
   validates_uniqueness_of :email, case_sensitive: false
+  validates :email, format: { with: /\A\S+@\S+\.\S+\z/ }
 
   has_one :send_destination
   has_many :cards
