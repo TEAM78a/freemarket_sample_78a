@@ -135,6 +135,13 @@ body{
                 border-radius: 40px;
                 padding: 6px 10px;
               }
+              h2.logout{
+                background-color: #eee;
+                border: 1px solid #ffb340;
+                border-radius: 40px;
+                padding: 6px 10px;
+
+              }
                 .starBtn{
                   text-decoration: none;
                   color: black;
@@ -290,4 +297,11 @@ body{
       }
     }
   }
+}
+.logout{
+  border: 1px solid rgb(241, 78, 78);
+  background-color: rgb(241, 78, 78);
+  border-radius: 40px;
+  padding: 6px 10px;
+  color: #fff;
 }
