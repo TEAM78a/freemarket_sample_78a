@@ -66,15 +66,13 @@
                     = @product.shipment.name
 
           .main__showMain__contents__topContent__itemBox__choiceArea
-            .report
-              .likeBtn
-                = icon('fa', 'star starIcon')
-                = link_to "お気に入り 0", "#", class: "starBtn"
+            %ul#favoriteBtn
+              = render partial: 'favorites/favorite', locals: {product: @product}
+
             .report
               .reportBtn
                 = icon('fa', 'flag flagIcon')
                 = link_to "不適切な商品の通報", "#", class: "flagBtn"
-
 
           .main__showMain__contents__topContent__itemBox__buttonBox
             - if user_signed_in? && current_user.id == @product.user_id
@@ -143,8 +141,8 @@
                       .prductField__ProductBox__Info__Ele__Price
                         = "¥#{number_with_delimiter(kind.price)}"
                       .productField__ProductBox__Info__Ele__Favorite
-                        = icon('fa','star likeIcon')
-                        0
+                        ⭐️
+                        = kind.favorites.length
                     .productField__ProductBox__Info__Tax
                       (税込)
 

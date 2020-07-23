@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   end
   root 'items#index'
 
+
   resources :products do
+    resources :favorites, only:[:index, :create, :destroy]
+
     resources :comments, only: [:create]
     resources :cards, only: [:index, :update]
     resources :destinations, only: [:edit, :update]

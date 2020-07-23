@@ -28,7 +28,9 @@
     }
   }
 }
-
+.NonFavorites{
+  padding: 7px 10px;
+}
 .ProductsList{
   width: 90%;
   margin: 50px auto;
@@ -54,5 +56,10 @@
   width: 100px;
   height: 100px;
   border: 1px solid #bfc2c2;
-  
+}
+.favorite_image{
+  width: 100px;
+  height: 100px;
+  border: 1px solid #bfc2c2;
+  margin: 10px 0;
 }

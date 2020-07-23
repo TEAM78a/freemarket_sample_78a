@@ -16,7 +16,7 @@
 - has_many :products
 - has_many :comments
 - has_many :favorites
-- has_many :products
+- has_many :products, through: :favorites
 - has_one :send_destination
 - has_many :cards
 - has_many :buyer_users
@@ -55,7 +55,7 @@
 - has_one :buyer_user
 - has_many :images, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- has_many :favorites
+- has_many :favorites, dependent: :destroy
 - belongs_to :user
 - belongs_to :kind
 - belongs_to_active_hash :brand

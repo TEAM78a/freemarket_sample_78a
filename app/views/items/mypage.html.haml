@@ -11,7 +11,7 @@
       .MyPage__MainField__Image--UserName
         = current_user.nickname
       .MyPage__MainField__Image--faivorit
-        いいね  ⭐️12
+        = "お気に入り ⭐️#{current_user.favorites.length}"
 
     .ListingMenu
       %ul.ListingMenu__Tab

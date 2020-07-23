@@ -104,8 +104,8 @@
                 .ProductBox__Info__Ele__Price
                   = "¥#{number_with_delimiter(product.price)}"
                 .ProductBox__Info__Ele__Favorite
-                  = icon('fa','star')
-                  0
+                  ⭐️
+                  = product.favorites.length
               .ProductBox__Info__Tax
                 (税込)
 
@@ -127,7 +127,7 @@
                 .ProductBox__Info__Ele__Price
                   = "¥#{number_with_delimiter(product.price)}"
                 .ProductBox__Info__Ele__Favorite
-                  = icon('fa','star')
-                  0
+                  ⭐️
+                  = product.favorites.length
               .ProductBox__Info__Tax
                 (税込)

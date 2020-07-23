@@ -1,0 +1,15 @@
+- if user_signed_in?
+  - if Favorite.find_by(user_id: current_user.id, product_id: @product.id)
+    .report
+      %li.likeBtn.already
+        ⭐️
+        = link_to "お気に入り #{@product.favorites.length}", product_favorite_path(@product, product.id), class: "nonStarBtn", remote: true, method: :delete
+  - else
+    .report
+      %li.LikeBtn.none 
+        ★
+        = link_to "お気に入り #{@product.favorites.length}", product_favorites_path(@product), class: "starBtn", remote: true, method: :post
+- else
+  .report
+    .logout
+      = "⭐️お気に入り #{@product.favorites.length}"
